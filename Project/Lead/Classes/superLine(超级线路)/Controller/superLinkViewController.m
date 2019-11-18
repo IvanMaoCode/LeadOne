@@ -89,13 +89,27 @@
 	self.buttonSelect = 1;
 	NSLog(@"点击了热门开通按钮");
 	//如果用户没有登录提醒用户登录
-	[self loginAllert];
+    //判断用户是否登录了
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *name = [userDefault objectForKey:@"name"];
+    if(name == nil){
+        [self loginAllert];
+    }else{
+        NSLog(@"已经登录直接购买");
+    }
 }
 //点击复制链接按钮
 - (IBAction)copyLinkBtn:(id)sender {
-	[self.linkBtn setTag:2];
-	self.buttonSelect = 2;
-	[self loginAllert];
+    //判断用户是否已经登录
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *name = [userDefault objectForKey:@"name"];
+    if(name == nil){
+        [self.linkBtn setTag:2];
+        self.buttonSelect = 2;
+        [self loginAllert];
+    }else{
+        NSLog(@"复制了链接");
+    }
 }
 #pragma - mark CustomIOSAlertViewDelegate
 - (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
@@ -146,6 +160,9 @@
 }
 //点击登录按钮跳转到登录页面
 -(void)loginView{
+    NSLog(@"立即登录按钮");
+    //关闭弹窗
+    [self.alertView close];
 	loginRegisterViewController *loginVc = [[loginRegisterViewController alloc] init];
 	
 	[self presentViewController:loginVc animated:YES completion:^{

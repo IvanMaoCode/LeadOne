@@ -41,7 +41,10 @@
 //安装指定App
 - (IBAction)installApp:(id)sender {
     NSLog(@"点击了第一个按钮:%@",self.item.app_name);
+    NSLog(@"%ld",self.item.sub_number);
     NSString *str =@"https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    UIApplication *application = [UIApplication sharedApplication];
+    [application openURL:[NSURL URLWithString:str] options:@{} completionHandler:nil];
 }
 @end

@@ -368,11 +368,12 @@
     if(name == nil){
         NSLog(@"用户未登录");
         [self loginRegisterAlert];
+    }else{
+        personCenterViewController *personCenterVc = [[personCenterViewController alloc] init];
+        [self presentViewController:personCenterVc animated:YES completion:^{
+            NSLog(@"进入了个人中心");
+        }];
     }
-    personCenterViewController *personCenterVc = [[personCenterViewController alloc] init];
-    [self presentViewController:personCenterVc animated:YES completion:^{
-        NSLog(@"进入了个人中心");
-    }];
 //	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
 //	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
 //	NSLog(@"-------------%@",data);
@@ -484,6 +485,16 @@
 //注册按钮
 -(void)registerBtn{
 	NSLog(@"点击了注册按钮");
+    if(_username.text.length == 0){
+        [SVProgressHUD showErrorWithStatus:self.username.placeholder];
+        [SVProgressHUD dismissWithDelay:0.7];
+        return;
+    }
+    if(_password.text.length == 0){
+        [SVProgressHUD showErrorWithStatus:self.password.placeholder];
+        [SVProgressHUD dismissWithDelay:0.7];
+        return;
+    }
 	//SessionPOST请求
 	[self sessionPost];
 	
@@ -542,14 +553,16 @@
 	[networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
 		NSLog(@"登录成功");
 		[self checkLoginWithPlist];
-		self.exist = 1;
-		//		self.isLogin = true;
 		NSLog(@"*****%@",responseObj);
 		//解析数据
 		[SVProgressHUD showSuccessWithStatus:responseObj[@"result"]];
 		[SVProgressHUD dismissWithDelay:0.8];
 		[self.alertView close];
-		[self timeout];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self timeout];
+        });
+		
         //记录用户登录状态
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:self.username.text forKey:@"name"];
@@ -557,7 +570,6 @@
         [userDefaults synchronize];
 	} failure:^(NSError * _Nonnull error) {
 		NSLog(@"请求失败");
-        NSLog(error);
 	}];
 }
 //增加时长按钮跳转页面
@@ -570,12 +582,14 @@
 }
 - (IBAction)onBtn:(id)sender {
 	NSLog(@"点击了开关按钮");
-	//判断用户是否已经登录
-	if(_username.text.length <=0){
-		[self loginRegisterAlert];
-	}//如果已经登录,再点击开关按钮进入购买弹窗
-	else{
-		[self buyAlert];
+    //判断用户是否登录了
+      NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+      NSString *name = [userDefault objectForKey:@"name"];
+      if(name == nil){
+          NSLog(@"用户未登录");
+          [self loginRegisterAlert];
+      }else{
+          [self buyAlert];
 	}
 }
 //深夜福利
@@ -584,4 +598,14 @@
 	pupView *pup = [[pupView alloc]init];
 	[pup showInView];
 }
+//注销账号按钮
+- (IBAction)logoutBtn:(id)sender {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"name"];
+    [userDefaults removeObjectForKey:@"password"];
+    [userDefaults synchronize];
+    
+    [self loginRegisterAlert];
+}
+
 @end
