@@ -54,24 +54,7 @@ static CGFloat const margin = 0;
 	//展示Cell内容
 //	[self loadData];
 }
-//-(void)loadData{
-//	//创建请求会话管理者
-//	AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-//
-//	//拼接参数
-//	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-//	parameters[@"a"] = @"square";
-//	parameters[@"c"] = @"topic";
-//
-//	//发送请求
-//	[mgr GET:@"http://" parameters:parameters headers:(nullable NSDictionary<NSString *,NSString *> *) progress:^(NSProgress * _Nonnull downloadProgress) {
-//
-//	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//		<#code#>
-//	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//		<#code#>
-//	}];
-//}
+
 -(void)loadData{
 	
 }

@@ -234,12 +234,10 @@
 		C2D216BE2381C21A0034C7E1 /* HXnavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216B22381C2190034C7E1 /* HXnavigationController.m */; };
 		C2D216C02381C21A0034C7E1 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216B42381C2190034C7E1 /* CustomIOSAlertView.m */; };
 		C2D216C12381C21A0034C7E1 /* networktool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216B62381C2190034C7E1 /* networktool.m */; };
-		C2D216D52381C2730034C7E1 /* commonNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216C42381C2730034C7E1 /* commonNavController.m */; };
 		C2D216D62381C2730034C7E1 /* commonNavStoryboardController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D216C62381C2730034C7E1 /* commonNavStoryboardController.storyboard */; };
 		C2D216D72381C2730034C7E1 /* commonNavStoryboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216C92381C2730034C7E1 /* commonNavStoryboardController.m */; };
 		C2D216D82381C2730034C7E1 /* commonTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D216CA2381C2730034C7E1 /* commonTableViewController.storyboard */; };
 		C2D216D92381C2730034C7E1 /* commonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216CB2381C2730034C7E1 /* commonTableViewController.m */; };
-		C2D216DA2381C2730034C7E1 /* commonNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D216CC2381C2730034C7E1 /* commonNavController.xib */; };
 		C2D216DB2381C2730034C7E1 /* MJSSquareItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216CE2381C2730034C7E1 /* MJSSquareItem.m */; };
 		C2D216DC2381C2730034C7E1 /* square_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D216CF2381C2730034C7E1 /* square_2.plist */; };
 		C2D216DD2381C2730034C7E1 /* MJSSquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D216D22381C2730034C7E1 /* MJSSquareCell.m */; };
@@ -643,15 +641,12 @@
 		C2D216B62381C2190034C7E1 /* networktool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = networktool.m; sourceTree = "<group>"; };
 		C2D216B72381C2190034C7E1 /* networktool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = networktool.h; sourceTree = "<group>"; };
 		C2D216B82381C2190034C7E1 /* alertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alertViewController.h; sourceTree = "<group>"; };
-		C2D216C42381C2730034C7E1 /* commonNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonNavController.m; sourceTree = "<group>"; };
 		C2D216C52381C2730034C7E1 /* commonNavStoryboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonNavStoryboardController.h; sourceTree = "<group>"; };
 		C2D216C62381C2730034C7E1 /* commonNavStoryboardController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = commonNavStoryboardController.storyboard; sourceTree = "<group>"; };
 		C2D216C72381C2730034C7E1 /* commonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonTableViewController.h; sourceTree = "<group>"; };
-		C2D216C82381C2730034C7E1 /* commonNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonNavController.h; sourceTree = "<group>"; };
 		C2D216C92381C2730034C7E1 /* commonNavStoryboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonNavStoryboardController.m; sourceTree = "<group>"; };
 		C2D216CA2381C2730034C7E1 /* commonTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = commonTableViewController.storyboard; sourceTree = "<group>"; };
 		C2D216CB2381C2730034C7E1 /* commonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonTableViewController.m; sourceTree = "<group>"; };
-		C2D216CC2381C2730034C7E1 /* commonNavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commonNavController.xib; sourceTree = "<group>"; };
 		C2D216CE2381C2730034C7E1 /* MJSSquareItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSSquareItem.m; sourceTree = "<group>"; };
 		C2D216CF2381C2730034C7E1 /* square_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = square_2.plist; sourceTree = "<group>"; };
 		C2D216D02381C2730034C7E1 /* MJSSquareItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSSquareItem.h; sourceTree = "<group>"; };
@@ -1272,11 +1267,11 @@
 		C2D216732381C0150034C7E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C2D216DF2381C2800034C7E1 /* main(主页) */,
 				C2D2171E2381C2FB0034C7E1 /* testViewController.h */,
 				C2D217152381C2A40034C7E1 /* popMessage(弹窗) */,
 				C2D217092381C2990034C7E1 /* nightWelfare(深夜福利) */,
 				C2D217002381C28C0034C7E1 /* addTime(增加时长) */,
-				C2D216DF2381C2800034C7E1 /* main(主页) */,
 				C2D216C22381C2730034C7E1 /* commonNav(常用导航) */,
 				C2D216A52381C2190034C7E1 /* others */,
 				C2D2168F2381C0A00034C7E1 /* AppInstall(App安装) */,
@@ -1479,15 +1474,12 @@
 		C2D216C32381C2730034C7E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C2D216C42381C2730034C7E1 /* commonNavController.m */,
 				C2D216C52381C2730034C7E1 /* commonNavStoryboardController.h */,
-				C2D216C62381C2730034C7E1 /* commonNavStoryboardController.storyboard */,
-				C2D216C72381C2730034C7E1 /* commonTableViewController.h */,
-				C2D216C82381C2730034C7E1 /* commonNavController.h */,
 				C2D216C92381C2730034C7E1 /* commonNavStoryboardController.m */,
+				C2D216C62381C2730034C7E1 /* commonNavStoryboardController.storyboard */,
 				C2D216CA2381C2730034C7E1 /* commonTableViewController.storyboard */,
+				C2D216C72381C2730034C7E1 /* commonTableViewController.h */,
 				C2D216CB2381C2730034C7E1 /* commonTableViewController.m */,
-				C2D216CC2381C2730034C7E1 /* commonNavController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1809,7 +1801,6 @@
 				C2D2152E2381BF1A0034C7E1 /* 开通超级线路@2x.png in Resources */,
 				C2D215542381BF1A0034C7E1 /* 注册@2x.png in Resources */,
 				C2D215732381BF1A0034C7E1 /* 椭圆 2.png in Resources */,
-				C2D216DA2381C2730034C7E1 /* commonNavController.xib in Resources */,
 				C2D217142381C2990034C7E1 /* nightViewController.xib in Resources */,
 				C2D215622381BF1A0034C7E1 /* 继续连接@2x.png in Resources */,
 				253AF90221A02437005CCC41 /* Media.xcassets in Resources */,
@@ -2100,7 +2091,6 @@
 				C2D2162E2381BF3A0034C7E1 /* MJFoundation.m in Sources */,
 				C2D216D92381C2730034C7E1 /* commonTableViewController.m in Sources */,
 				C2D216712381BF3A0034C7E1 /* NSBezierPath+RoundedCorners.m in Sources */,
-				C2D216D52381C2730034C7E1 /* commonNavController.m in Sources */,
 				C2D216452381BF3A0034C7E1 /* SDWebImageCacheSerializer.m in Sources */,
 				C2D217122381C2990034C7E1 /* pupView.m in Sources */,
 				C2D216412381BF3A0034C7E1 /* UIImage+ForceDecode.m in Sources */,
@@ -2256,6 +2246,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2275,6 +2266,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -2315,6 +2307,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2327,6 +2320,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;

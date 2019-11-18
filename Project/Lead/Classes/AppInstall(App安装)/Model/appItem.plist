@@ -6,31 +6,31 @@
 		<key>image_list</key>
 		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568269172930&amp;di=2b682c516a78c7df5c3c8c27d423d9c7&amp;imgtype=0&amp;src=http%3A%2F%2Fupload.chinaz.com%2F2018%2F0906%2F201809061420356296.jpg</string>
 		<key>sub_number</key>
-		<string>8276</string>
+		<string>33</string>
 		<key>app_Intro</key>
 		<string>APP简介</string>
 		<key>app_name</key>
-		<string>APP名称</string>
+		<string>谷歌</string>
 	</dict>
 	<dict>
 		<key>image_list</key>
 		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568269172930&amp;di=2b682c516a78c7df5c3c8c27d423d9c7&amp;imgtype=0&amp;src=http%3A%2F%2Fupload.chinaz.com%2F2018%2F0906%2F201809061420356296.jpg</string>
 		<key>sub_number</key>
-		<string>8276</string>
+		<string>22</string>
 		<key>app_Intro</key>
 		<string>APP简介</string>
 		<key>app_name</key>
-		<string>APP名称</string>
+		<string>脸书</string>
 	</dict>
 	<dict>
 		<key>image_list</key>
 		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568269172930&amp;di=2b682c516a78c7df5c3c8c27d423d9c7&amp;imgtype=0&amp;src=http%3A%2F%2Fupload.chinaz.com%2F2018%2F0906%2F201809061420356296.jpg</string>
 		<key>sub_number</key>
-		<string>8276</string>
+		<string>11</string>
 		<key>app_Intro</key>
 		<string>APP简介</string>
 		<key>app_name</key>
-		<string>APP名称</string>
+		<string>亚马逊</string>
 	</dict>
 </array>
 </plist>

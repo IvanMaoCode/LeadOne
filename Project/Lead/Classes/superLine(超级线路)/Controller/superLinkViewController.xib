@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +28,7 @@
                     <rect key="frame" x="0.0" y="44" width="460" height="44"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jyu-hg-hrv">
-                            <rect key="frame" x="161.5" y="6" width="137" height="33"/>
+                            <rect key="frame" x="157.5" y="6" width="145" height="33"/>
                             <segments>
                                 <segment title="黄金线路"/>
                                 <segment title="超级线路"/>
@@ -90,10 +88,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIi-ti-UaJ">
-                    <rect key="frame" x="40" y="418" width="380" height="358"/>
+                    <rect key="frame" x="83.5" y="418" width="293" height="358"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcR-83-mYw">
-                            <rect key="frame" x="157.5" y="10" width="65" height="14"/>
+                            <rect key="frame" x="114" y="10" width="65" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="65" id="WAY-p8-SJs"/>
                                 <constraint firstAttribute="height" constant="14" id="uIn-0P-VAf"/>
@@ -113,7 +111,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnM-7f-VFp">
-                            <rect key="frame" x="239" y="57" width="70" height="30"/>
+                            <rect key="frame" x="152" y="57" width="70" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="48m-9B-Lpu"/>
                             </constraints>
@@ -234,7 +232,6 @@
                 <constraint firstItem="osC-HE-QRg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="1mf-fN-WPk"/>
                 <constraint firstItem="jgx-up-PVu" firstAttribute="top" secondItem="osC-HE-QRg" secondAttribute="bottom" id="4lx-hh-C34"/>
                 <constraint firstItem="oGo-W3-bwI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="113.5" id="7SG-Zr-ScT"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GIi-ti-UaJ" secondAttribute="trailing" constant="40" id="7XB-gu-XUj"/>
                 <constraint firstItem="rlh-bo-epa" firstAttribute="width" secondItem="brf-Eh-B5t" secondAttribute="width" id="7XZ-Ov-srE"/>
                 <constraint firstItem="0hT-oO-Rvn" firstAttribute="leading" secondItem="oGo-W3-bwI" secondAttribute="leading" constant="-10" id="9QS-K9-Fij"/>
                 <constraint firstItem="vC5-EP-rM2" firstAttribute="width" secondItem="brf-Eh-B5t" secondAttribute="width" id="A7Q-pd-Vqh"/>
@@ -245,6 +242,7 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="GIi-ti-UaJ" secondAttribute="bottom" constant="38" id="Dpo-ol-OBN"/>
                 <constraint firstItem="vC5-EP-rM2" firstAttribute="trailing" secondItem="brf-Eh-B5t" secondAttribute="trailing" id="HVB-bQ-soQ"/>
                 <constraint firstItem="brf-Eh-B5t" firstAttribute="top" secondItem="rlh-bo-epa" secondAttribute="bottom" constant="24" id="Hcv-IP-Nqo"/>
+                <constraint firstItem="GIi-ti-UaJ" firstAttribute="leading" secondItem="oGo-W3-bwI" secondAttribute="leading" id="L0X-F0-4iF"/>
                 <constraint firstItem="vC5-EP-rM2" firstAttribute="height" secondItem="brf-Eh-B5t" secondAttribute="height" id="PUZ-sk-A0y"/>
                 <constraint firstItem="osC-HE-QRg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="V9E-f6-lva"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="osC-HE-QRg" secondAttribute="trailing" id="Ysj-9n-0d8"/>
@@ -252,11 +250,11 @@
                 <constraint firstItem="vC5-EP-rM2" firstAttribute="leading" secondItem="brf-Eh-B5t" secondAttribute="leading" id="dx2-I4-pAA"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="jgx-up-PVu" secondAttribute="trailing" id="gAs-z0-vD8"/>
                 <constraint firstItem="0hT-oO-Rvn" firstAttribute="centerY" secondItem="oGo-W3-bwI" secondAttribute="centerY" id="hb9-fd-XGt"/>
-                <constraint firstItem="GIi-ti-UaJ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="iGu-of-5kt"/>
                 <constraint firstItem="vC5-EP-rM2" firstAttribute="top" secondItem="brf-Eh-B5t" secondAttribute="bottom" constant="24" id="kcM-xe-fzL"/>
                 <constraint firstItem="brf-Eh-B5t" firstAttribute="trailing" secondItem="oGo-W3-bwI" secondAttribute="trailing" constant="-9" id="qIX-5s-rUn"/>
                 <constraint firstItem="rlh-bo-epa" firstAttribute="height" secondItem="brf-Eh-B5t" secondAttribute="height" id="r8J-xM-jBf"/>
                 <constraint firstItem="rlh-bo-epa" firstAttribute="leading" secondItem="brf-Eh-B5t" secondAttribute="leading" id="rh1-4F-il6"/>
+                <constraint firstItem="GIi-ti-UaJ" firstAttribute="trailing" secondItem="oGo-W3-bwI" secondAttribute="trailing" id="svF-Gp-6JI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

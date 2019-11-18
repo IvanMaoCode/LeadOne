@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *appName;
 @property (weak, nonatomic) IBOutlet UILabel *appInstruct;
 @property (weak, nonatomic) IBOutlet UIButton *installBtn;
-
+@property(assign,nonatomic) NSInteger number_id;
 
 @end
 @implementation appsViewCell
@@ -22,6 +22,7 @@
 	_appIconView.image = [UIImage imageNamed:@"placeholder"];
 	_appName.text = item.app_name;
 	_appInstruct.text = item.app_Intro;
+    _number_id = item.sub_number;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -36,5 +37,10 @@
 
     // Configure the view for the selected state
 }
-
+//安装指定App
+- (IBAction)installApp:(id)sender {
+    NSLog(@"点击了第一个按钮");
+    
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8", @"指定App的AppID"]]];
+}
 @end

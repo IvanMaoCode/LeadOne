@@ -8,7 +8,6 @@
 
 #import "mainViewController.h"
 #import "UIColor+Hex.h"
-#import "commonNavController.h"
 #import "commonNavStoryboardController.h"
 #import "commonTableViewController.h"
 #import "addTimeViewController.h"
@@ -78,6 +77,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = MJSColor(61, 148, 182)
 //	self.Viewcontroller.frame = CGRectMake(0,64,375,29.5);
 ////	self.Viewcontroller.backgroundColor = [UIColor colorWithHexString:@"#001C58"];
 //	self.Viewcontroller.backgroundColor = [UIColor colorWithRed:0/255.0 green:28/255.0 blue:88/255.0 alpha:1.0];
@@ -88,7 +88,6 @@
 	
 	//倒计时方法二
 //	[self timeout];
-	
 	//请求网络数据
 	[self loadData];
 }
@@ -135,9 +134,7 @@
 	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
 	NSLog(@"*****************%@",data);
 	//添加元素
-
 	[data setObject:self.username.text forKey:@"username"];
-	
 	[data setObject:self.password.text forKey:@"password"];
 	[data setObject:@"1" forKey:@"userloginStatus"];
 	
@@ -353,26 +350,34 @@
 //		[self loginRegisterAlert];
 //		return;
 //	}
-	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
-	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-	NSLog(@"*****************%@",data);
-	NSLog(@"%@",[data valueForKey:@"userloginStatus"]);
+//	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
+//	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+//	NSLog(@"*****************%@",data);
+//	NSLog(@"%@",[data valueForKey:@"userloginStatus"]);
 	
-	personCenterViewController *personCenterVc = [[personCenterViewController alloc] init];
-	[self presentViewController:personCenterVc animated:NO completion:^{
-		NSLog(@"进入了个人中心");
-	}];
+	
 	//给个人中新添加导航栏
 //	HXnavigationController *nav1 = [[HXnavigationController alloc] initWithRootViewController:personCenterVc];
 //	[self addChildViewController:nav1];
 }
 //原始的弹窗
 - (IBAction)personCenter:(UIButton *)sender {
-	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
-	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-	NSLog(@"-------------%@",data);
-	NSLog(@"%@",[data valueForKey:@"userloginStatus"]);
-	Boolean *password = false;
+    //判断用户是否登录了
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *name = [userDefault objectForKey:@"name"];
+    if(name == nil){
+        NSLog(@"用户未登录");
+        [self loginRegisterAlert];
+    }
+    personCenterViewController *personCenterVc = [[personCenterViewController alloc] init];
+    [self presentViewController:personCenterVc animated:YES completion:^{
+        NSLog(@"进入了个人中心");
+    }];
+//	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
+//	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+//	NSLog(@"-------------%@",data);
+//	NSLog(@"%@",[data valueForKey:@"userloginStatus"]);
+//	Boolean *password = false;
 //	if(!password){
 //		// Here we need to pass a full frame
 //		CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
@@ -412,13 +417,27 @@
 	//	_username = [[UITextField alloc] init];
 	[self.username setFrame:CGRectMake(24, 50, 194.5, 30)];
 	[self.username setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-	self.username.placeholder = @"请输入用户名";
+    self.username.textColor = [UIColor blackColor];
+    //placeholder属性
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"请输入用户名" attributes:
+       @{NSForegroundColorAttributeName:[UIColor grayColor],
+                    NSFontAttributeName:self.username.font
+            }];
+    self.username.attributedPlaceholder = attrString;
+    self.username.backgroundColor = [UIColor whiteColor];
 	//[self.username addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
 	
 	self.password.secureTextEntry = YES;
 	[self.password setFrame:CGRectMake(24,90, 194.5, 30)];
-	self.password.placeholder = @"请输入密码";
+    //placeholder属性
+    NSAttributedString *attrString2 = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:
+          @{NSForegroundColorAttributeName:[UIColor grayColor],
+                       NSFontAttributeName:self.username.font
+               }];
+    self.password.attributedPlaceholder = attrString2;
 	[self.password setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    self.password.textColor = [UIColor blackColor];
+    self.password.backgroundColor = [UIColor whiteColor];
 	//[self.password addTarget:self action:@selector(passwordFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
 	
 	UIButton *registerBtn = [[UIButton alloc] init];
@@ -501,11 +520,17 @@
 	NSLog(@"点击了登录按钮");
 	
 	//[self.alertView close];
+    //如果用户名与密码输入为空，返回输入
 	if(_username.text.length == 0){
 		[SVProgressHUD showErrorWithStatus:self.username.placeholder];
 		[SVProgressHUD dismissWithDelay:0.7];
 		return;
 	}
+    if(_password.text.length == 0){
+        [SVProgressHUD showErrorWithStatus:self.password.placeholder];
+        [SVProgressHUD dismissWithDelay:0.7];
+        return;
+    }
 	//POST请求登录：
 	NSString *Strurl = @"http://go.jummy.top/api/user/login";
 	NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
@@ -525,8 +550,14 @@
 		[SVProgressHUD dismissWithDelay:0.8];
 		[self.alertView close];
 		[self timeout];
+        //记录用户登录状态
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:self.username.text forKey:@"name"];
+        [userDefaults setObject:self.password.text forKey:@"password"];
+        [userDefaults synchronize];
 	} failure:^(NSError * _Nonnull error) {
 		NSLog(@"请求失败");
+        NSLog(error);
 	}];
 }
 //增加时长按钮跳转页面

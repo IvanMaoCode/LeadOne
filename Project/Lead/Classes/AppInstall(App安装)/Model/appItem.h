@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *appIcon_url;
 @property(nonatomic,strong)NSString *app_name;
 @property(nonatomic,strong)NSString *app_Intro;
+@property(nonatomic,assign)NSInteger sub_number;
 @end
 
 NS_ASSUME_NONNULL_END
