@@ -1406,10 +1406,10 @@
 		C2D216932381C0A10034C7E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2D216972381C0A10034C7E1 /* appItem.h */,
 				C2D216942381C0A10034C7E1 /* appItem.m */,
 				C2D216952381C0A10034C7E1 /* placeholder.png */,
 				C2D216962381C0A10034C7E1 /* appItem.plist */,
-				C2D216972381C0A10034C7E1 /* appItem.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1417,9 +1417,9 @@
 		C2D216982381C0A10034C7E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2D2169B2381C0A10034C7E1 /* appsViewCell.h */,
 				C2D216992381C0A10034C7E1 /* appsViewCell.m */,
 				C2D2169A2381C0A10034C7E1 /* appsViewCell.xib */,
-				C2D2169B2381C0A10034C7E1 /* appsViewCell.h */,
 			);
 			path = View;
 			sourceTree = "<group>";

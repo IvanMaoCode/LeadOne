@@ -7,11 +7,14 @@
 //
 #import "appItem.h"
 #import "appsViewCell.h"
-@interface appsViewCell()
+
+
+@interface appsViewCell()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *appIconView;
 @property (weak, nonatomic) IBOutlet UILabel *appName;
 @property (weak, nonatomic) IBOutlet UILabel *appInstruct;
 @property (weak, nonatomic) IBOutlet UIButton *installBtn;
+
 @property(assign,nonatomic) NSInteger number_id;
 
 @end
@@ -34,13 +37,11 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 //安装指定App
 - (IBAction)installApp:(id)sender {
-    NSLog(@"点击了第一个按钮");
-    
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8", @"指定App的AppID"]]];
+    NSLog(@"点击了第一个按钮:%@",self.item.app_name);
+    NSString *str =@"https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 @end

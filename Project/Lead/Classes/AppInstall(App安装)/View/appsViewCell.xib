@@ -69,7 +69,7 @@
                 <outlet property="appIconView" destination="rBd-vR-1sb" id="B4m-WY-gRM"/>
                 <outlet property="appInstruct" destination="RpB-sX-TJ5" id="391-t3-5MM"/>
                 <outlet property="appName" destination="xmv-cS-CjD" id="Wpg-2F-ON8"/>
-                <outlet property="installBtn" destination="g0Y-jn-w4Y" id="h4X-EY-CpH"/>
+                <outlet property="installBtn" destination="g0Y-jn-w4Y" id="3Fm-X7-yqc"/>
             </connections>
             <point key="canvasLocation" x="216.66666666666669" y="167.07589285714286"/>
         </tableViewCell>
