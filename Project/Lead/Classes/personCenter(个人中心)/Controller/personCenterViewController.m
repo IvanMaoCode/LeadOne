@@ -74,8 +74,9 @@
 //	UIImage *image = [UIImage imageNamed:@"titleView"];
 //	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:image];
 }
+//解锁黄金线路按钮
 - (IBAction)openSuperLinkBtn:(UIButton *)sender {
-	
+    NSLog(@"解锁黄金线路按钮");
 }
 //开通超级线路按钮
 - (IBAction)openSuperlink:(id)sender {
@@ -94,12 +95,16 @@
 //	[self.navigationController pushViewController:superLinkVc animated:YES];
 	
 }
+- (IBAction)unlockGoldLine:(id)sender {
+       NSLog(@"解锁黄金线路按钮");
+    superLinkViewController *superLinkVc = [[superLinkViewController alloc] init];
+
+    [self presentViewController:superLinkVc animated:YES completion:^{
+        NSLog(@"点击了个人中心");
+    }];
+}
 -(void)openlink{
-	
 	NSLog(@"开通按钮点击");
-	
-	
-	
 }
 - (IBAction)backBtn:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:^{

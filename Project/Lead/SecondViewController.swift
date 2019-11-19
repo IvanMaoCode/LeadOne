@@ -101,7 +101,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         //地址栏配置
         addressTextField.placeholder = NSLocalizedString("Address", comment: "")
-        addressTextField.placeholderColor = UIColor.darkGray
+        addressTextField.placeholderColor = UIColor.red
         addressTextField.placeholderFontScale = 0.85
         addressTextField.borderActiveColor = Colors.deepBlue
         addressTextField.borderInactiveColor = .gray
@@ -111,6 +111,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         addressTextField.clearButtonMode = .whileEditing
         addressTextField.autocorrectionType = UITextAutocorrectionType.no
         addressTextField.text = UserDefaults.standard.string(forKey: "address") ?? ""
+        //手动添加地址
+        addressTextField.text = "18.136.201.122"
+        
         self.view.addSubview(addressTextField)
         addressTextField.snp.makeConstraints { (make) in
             make.left.equalTo(50)
@@ -121,7 +124,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         //端口栏配置
         portTextField.placeholder = NSLocalizedString("Prot", comment: "")
-        portTextField.placeholderColor = UIColor.darkGray
+        portTextField.placeholderColor = UIColor.red
         portTextField.placeholderFontScale = 0.85
         portTextField.borderActiveColor = Colors.deepBlue
         portTextField.borderInactiveColor = .gray
@@ -130,6 +133,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         portTextField.keyboardType = .decimalPad
         portTextField.autocorrectionType = UITextAutocorrectionType.no
         portTextField.text = UserDefaults.standard.string(forKey: "port") ?? ""
+        //手动添加端口号
+        portTextField.text = "12471"
         self.view.addSubview(portTextField)
         portTextField.snp.makeConstraints { (make) in
             make.left.equalTo(50)
@@ -140,10 +145,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         //加密方法
         methodLabel.text = NSLocalizedString("Method", comment: "")
-        methodLabel.textColor = UIColor.darkGray
+        methodLabel.textColor = UIColor.blue
         methodLabel.backgroundColor = UIColor.clear
         methodLabel.textAlignment = .left
         methodLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        //手动添加加密方法
+//      methodLabel.text = "RC4MD5"
+        let method:String = "RC4MD5"
+        UserDefaults.standard.set(method,forKey: "method")
         self.view.addSubview(methodLabel)
         methodLabel.snp.makeConstraints { (make) in
             make.height.equalTo(30)
@@ -154,6 +163,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         if UserDefaults.standard.string(forKey: "method") == nil {
             methodButton.setTitle(NSLocalizedString("Please select a Method", comment: ""), for: .normal)
+            //写死加密方法
+            methodButton.setTitle("RC4MD5", for: .normal)
             methodButton.setTitleColor(UIColor.lightGray, for: .normal)
         } else {
             let method = UserDefaults.standard.string(forKey: "method")
@@ -175,7 +186,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
  
         //密码栏
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
-        passwordTextField.placeholderColor = UIColor.darkGray
+        passwordTextField.placeholderColor = UIColor.green
         passwordTextField.placeholderFontScale = 0.85
         passwordTextField.borderActiveColor = Colors.deepBlue
         passwordTextField.borderInactiveColor = .gray
@@ -191,6 +202,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.rightViewMode = .whileEditing
         passwordTextField.delegate = self
         passwordTextField.text = UserDefaults.standard.string(forKey: "password") ?? ""
+        //手动添加密码
+        passwordTextField.text = "dilufeikuai"
         self.view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { (make) in
             make.left.equalTo(-300)  //隐藏
@@ -240,7 +253,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         
         //下一步按钮
-        nextStepButton.backgroundColor = UIColor.clear
+        nextStepButton.backgroundColor = UIColor.yellow
         nextStepButton.setBackgroundImage(UIImage(named: "next"), for:.normal)
         nextStepButton.addTarget(self, action: #selector(nextStep), for: .touchUpInside)
         self.view.addSubview(nextStepButton)
@@ -266,16 +279,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         addDoneButtonOnKeyboard()
     }
     
-    //method选择
+    //method选择：加密方法选择
     @objc func selectMethod(sender: AnyObject){
         
         let methodSelected = UIAlertController(title: nil, message: NSLocalizedString("Please select a Method", comment: ""), preferredStyle: .actionSheet)
         
         methodSelected.addAction(UIAlertAction(title: "RC4MD5", style: .default , handler:{ (UIAlertAction)in
             self.methodButton.setTitle("RC4MD5", for: .normal)
-            self.methodButton.setTitleColor(UIColor.black, for: .normal)
+            self.methodButton.setTitleColor(UIColor.red, for: .normal)
             //保存method到UserDefaults
-            let method:String = self.methodButton.title(for: .normal)!
+//          let method:String = self.methodButton.title(for: .normal)!
+            let method:String = "RC4MD5"
             UserDefaults.standard.set(method,forKey: "method")
         }))
         methodSelected.addAction(UIAlertAction(title: "SALSA20", style: .default , handler:{ (UIAlertAction)in
@@ -324,8 +338,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    //下一步操作
+    //下一步操作:调用连接成功方法
     @objc func nextStep(){
+        print("点击下一步按钮")
         if stepIndicatorView.currentStep == 0 {
             stepIndicatorView.currentStep += 1
             print(stepIndicatorView.currentStep)
@@ -386,22 +401,29 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         } else if stepIndicatorView.currentStep == 1{
             
             //检查应填项目是否为空
+            //判断地址是否为空
             if (addressTextField.text?.isEmpty)! {
 //                let alert = SCLAlertView(appearance: alerViewAppearance)
 //                alert.showWarning(emptyAddressWarning, subTitle: "", closeButtonTitle: NSLocalizedString("OK", comment: ""), colorStyle: 0xFFC107, colorTextButton: 0xFFFFFF, circleIconImage: UIImage(named: "warning"))
+                print("地址为空")
             }
+            //判断端口号是否为空
             else if (portTextField.text?.isEmpty)! {
 //                let alert = SCLAlertView(appearance: alerViewAppearance)
 //                alert.showWarning(emptyPortWarning, subTitle: "", closeButtonTitle:  NSLocalizedString("OK", comment: ""), colorStyle: 0xFFC107, colorTextButton: 0xFFFFFF, circleIconImage: UIImage(named: "warning"))
-                
+                print("端口为空")
             }
+            //判断加密方法是否为空
             else if methodButton.currentTitle ==  NSLocalizedString("请选择加密方法", comment: "") {
 //                let alert = SCLAlertView(appearance: alerViewAppearance)
 //                alert.showWarning(emptyMethodWarning, subTitle: "", closeButtonTitle:  NSLocalizedString("OK", comment: ""), colorStyle: 0xFFC107, colorTextButton: 0xFFFFFF, circleIconImage: UIImage(named: "warning"))
+                print("加密为空")
             }
+            //判断密码是否为空
             else if (passwordTextField.text?.isEmpty)! {
 //                let alert = SCLAlertView(appearance: alerViewAppearance)
 //                alert.showWarning(emptyPasswordWarning, subTitle: "", closeButtonTitle:  NSLocalizedString("OK", comment: ""), colorStyle: 0xFFC107, colorTextButton: 0xFFFFFF, circleIconImage: UIImage(named: "warning"))
+                print("密码为空")
             }
             else {
                 stepIndicatorView.currentStep += 1

@@ -28,16 +28,32 @@ static NSString const *ID = @"cell";
   //注册xib
 	[self.tableView registerNib:[UINib nibWithNibName:@"appsViewCell" bundle:nil] forCellReuseIdentifier:ID];
 	
-	
+	//返回按钮
 	UIButton *backBtn = [[UIButton alloc] initWithFrame:(CGRectMake(10.5, 13.5, 10, 17.5))];
 	[backBtn setImage:[UIImage imageNamed:@"back0"] forState:UIControlStateNormal];
 	[backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
 	self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, MJSSreenW, 88))];
 
+    //提醒用户安装并且注册以下3个APP即可获得永久免费使用
+    // 改变字体大小
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"安装并且注册以下3个APP即可获得永久免费使用"];
+    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0,17)];
+    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(21,2)];
+    // 改变颜色
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(17, 4)];
+    UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake((MJSSreenW - 342)/2, 12, 342, 20)];
+  
+    
+   
+    noticeLabel.attributedText = str;
+
+    
 	UIView *headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 44, MJSSreenW, 44))];
 	headerView.backgroundColor = MJSColor(220, 220, 220);
 	[self.tableView.tableHeaderView addSubview:headerView];
 	[self.tableView.tableHeaderView addSubview:backBtn];
+    [headerView addSubview:noticeLabel];
+    
 	self.tableView.tableHeaderView.backgroundColor = MJSColor(84, 201, 247);
 	UIView *aboveView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MJSSreenW, 44)];
 	aboveView.backgroundColor = [UIColor grayColor];
@@ -45,6 +61,7 @@ static NSString const *ID = @"cell";
 	
 	UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, MJSSreenW, MJSSreenH)];
 	
+    
 	[scrollView addSubview:self.tableView];
 	scrollView.contentSize = CGSizeMake(200, 400);
 //	self.tableView.contentInset = UIEdgeInsetsMake(0, 20, MJSSreenW, 64);

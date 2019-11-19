@@ -21,6 +21,8 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
+//OC调用Swift的桥
+#import "Lead-Swift.h"
 
 @interface mainViewController ()<CustomIOSAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *noticeView;
@@ -42,18 +44,11 @@
 @property(nonatomic,strong) CustomIOSAlertView *alertView;
 @property(nonatomic,weak) UITextField *username;
 @property(nonatomic,weak) UITextField *password;
-@property(assign,nonatomic) NSInteger exist;
+
 @end
 
 @implementation mainViewController
 
-- (NSInteger)exist{
-	if(_exist < 2){
-		NSInteger exist = 0;
-		_exist = exist;
-	}
-	return _exist;
-}
 - (CustomIOSAlertView *)alertView{
 	if(_alertView == nil){
 			CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
@@ -83,10 +78,9 @@
 //	self.Viewcontroller.backgroundColor = [UIColor colorWithRed:0/255.0 green:28/255.0 blue:88/255.0 alpha:1.0];
 	//布局
 	[self viewSetting];
+    //倒计时方法二
 	//创建定时器
-	_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(secondTimeChange) userInfo:nil repeats:YES];
-	
-	//倒计时方法二
+//	_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(secondTimeChange) userInfo:nil repeats:YES];
 //	[self timeout];
 	//请求网络数据
 	[self loadData];
@@ -118,51 +112,17 @@
 	label.numberOfLines = 0;
 	[self.view addSubview:label];
 	
-	[self.addTimeButton setTitle:@"增加  时长" forState:UIControlStateNormal];
+	[self.addTimeButton setTitle:@"增加 时长" forState:UIControlStateNormal];
 	self.addTimeButton.lineBreakMode = 0;
 }
-//判断用户是否登录
--(void)checkLogin{
-	NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookies];
-	NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject:cookies];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:cookies forKey:@"Cookie"];
-}
 //判断用户是否登录，登录后将用户名写入plist修改登录状态。
--(void)checkLoginWithPlist{
-	NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"userloginInfo" ofType:@"plist"];
-	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-	NSLog(@"*****************%@",data);
-	//添加元素
-	[data setObject:self.username.text forKey:@"username"];
-	[data setObject:self.password.text forKey:@"password"];
-	[data setObject:@"1" forKey:@"userloginStatus"];
-	
-	NSLog(@"*****************%@",data);
-}
+
 -(void)loadData{
 	//1.创建会话层
 	AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
 	//2.拼接请求参数
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	
-	//3.发送请求GET
-	//	[mgr GET:@"file:///Users/kluth/Desktop/Canbee/vadmin.json" parameters:nil headers:(nil) progress:^(NSProgress * _Nonnull downloadProgress) {
-	//		nil;
-	//	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-	//		//写入解析数据
-	////		[responseObject writeToFile:@"/Users/kluth/Desktop/Canbee/Canbee/Canbee/Canbee/Classes/main(主页)/Model/hx.plist" atomically:YES];
-	////		//获取字典
-	////		NSDictionary *hxDict = [responseObject[@"hx"] lastObject];
-	////
-	////
-	//		//字典数组转模型
-	//		NSLog(@"请求成功 - ");
-	////		[responseObject writeToFile:@"/Users/kluth/Desktop/Canbee/Canbee/Canbee/Canbee/Classes/main(主页)/Model/hx.plist" atomically:YES ];
-	////		[responseObject writeToFile:@"/Users/kluth/Desktop/Canbee/Canbee/Canbee/Canbee/Classes/main(主页)/Model/collection.json" atomically:YES];
-	//
-	//		//字典数组转模型数据
-	//
 	//		self.mutableitems =	[UserItems mj_objectArrayWithKeyValuesArray:responseObject[@"item"]];
 	//		//刷新数据
 	//		UserItems *useritem = [[UserItems alloc] init];
@@ -185,9 +145,9 @@
 		NSLog(@"请求失败");
 	}];
 }
-//倒计时
+//倒计时方法二
 -(void)secondTimeChange{
-	static int totalTime = 840;
+	static int totalTime = 60;
 	NSInteger minutes1;
 	NSInteger second1;
 	minutes1 = totalTime / 60;
@@ -257,7 +217,7 @@
 	//	[registerBtn setTitle:@"注册" forState:UIControlStateNormal];
 	//	[registerBtn setTitle:@"点击注册" forState:UIControlStateHighlighted];
 	[registerBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-	[registerBtn addTarget:self action:@selector(registerBtn) forControlEvents:UIControlEventTouchUpInside];
+	[registerBtn addTarget:self action:@selector(continueConnect) forControlEvents:UIControlEventTouchUpInside];
 	UIButton *passwordBtn = [[UIButton alloc] init];
 	[passwordBtn setFrame:CGRectMake(128.5, 150, 90.5, 36)];
 	[passwordBtn setImage:[UIImage imageNamed:@"addTime1"] forState:UIControlStateNormal];
@@ -273,9 +233,13 @@
 	
 	return demoView;
 }
+-(void)continueConnect{
+    NSLog(@"点击继续链接按钮");
+    [self.alertView close];
+}
 //倒计时方法二
 -(void)timeout{
-	static int _shoumiNS = 900;
+	static int _shoumiNS = 20;
 	__block int timeout=_shoumiNS; //倒计时时间
 	
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -289,7 +253,6 @@
 		if(timeout<=0){ //倒计时结束，关闭
 			
 			dispatch_source_cancel(_timer);
-			
 			dispatch_async(dispatch_get_main_queue(), ^{
 				
 				//设置界面的按钮显示 根据自己需求设置（倒计时结束后调用）
@@ -529,7 +492,7 @@
 //登录按钮
 -(void)loginBtn:(NSString *)account password:(NSString *)password{
 	NSLog(@"点击了登录按钮");
-	
+	[[AFNetworkReachabilityManager sharedManager] startMonitoring];
 	//[self.alertView close];
     //如果用户名与密码输入为空，返回输入
 	if(_username.text.length == 0){
@@ -552,7 +515,6 @@
 								};
 	[networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
 		NSLog(@"登录成功");
-		[self checkLoginWithPlist];
 		NSLog(@"*****%@",responseObj);
 		//解析数据
 		[SVProgressHUD showSuccessWithStatus:responseObj[@"result"]];
@@ -589,7 +551,48 @@
           NSLog(@"用户未登录");
           [self loginRegisterAlert];
       }else{
+          NSLog(@"进入了连接VPN");
           [self buyAlert];
+          //Swift方法连接VPN
+//          SecondViewController *secondView = [[SecondViewController alloc] init];
+//          
+////
+//          HomeViewController *homeVCController = [[HomeViewController alloc] init];
+//          
+////          NSLog(@"连接成功");
+//          
+//          //栅栏函数
+//          //获取全局并发队列
+//          //栅栏函数不能使用全局并发队列
+//          //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//          dispatch_queue_t queue = dispatch_queue_create("downloadeee", DISPATCH_QUEUE_CONCURRENT);
+//          
+//          //异步函数
+//          dispatch_async(queue, ^{
+//              NSLog(@"download1--------%@",[NSThread currentThread]);
+//          });
+//          dispatch_async(queue, ^{
+//              NSLog(@"download2--------%@",[NSThread currentThread]);
+//              [secondView nextStep];
+//              NSLog(@"下一步1");
+//          });
+//          //栅栏函数
+//          dispatch_barrier_async(queue, ^{
+//              [secondView nextStep];
+//              NSLog(@"下一步2");
+//          });
+//          dispatch_async(queue, ^{
+//              NSLog(@"download3--------%@",[NSThread currentThread]);
+//          });
+//          //栅栏函数
+//          dispatch_barrier_async(queue, ^{
+//                       NSLog(@"---------------------%@",[NSThread currentThread]);
+//                       [homeVCController connectButtonTapped];
+//              NSLog(@"点击连接");
+//                   });
+//          dispatch_async(queue, ^{
+//              NSLog(@"download4--------%@",[NSThread currentThread]);
+//          });
 	}
 }
 //深夜福利

@@ -205,9 +205,10 @@ class HomeViewController: UIViewController {
     }
     
     //连接按钮点击
-    @objc func connectButtonTapped() {
+    @objc public func connectButtonTapped() {
         buttonViewRotaion()
         print("connect tap")
+        print("连接成功")
         let address = UserDefaults.standard.string(forKey: "address")
         if address == nil {
             //warning

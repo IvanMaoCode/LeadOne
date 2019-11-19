@@ -9,6 +9,7 @@
 #import "superLinkViewController.h"
 #import "loginRegisterViewController.h"
 #import "insallAppViewController.h"
+#import "SVProgressHUD.h"
 
 @interface superLinkViewController ()<CustomIOSAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
@@ -109,6 +110,11 @@
         [self loginAllert];
     }else{
         NSLog(@"复制了链接");
+        
+        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+        pastboard.string = @"2222";
+        [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+              [SVProgressHUD dismissWithDelay:0.8];
     }
 }
 #pragma - mark CustomIOSAlertViewDelegate
@@ -205,7 +211,7 @@
 	[openBtn addTarget:self action:@selector(openBtn) forControlEvents:UIControlEventTouchUpInside];
 	
 	//解锁说明布局
-	UIView *instuctView = [[UIView alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 135.5, 180, 271, 356)];
+	UIView *instuctView = [[UIView alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 135.5, 180, 271, 346)];
 	instuctView.layer.borderWidth = 0.4;
 	instuctView.layer.cornerRadius = 7.5;
 	

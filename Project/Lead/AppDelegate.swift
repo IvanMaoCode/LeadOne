@@ -16,13 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let test = TestOCBride()
         let mainVc = mainViewController()
                          
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainVc
         self.window?.makeKeyAndVisible()
 //        print(kTestPch)
+        
+        //启动直接调用VPN
+//        [HomeViewController alloc]
+//        let home = HomeViewController(coder: NSCoder)
+//        [home nextStep]
+
         return true
     }
     
