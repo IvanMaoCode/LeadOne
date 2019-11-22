@@ -27,6 +27,8 @@
 	_item = item;
 	
 	[_iconView sd_setImageWithURL:[NSURL URLWithString:item.icon]];
-	_nameView.text = item.name;
+//	_nameView.text = item.name;
+    _nameView.text = item.result;
 }
 @end
+

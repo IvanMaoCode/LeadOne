@@ -5,7 +5,7 @@
 //  Created by Kluth on 2019/10/30.
 //  Copyright © 2019 yu_jing_shan. All rights reserved.
 //
-
+#import "commonNav.h"
 #import "mainViewController.h"
 #import "UIColor+Hex.h"
 #import "commonNavStoryboardController.h"
@@ -84,6 +84,9 @@
 //	[self timeout];
 	//请求网络数据
 	[self loadData];
+    
+    //注册ID
+   
 }
 -(void)viewSetting{
 	self.noticeView.backgroundColor = [UIColor colorWithRed:15/255.0 green:125/255.0 blue:165/255.0 alpha:1.0];
@@ -299,7 +302,7 @@
 - (IBAction)commoeNavBtn:(id)sender {
 	//进入到常用导航栏
 	
-	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass([commonTableViewController class]) bundle:nil];
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass([commonNav class]) bundle:nil];
 	commonTableViewController *commonNav = [storyboard instantiateInitialViewController];
 	
 	[self presentViewController:commonNav animated:YES completion:^{
@@ -492,6 +495,7 @@
 //登录按钮
 -(void)loginBtn:(NSString *)account password:(NSString *)password{
 	NSLog(@"点击了登录按钮");
+    
 	[[AFNetworkReachabilityManager sharedManager] startMonitoring];
 	//[self.alertView close];
     //如果用户名与密码输入为空，返回输入
@@ -505,6 +509,7 @@
         [SVProgressHUD dismissWithDelay:0.7];
         return;
     }
+
 	//POST请求登录：
 	NSString *Strurl = @"http://go.jummy.top/api/user/login";
 	NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
@@ -513,6 +518,29 @@
 								@"password":passwordStr,
 								@"type":@"JSON"
 								};
+           //栅栏函数
+            //获取全局并发队列
+            //栅栏函数不能使用全局并发队列
+    //        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_queue_t queue = dispatch_queue_create("downloadeee", DISPATCH_QUEUE_CONCURRENT);
+
+            //异步函数
+            dispatch_async(queue, ^{
+                NSLog(@"Homeview--------%@",[NSThread currentThread]);
+    //            [homeVCController updateCommentLabel];
+                //Swift方法连接VPN
+               
+            });
+            dispatch_async(queue, ^{
+                NSLog(@"download2--------%@",[NSThread currentThread]);
+               
+            });
+            //栅栏函数
+            dispatch_barrier_async(queue, ^{
+           
+                NSLog(@"OC保存配置");
+            });
+    
 	[networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
 		NSLog(@"登录成功");
 		NSLog(@"*****%@",responseObj);
@@ -524,14 +552,29 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self timeout];
         });
-		
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[HomeViewController2 alloc] connectButtonTapped2];
+        });
+        
         //记录用户登录状态
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:self.username.text forKey:@"name"];
         [userDefaults setObject:self.password.text forKey:@"password"];
         [userDefaults synchronize];
+//            dispatch_async(queue, ^{
+//        NSLog(@"download3--------%@",[NSThread currentThread]);
+//        });
+//        //栅栏函数
+//            dispatch_barrier_async(queue, ^{
+//        NSLog(@"---------------------%@",[NSThread currentThread]);
+//        [homeVCController connectButtonTapped];
+//                NSLog(@"点击连接");
+//        });
+                
 	} failure:^(NSError * _Nonnull error) {
 		NSLog(@"请求失败");
+//        [SVProgressHUD showErrorWithStatus:@"密码或用户名不正确"];
+//        [SVProgressHUD dismissWithDelay:0.8];
 	}];
 }
 //增加时长按钮跳转页面
@@ -551,48 +594,8 @@
           NSLog(@"用户未登录");
           [self loginRegisterAlert];
       }else{
-          NSLog(@"进入了连接VPN");
           [self buyAlert];
-          //Swift方法连接VPN
-//          SecondViewController *secondView = [[SecondViewController alloc] init];
-//          
-////
-//          HomeViewController *homeVCController = [[HomeViewController alloc] init];
-//          
-////          NSLog(@"连接成功");
-//          
-//          //栅栏函数
-//          //获取全局并发队列
-//          //栅栏函数不能使用全局并发队列
-//          //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//          dispatch_queue_t queue = dispatch_queue_create("downloadeee", DISPATCH_QUEUE_CONCURRENT);
-//          
-//          //异步函数
-//          dispatch_async(queue, ^{
-//              NSLog(@"download1--------%@",[NSThread currentThread]);
-//          });
-//          dispatch_async(queue, ^{
-//              NSLog(@"download2--------%@",[NSThread currentThread]);
-//              [secondView nextStep];
-//              NSLog(@"下一步1");
-//          });
-//          //栅栏函数
-//          dispatch_barrier_async(queue, ^{
-//              [secondView nextStep];
-//              NSLog(@"下一步2");
-//          });
-//          dispatch_async(queue, ^{
-//              NSLog(@"download3--------%@",[NSThread currentThread]);
-//          });
-//          //栅栏函数
-//          dispatch_barrier_async(queue, ^{
-//                       NSLog(@"---------------------%@",[NSThread currentThread]);
-//                       [homeVCController connectButtonTapped];
-//              NSLog(@"点击连接");
-//                   });
-//          dispatch_async(queue, ^{
-//              NSLog(@"download4--------%@",[NSThread currentThread]);
-//          });
+         
 	}
 }
 //深夜福利
@@ -607,8 +610,21 @@
     [userDefaults removeObjectForKey:@"name"];
     [userDefaults removeObjectForKey:@"password"];
     [userDefaults synchronize];
-    
     [self loginRegisterAlert];
+    NSLog(@"注销了账号");
+                      
+}
+//点击连接按钮
+- (IBAction)clickLink:(id)sender {
+   //
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//         HomeViewController2 *homeVCController = [[HomeViewController2 alloc] init];
+//              [self presentViewController:homeVCController animated:YES completion:^{
+//                  NSLog(@"点击弹出VPN连接");
+//              }];
+//    });
+  
 }
 
 @end

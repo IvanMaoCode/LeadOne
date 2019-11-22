@@ -57,7 +57,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         cancelButton.addTarget(self, action:#selector(cancel), for: .touchUpInside)
         
-        //Labels
+        //Labels配置标签
         peizhiLabel.text = NSLocalizedString("Configuration", comment: "")
         peizhiLabel.textColor = UIColor.gray
         peizhiLabel.backgroundColor = UIColor.clear
@@ -339,7 +339,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
     //下一步操作:调用连接成功方法
-    @objc func nextStep(){
+    @objc public func nextStep(){
         print("点击下一步按钮")
         if stepIndicatorView.currentStep == 0 {
             stepIndicatorView.currentStep += 1
@@ -396,8 +396,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                 }
                 self.view.layoutIfNeeded()
             })
-  
-            
         } else if stepIndicatorView.currentStep == 1{
             
             //检查应填项目是否为空
@@ -427,11 +425,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 stepIndicatorView.currentStep += 1
+                //这里打印2
                 print(stepIndicatorView.currentStep)
-                saveAction()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    self.goToSucceededView()
-                })
+//                saveAction()
+//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+//                    self.goToSucceededView()
+//                })
             }
             
         } else {
@@ -525,8 +524,28 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         let comment = commentTextField.text     //comment 可以为空
         UserDefaults.standard.set(comment, forKey: "comment")
-
+        
+        print("Swift保存了配置")
     }
+    //保存方法二
+    @objc func saveAction2() {
+          
+          let address:String = "18.136.201.122"
+          UserDefaults.standard.set(address,forKey: "address")
+          
+          let port:String = "12471"
+          UserDefaults.standard.set(port,forKey: "port")
+          
+          let password:String = "dilufeikuai"
+          UserDefaults.standard.set(password,forKey: "password")
+          
+          let comment = commentTextField.text     //comment 可以为空
+          UserDefaults.standard.set(comment, forKey: "comment")
+          
+          print("Swift保存了配置方法二")
+//        [HomeViewController updateCommentLabel]
+
+      }
     //取消视图
     @objc func cancel(){
         self.dismiss(animated: true, completion: nil)

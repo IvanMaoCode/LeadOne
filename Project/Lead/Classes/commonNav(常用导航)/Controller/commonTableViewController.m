@@ -14,30 +14,28 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "SafariServices/SafariServices.h"
+#import "Masonry.h"
+#import "networktool.h"
+
+#import "MJSCell.h"
 static NSString *const ID = @"cell";
 static NSInteger const cols = 4;
-static CGFloat const margin = 0;
+static CGFloat const margin = 1;
 #define itemWH  (MJSSreenW - (cols - 1) * margin) / cols
 @interface commonTableViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-@property(nonatomic,strong)NSMutableArray *squareItems;
+@property(nonatomic,strong) NSArray *squareItems;
 @property(nonatomic,weak)UICollectionView *collectionsView;
 @end
 
 @implementation commonTableViewController
-- (NSArray *)squareItems{
-	if(!_squareItems){
-		_squareItems = [MJSSquareItem mj_objectArrayWithFilename:@"square_2.plist"];
-		//处理数据:判断是否缺多少个数据
-		[self resolveData];
- 		NSInteger count = _squareItems.count;
-		NSInteger rows =(count - 1) / cols + 1;
-//		self.collectionsView.mjs_height = rows * itemWH;
-//		//设置tableView滚动范围：自己计算
-//		self.tableView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.collectionsView.frame));
-		self.tableView.tableFooterView = self.collectionsView;
-	}
-	return _squareItems;
-}
+//- (NSMutableArray *)squareItems{
+//    if(_squareItems == nil){
+//        MJSSquareItem *squareItems = [[MJSSquareItem alloc] init];
+//        _squareItems = squareItems;
+//    }
+//        return _squareItems;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -54,9 +52,51 @@ static CGFloat const margin = 0;
 	//展示Cell内容
 //	[self loadData];
 }
-
+//GET请求数据
 -(void)loadData{
-	
+    //POST请求登录：
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      NSString *Strurl = @"http://go.jummy.top/software/show/";
+  
+      NSDictionary *paramDict = @{@"result":@"成功",
+                                  @"code":@200,
+                                  @"type":@"JSON"
+                                  };
+      [networktool get:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
+         
+          NSLog(@"请求成功");
+//          [responseObj writeToFile:@"/Users/kluth/Desktop/LeadGit/test.plist" atomically:YES];
+          //字典数组转模型
+          NSArray *dictArr = responseObj[@"data"];
+          
+//       self.squareItems = [MJSSquareItem mj_objectWithKeyValues:array];
+          self.squareItems = [MJSSquareItem mj_objectArrayWithKeyValuesArray:dictArr];
+//          self.squareItems = [MJSSquareItem mj_keyValuesArrayWithObjectArray:dictArr];
+//          self.squareItems = [MJSSquareItem mj_setupObjectClassInArray:dictArr];
+     
+          for (MJSSquareItem *item in self.squareItems){
+              NSLog(@"%@",item.name);
+          }
+//          for (NSArray * array in dictArr) {
+//              for (NSDictionary *dict in array) {
+//                  NSLog(@"%@",dict);
+//              }
+//          }
+          
+          NSLog(@"%@------------------------------",self.squareItems);
+//          [MJSSquareItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+//              return @{@"allData":@"data"};
+//          }];
+//
+//          [self resolveData];
+          self.tableView.tableFooterView = self.collectionsView;
+          //刷新表格展示数据
+          [self.tableView reloadData];
+
+      } failure:^(NSError * _Nonnull error) {
+          NSLog(@"请求失败");
+      }];
+//        });
 }
 -(void)setupFootView{
 	//创建布局
@@ -66,21 +106,28 @@ static CGFloat const margin = 0;
 	layout.itemSize = CGSizeMake(itemWH, itemWH);
 	layout.minimumInteritemSpacing = margin;
 	layout.minimumLineSpacing = margin;
+    
 	//创建UIcollectionView
-	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 110, 0, 600) collectionViewLayout:layout];
+	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 110, 0, 900) collectionViewLayout:layout];
 	_collectionsView = collectionView;
 	collectionView.backgroundColor = MJSColor(42, 62, 80);
+//    collectionView.backgroundColor = [UIColor clearColor];
+//    collectionView.backgroundColor = [UIColor yellowColor];
 	
 	self.tableView.backgroundColor = MJSColor(166, 166, 166);
+
 	self.tableView.tableFooterView = collectionView;
-	//上面灰色
+	//上面灰色视图
 	UILabel *label = [[UILabel alloc] init];
-	label.backgroundColor =  MJSColor(166, 166, 166);
-	label.frame = CGRectMake(10, 0, 0, 249);
+//	label.backgroundColor =  MJSColor(166, 166, 166);
+    label.backgroundColor = [UIColor orangeColor];
+	label.frame = CGRectMake(10, 0, 0, 49);
 	label.textColor = [UIColor whiteColor];
 	label.textAlignment = NSTextAlignmentCenter;
+
+
 	self.tableView.tableHeaderView = label;
-	
+   
 	//添加按钮
 	UIButton *btn = [[UIButton alloc] init];
 	[btn setImage:[UIImage imageNamed:@"back0"] forState:UIControlStateNormal];
@@ -93,7 +140,8 @@ static CGFloat const margin = 0;
 	collectionView.delegate = self;
 	collectionView.scrollEnabled = NO;
 	//注册cell
-	[collectionView registerNib:[UINib nibWithNibName:@"MJSSquareCell" bundle:nil] forCellWithReuseIdentifier:ID];
+    [collectionView registerNib:[UINib nibWithNibName:@"MJSCell" bundle:nil] forCellWithReuseIdentifier:ID];
+
 }
 -(void)back{
 	[self dismissViewControllerAnimated:YES completion:^{
@@ -103,36 +151,39 @@ static CGFloat const margin = 0;
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-	return self.squareItems.count;
+
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	MJSSquareCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-	
-	MJSSquareItem *item = self.squareItems[indexPath.row];
-	cell.item = item;
+//    cell.backgroundColor = [UIColor blueColor];
+    
+    cell.item = self.squareItems[indexPath.row];
+    cell.backgroundColor = [UIColor orangeColor];
+    NSLog(@"%@dssssssssssssssssssss",cell.item.result);
 	return cell;
 }
 #pragma mark - 处理请求完成的数据 填充补全表格
--(void)resolveData{
-	NSInteger count = self.squareItems.count;
-	NSInteger exter = count % cols;
-	if(exter){
-		exter = cols - exter;
-		exter = exter + 4;
-		for(int i = 0;i < exter;i++){
-			MJSSquareItem *item = [[MJSSquareItem alloc] init];
-			[self.squareItems addObject:item];
-		}
-	}
-}
+//-(void)resolveData{
+//	NSInteger count = self.squareItems.count;
+//	NSInteger exter = count % cols;
+//	if(exter){
+//		exter = cols - exter;
+//		exter = exter + 4;
+//		for(int i = 0;i < exter;i++){
+//			MJSSquareItem *item = [[MJSSquareItem alloc] init];
+//			[self.squareItems addObject:item];
+//		}
+//	}
+//}
 
 #pragma mark - Table view data source
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	
 	MJSSquareItem *item = self.squareItems[indexPath.row];
-	if(![item.url containsString:@"http"]) return;
-	NSURL *url = [NSURL URLWithString:item.url];
+	if(![item.line containsString:@"http"]) return;
+	NSURL *url = [NSURL URLWithString:item.line];
 	SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:url];
 	//处理done的返回
 	/*方法一
@@ -140,21 +191,8 @@ static CGFloat const margin = 0;
 	 self.navigationController.navigationBarHidden = YES;
 	 [self.navigationController pushViewController:safariVc animated:YES];
 	 */
+
 	[self presentViewController:safariVc animated:YES completion:nil];
 
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-#pragma mark UISearchControllerDelegate
-
-
-
-
 @end

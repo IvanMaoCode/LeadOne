@@ -58,6 +58,36 @@
 		353C0FE11DDF393F00A46EBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353C0FDF1DDF393F00A46EBD /* Main.storyboard */; };
 		353C0FE31DDF393F00A46EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353C0FE21DDF393F00A46EBD /* Assets.xcassets */; };
 		353C0FE61DDF393F00A46EBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353C0FE41DDF393F00A46EBD /* LaunchScreen.storyboard */; };
+		C23C783B238632F100DD28CC /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C783A238632F100DD28CC /* test.plist */; };
+		C23C783E2386558400DD28CC /* dataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C783D2386558400DD28CC /* dataModel.m */; };
+		C23C78422386604E00DD28CC /* priceLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C78402386604E00DD28CC /* priceLabelViewController.m */; };
+		C23C78432386604E00DD28CC /* priceLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23C78412386604E00DD28CC /* priceLabelViewController.xib */; };
+		C23C78472386898000DD28CC /* shareInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C78452386898000DD28CC /* shareInfoViewController.m */; };
+		C23C78482386898000DD28CC /* shareInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23C78462386898000DD28CC /* shareInfoViewController.xib */; };
+		C23C78722386ADC500DD28CC /* test2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C78712386ADC500DD28CC /* test2.plist */; };
+		C23C78742386AEDC00DD28CC /* test3.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C78732386AEDC00DD28CC /* test3.plist */; };
+		C23C78762386D95A00DD28CC /* test4.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C78752386D95900DD28CC /* test4.plist */; };
+		C23C78782386E64D00DD28CC /* git1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C78772386E64D00DD28CC /* git1.plist */; };
+		C23C78A7238796AD00DD28CC /* MJSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C78A5238796AD00DD28CC /* MJSCell.m */; };
+		C23C78A8238796AD00DD28CC /* MJSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23C78A6238796AD00DD28CC /* MJSCell.xib */; };
+		C23C78AB2387990F00DD28CC /* commonNav.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C78AA2387990F00DD28CC /* commonNav.m */; };
+		C23C78AD2387998000DD28CC /* commonNav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23C78AC2387998000DD28CC /* commonNav.storyboard */; };
+		C23C78AF2387A4EE00DD28CC /* test5.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23C78AE2387A4EE00DD28CC /* test5.plist */; };
+		C23C78C02387B87B00DD28CC /* GooglePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B12387B87B00DD28CC /* GooglePlay.png */; };
+		C23C78C12387B87B00DD28CC /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B22387B87B00DD28CC /* instagram.png */; };
+		C23C78C22387B87B00DD28CC /* Gmail.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B32387B87B00DD28CC /* Gmail.png */; };
+		C23C78C32387B87B00DD28CC /* TikTok.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B42387B87B00DD28CC /* TikTok.png */; };
+		C23C78C42387B87B00DD28CC /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B52387B87B00DD28CC /* Twitter.png */; };
+		C23C78C52387B87B00DD28CC /* Reddit.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B62387B87B00DD28CC /* Reddit.png */; };
+		C23C78C62387B87B00DD28CC /* Yahoo.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B72387B87B00DD28CC /* Yahoo.png */; };
+		C23C78C72387B87B00DD28CC /* Youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B82387B87B00DD28CC /* Youtube.png */; };
+		C23C78C82387B87B00DD28CC /* Pinterest.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78B92387B87B00DD28CC /* Pinterest.png */; };
+		C23C78C92387B87B00DD28CC /* Google.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BA2387B87B00DD28CC /* Google.png */; };
+		C23C78CA2387B87B00DD28CC /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BB2387B87B00DD28CC /* facebook.png */; };
+		C23C78CB2387B87B00DD28CC /* amazon.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BC2387B87B00DD28CC /* amazon.png */; };
+		C23C78CC2387B87B00DD28CC /* PayPal.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BD2387B87B00DD28CC /* PayPal.png */; };
+		C23C78CD2387B87B00DD28CC /* MSN.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BE2387B87B00DD28CC /* MSN.png */; };
+		C23C78CE2387B87B00DD28CC /* Bing.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BF2387B87B00DD28CC /* Bing.png */; };
 		C2D2123A2381AFAC0034C7E1 /* TestOCBride.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D212382381AFAC0034C7E1 /* TestOCBride.m */; };
 		C2D2123B2381AFAC0034C7E1 /* TestOCBride.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D212392381AFAC0034C7E1 /* TestOCBride.xib */; };
 		C2D2152D2381BF1A0034C7E1 /* 开通超级线路.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214DA2381BF1A0034C7E1 /* 开通超级线路.png */; };
@@ -71,7 +101,7 @@
 		C2D215352381BF1A0034C7E1 /* 解锁黄金线路@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E22381BF1A0034C7E1 /* 解锁黄金线路@3x.png */; };
 		C2D215362381BF1A0034C7E1 /* 开通.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E42381BF1A0034C7E1 /* 开通.png */; };
 		C2D215372381BF1A0034C7E1 /* 开通@2x(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E52381BF1A0034C7E1 /* 开通@2x(1).png */; };
-		C2D215382381BF1A0034C7E1 /* 多边形 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E62381BF1A0034C7E1 /* 多边形 1@2x.png */; };
+		C2D215382381BF1A0034C7E1 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E62381BF1A0034C7E1 /* triangle.png */; };
 		C2D215392381BF1A0034C7E1 /* 多边形 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E72381BF1A0034C7E1 /* 多边形 1@3x.png */; };
 		C2D2153A2381BF1A0034C7E1 /* 开通@3x(1).png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E82381BF1A0034C7E1 /* 开通@3x(1).png */; };
 		C2D2153B2381BF1A0034C7E1 /* HOT!.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214E92381BF1A0034C7E1 /* HOT!.png */; };
@@ -261,6 +291,16 @@
 		C2D217142381C2990034C7E1 /* nightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D2170D2381C2990034C7E1 /* nightViewController.xib */; };
 		C2D2171C2381C2A40034C7E1 /* popmessageViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D217192381C2A40034C7E1 /* popmessageViewController2.m */; };
 		C2D2171D2381C2A40034C7E1 /* popmessageViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D2171A2381C2A40034C7E1 /* popmessageViewController2.xib */; };
+		C2D2179B23857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2178323857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		C2D2179C23857D690034C7E1 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2178C23857D690034C7E1 /* ViewController+MASAdditions.m */; };
+		C2D2179D23857D690034C7E1 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179023857D690034C7E1 /* MASCompositeConstraint.m */; };
+		C2D2179E23857D690034C7E1 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179123857D690034C7E1 /* MASConstraintMaker.m */; };
+		C2D2179F23857D690034C7E1 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179223857D690034C7E1 /* MASLayoutConstraint.m */; };
+		C2D217A023857D690034C7E1 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179323857D690034C7E1 /* NSArray+MASAdditions.m */; };
+		C2D217A123857D690034C7E1 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179423857D690034C7E1 /* View+MASAdditions.m */; };
+		C2D217A223857D690034C7E1 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179723857D690034C7E1 /* MASConstraint.m */; };
+		C2D217A323857D690034C7E1 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179923857D690034C7E1 /* MASViewConstraint.m */; };
+		C2D217A423857D690034C7E1 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D2179A23857D690034C7E1 /* MASViewAttribute.m */; };
 		DBAA2A9C9F08A662521F032B /* Pods_Lead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6271A5D1F8DA371F20ACC6C8 /* Pods_Lead.framework */; };
 /* End PBXBuildFile section */
 
@@ -364,6 +404,41 @@
 		6271A5D1F8DA371F20ACC6C8 /* Pods_Lead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		666C8D574AD3DA81A0798A1D /* Pods-Lead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lead.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lead/Pods-Lead.debug.xcconfig"; sourceTree = "<group>"; };
 		8BA3947404CF327C4A989EF1 /* Pods-Lead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lead.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lead/Pods-Lead.release.xcconfig"; sourceTree = "<group>"; };
+		C23C783A238632F100DD28CC /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		C23C783C2386558400DD28CC /* dataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dataModel.h; sourceTree = "<group>"; };
+		C23C783D2386558400DD28CC /* dataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dataModel.m; sourceTree = "<group>"; };
+		C23C783F2386604E00DD28CC /* priceLabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = priceLabelViewController.h; sourceTree = "<group>"; };
+		C23C78402386604E00DD28CC /* priceLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = priceLabelViewController.m; sourceTree = "<group>"; };
+		C23C78412386604E00DD28CC /* priceLabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = priceLabelViewController.xib; sourceTree = "<group>"; };
+		C23C78442386898000DD28CC /* shareInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shareInfoViewController.h; sourceTree = "<group>"; };
+		C23C78452386898000DD28CC /* shareInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shareInfoViewController.m; sourceTree = "<group>"; };
+		C23C78462386898000DD28CC /* shareInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = shareInfoViewController.xib; sourceTree = "<group>"; };
+		C23C78712386ADC500DD28CC /* test2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test2.plist; sourceTree = "<group>"; };
+		C23C78732386AEDC00DD28CC /* test3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test3.plist; sourceTree = "<group>"; };
+		C23C78752386D95900DD28CC /* test4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test4.plist; sourceTree = "<group>"; };
+		C23C78772386E64D00DD28CC /* git1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = git1.plist; sourceTree = "<group>"; };
+		C23C78A4238796AD00DD28CC /* MJSCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJSCell.h; sourceTree = "<group>"; };
+		C23C78A5238796AD00DD28CC /* MJSCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJSCell.m; sourceTree = "<group>"; };
+		C23C78A6238796AD00DD28CC /* MJSCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MJSCell.xib; sourceTree = "<group>"; };
+		C23C78A92387990F00DD28CC /* commonNav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonNav.h; sourceTree = "<group>"; };
+		C23C78AA2387990F00DD28CC /* commonNav.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commonNav.m; sourceTree = "<group>"; };
+		C23C78AC2387998000DD28CC /* commonNav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = commonNav.storyboard; sourceTree = "<group>"; };
+		C23C78AE2387A4EE00DD28CC /* test5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test5.plist; sourceTree = "<group>"; };
+		C23C78B12387B87B00DD28CC /* GooglePlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GooglePlay.png; sourceTree = "<group>"; };
+		C23C78B22387B87B00DD28CC /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		C23C78B32387B87B00DD28CC /* Gmail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gmail.png; sourceTree = "<group>"; };
+		C23C78B42387B87B00DD28CC /* TikTok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TikTok.png; sourceTree = "<group>"; };
+		C23C78B52387B87B00DD28CC /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		C23C78B62387B87B00DD28CC /* Reddit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reddit.png; sourceTree = "<group>"; };
+		C23C78B72387B87B00DD28CC /* Yahoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yahoo.png; sourceTree = "<group>"; };
+		C23C78B82387B87B00DD28CC /* Youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Youtube.png; sourceTree = "<group>"; };
+		C23C78B92387B87B00DD28CC /* Pinterest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pinterest.png; sourceTree = "<group>"; };
+		C23C78BA2387B87B00DD28CC /* Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Google.png; sourceTree = "<group>"; };
+		C23C78BB2387B87B00DD28CC /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		C23C78BC2387B87B00DD28CC /* amazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazon.png; sourceTree = "<group>"; };
+		C23C78BD2387B87B00DD28CC /* PayPal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PayPal.png; sourceTree = "<group>"; };
+		C23C78BE2387B87B00DD28CC /* MSN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSN.png; sourceTree = "<group>"; };
+		C23C78BF2387B87B00DD28CC /* Bing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bing.png; sourceTree = "<group>"; };
 		C2D212352381ACFE0034C7E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C2D212362381AFAB0034C7E1 /* Lead-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lead-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2D212372381AFAC0034C7E1 /* TestOCBride.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOCBride.h; sourceTree = "<group>"; };
@@ -380,7 +455,7 @@
 		C2D214E22381BF1A0034C7E1 /* 解锁黄金线路@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "解锁黄金线路@3x.png"; sourceTree = "<group>"; };
 		C2D214E42381BF1A0034C7E1 /* 开通.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "开通.png"; sourceTree = "<group>"; };
 		C2D214E52381BF1A0034C7E1 /* 开通@2x(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "开通@2x(1).png"; sourceTree = "<group>"; };
-		C2D214E62381BF1A0034C7E1 /* 多边形 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "多边形 1@2x.png"; sourceTree = "<group>"; };
+		C2D214E62381BF1A0034C7E1 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		C2D214E72381BF1A0034C7E1 /* 多边形 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "多边形 1@3x.png"; sourceTree = "<group>"; };
 		C2D214E82381BF1A0034C7E1 /* 开通@3x(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "开通@3x(1).png"; sourceTree = "<group>"; };
 		C2D214E92381BF1A0034C7E1 /* HOT!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HOT!.png"; sourceTree = "<group>"; };
@@ -682,6 +757,31 @@
 		C2D2171A2381C2A40034C7E1 /* popmessageViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = popmessageViewController2.xib; sourceTree = "<group>"; };
 		C2D2171B2381C2A40034C7E1 /* popmessageViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popmessageViewController2.h; sourceTree = "<group>"; };
 		C2D2171E2381C2FB0034C7E1 /* testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		C2D2178223857D690034C7E1 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		C2D2178323857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		C2D2178423857D690034C7E1 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		C2D2178523857D690034C7E1 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		C2D2178623857D690034C7E1 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		C2D2178723857D690034C7E1 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		C2D2178823857D690034C7E1 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		C2D2178923857D690034C7E1 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		C2D2178A23857D690034C7E1 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		C2D2178B23857D690034C7E1 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		C2D2178C23857D690034C7E1 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		C2D2178D23857D690034C7E1 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		C2D2178E23857D690034C7E1 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		C2D2178F23857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		C2D2179023857D690034C7E1 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		C2D2179123857D690034C7E1 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		C2D2179223857D690034C7E1 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		C2D2179323857D690034C7E1 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		C2D2179423857D690034C7E1 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		C2D2179523857D690034C7E1 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		C2D2179623857D690034C7E1 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		C2D2179723857D690034C7E1 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		C2D2179823857D690034C7E1 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		C2D2179923857D690034C7E1 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		C2D2179A23857D690034C7E1 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -884,6 +984,28 @@
 			path = Lead;
 			sourceTree = "<group>";
 		};
+		C23C78B02387B87B00DD28CC /* HX-LOGO-PNG */ = {
+			isa = PBXGroup;
+			children = (
+				C23C78B12387B87B00DD28CC /* GooglePlay.png */,
+				C23C78B22387B87B00DD28CC /* instagram.png */,
+				C23C78B32387B87B00DD28CC /* Gmail.png */,
+				C23C78B42387B87B00DD28CC /* TikTok.png */,
+				C23C78B52387B87B00DD28CC /* Twitter.png */,
+				C23C78B62387B87B00DD28CC /* Reddit.png */,
+				C23C78B72387B87B00DD28CC /* Yahoo.png */,
+				C23C78B82387B87B00DD28CC /* Youtube.png */,
+				C23C78B92387B87B00DD28CC /* Pinterest.png */,
+				C23C78BA2387B87B00DD28CC /* Google.png */,
+				C23C78BB2387B87B00DD28CC /* facebook.png */,
+				C23C78BC2387B87B00DD28CC /* amazon.png */,
+				C23C78BD2387B87B00DD28CC /* PayPal.png */,
+				C23C78BE2387B87B00DD28CC /* MSN.png */,
+				C23C78BF2387B87B00DD28CC /* Bing.png */,
+			);
+			path = "HX-LOGO-PNG";
+			sourceTree = "<group>";
+		};
 		C2D2121B2381AB9F0034C7E1 /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -901,6 +1023,7 @@
 		C2D214D82381BF1A0034C7E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C23C78B02387B87B00DD28CC /* HX-LOGO-PNG */,
 				C2D214D92381BF1A0034C7E1 /* 个人中心_slices */,
 				C2D214E32381BF1A0034C7E1 /* 超级线路_slices */,
 				C2D214F42381BF1A0034C7E1 /* 增长时长_slices */,
@@ -933,7 +1056,7 @@
 			children = (
 				C2D214E42381BF1A0034C7E1 /* 开通.png */,
 				C2D214E52381BF1A0034C7E1 /* 开通@2x(1).png */,
-				C2D214E62381BF1A0034C7E1 /* 多边形 1@2x.png */,
+				C2D214E62381BF1A0034C7E1 /* triangle.png */,
 				C2D214E72381BF1A0034C7E1 /* 多边形 1@3x.png */,
 				C2D214E82381BF1A0034C7E1 /* 开通@3x(1).png */,
 				C2D214E92381BF1A0034C7E1 /* HOT!.png */,
@@ -1041,6 +1164,7 @@
 		C2D2157A2381BF390034C7E1 /* Frames */ = {
 			isa = PBXGroup;
 			children = (
+				C2D2178123857D690034C7E1 /* Masonry */,
 				C2D2157B2381BF390034C7E1 /* MJExtension */,
 				C2D215912381BF390034C7E1 /* SVProgressHUD */,
 				C2D2159C2381BF390034C7E1 /* AFNetworking */,
@@ -1268,7 +1392,6 @@
 			isa = PBXGroup;
 			children = (
 				C2D216DF2381C2800034C7E1 /* main(主页) */,
-				C2D2171E2381C2FB0034C7E1 /* testViewController.h */,
 				C2D217152381C2A40034C7E1 /* popMessage(弹窗) */,
 				C2D217092381C2990034C7E1 /* nightWelfare(深夜福利) */,
 				C2D217002381C28C0034C7E1 /* addTime(增加时长) */,
@@ -1339,6 +1462,9 @@
 		C2D216822381C0650034C7E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C23C78442386898000DD28CC /* shareInfoViewController.h */,
+				C23C78452386898000DD28CC /* shareInfoViewController.m */,
+				C23C78462386898000DD28CC /* shareInfoViewController.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1346,6 +1472,9 @@
 		C2D216832381C0650034C7E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C23C783F2386604E00DD28CC /* priceLabelViewController.h */,
+				C23C78402386604E00DD28CC /* priceLabelViewController.m */,
+				C23C78412386604E00DD28CC /* priceLabelViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1477,9 +1606,12 @@
 				C2D216C52381C2730034C7E1 /* commonNavStoryboardController.h */,
 				C2D216C92381C2730034C7E1 /* commonNavStoryboardController.m */,
 				C2D216C62381C2730034C7E1 /* commonNavStoryboardController.storyboard */,
-				C2D216CA2381C2730034C7E1 /* commonTableViewController.storyboard */,
 				C2D216C72381C2730034C7E1 /* commonTableViewController.h */,
 				C2D216CB2381C2730034C7E1 /* commonTableViewController.m */,
+				C2D216CA2381C2730034C7E1 /* commonTableViewController.storyboard */,
+				C23C78A92387990F00DD28CC /* commonNav.h */,
+				C23C78AA2387990F00DD28CC /* commonNav.m */,
+				C23C78AC2387998000DD28CC /* commonNav.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1487,9 +1619,17 @@
 		C2D216CD2381C2730034C7E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C23C78AE2387A4EE00DD28CC /* test5.plist */,
+				C23C78772386E64D00DD28CC /* git1.plist */,
+				C23C78752386D95900DD28CC /* test4.plist */,
+				C23C78732386AEDC00DD28CC /* test3.plist */,
+				C23C78712386ADC500DD28CC /* test2.plist */,
+				C23C783A238632F100DD28CC /* test.plist */,
+				C2D216D02381C2730034C7E1 /* MJSSquareItem.h */,
 				C2D216CE2381C2730034C7E1 /* MJSSquareItem.m */,
 				C2D216CF2381C2730034C7E1 /* square_2.plist */,
-				C2D216D02381C2730034C7E1 /* MJSSquareItem.h */,
+				C23C783C2386558400DD28CC /* dataModel.h */,
+				C23C783D2386558400DD28CC /* dataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1497,9 +1637,12 @@
 		C2D216D12381C2730034C7E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2D216D42381C2730034C7E1 /* MJSSquareCell.h */,
 				C2D216D22381C2730034C7E1 /* MJSSquareCell.m */,
 				C2D216D32381C2730034C7E1 /* MJSSquareCell.xib */,
-				C2D216D42381C2730034C7E1 /* MJSSquareCell.h */,
+				C23C78A4238796AD00DD28CC /* MJSCell.h */,
+				C23C78A5238796AD00DD28CC /* MJSCell.m */,
+				C23C78A6238796AD00DD28CC /* MJSCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1543,6 +1686,7 @@
 		C2D216EE2381C2800034C7E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2D2171E2381C2FB0034C7E1 /* testViewController.h */,
 				C2D216EF2381C2800034C7E1 /* HXTabBar.m */,
 				C2D216F02381C2800034C7E1 /* ItemsView.h */,
 				C2D216F12381C2800034C7E1 /* account.plist */,
@@ -1654,6 +1798,38 @@
 				C2D2171B2381C2A40034C7E1 /* popmessageViewController2.h */,
 			);
 			path = Cotroller;
+			sourceTree = "<group>";
+		};
+		C2D2178123857D690034C7E1 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				C2D2178223857D690034C7E1 /* MASCompositeConstraint.h */,
+				C2D2178323857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				C2D2178423857D690034C7E1 /* MASConstraint+Private.h */,
+				C2D2178523857D690034C7E1 /* MASLayoutConstraint.h */,
+				C2D2178623857D690034C7E1 /* NSArray+MASShorthandAdditions.h */,
+				C2D2178723857D690034C7E1 /* MASConstraintMaker.h */,
+				C2D2178823857D690034C7E1 /* View+MASAdditions.h */,
+				C2D2178923857D690034C7E1 /* NSArray+MASAdditions.h */,
+				C2D2178A23857D690034C7E1 /* MASUtilities.h */,
+				C2D2178B23857D690034C7E1 /* MASViewAttribute.h */,
+				C2D2178C23857D690034C7E1 /* ViewController+MASAdditions.m */,
+				C2D2178D23857D690034C7E1 /* MASViewConstraint.h */,
+				C2D2178E23857D690034C7E1 /* MASConstraint.h */,
+				C2D2178F23857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				C2D2179023857D690034C7E1 /* MASCompositeConstraint.m */,
+				C2D2179123857D690034C7E1 /* MASConstraintMaker.m */,
+				C2D2179223857D690034C7E1 /* MASLayoutConstraint.m */,
+				C2D2179323857D690034C7E1 /* NSArray+MASAdditions.m */,
+				C2D2179423857D690034C7E1 /* View+MASAdditions.m */,
+				C2D2179523857D690034C7E1 /* View+MASShorthandAdditions.h */,
+				C2D2179623857D690034C7E1 /* Masonry.h */,
+				C2D2179723857D690034C7E1 /* MASConstraint.m */,
+				C2D2179823857D690034C7E1 /* ViewController+MASAdditions.h */,
+				C2D2179923857D690034C7E1 /* MASViewConstraint.m */,
+				C2D2179A23857D690034C7E1 /* MASViewAttribute.m */,
+			);
+			path = Masonry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1779,18 +1955,22 @@
 				C2D216FB2381C2800034C7E1 /* hxposts.plist in Resources */,
 				C2D2153B2381BF1A0034C7E1 /* HOT!.png in Resources */,
 				C2D2155D2381BF1A0034C7E1 /* loginNow3x.png in Resources */,
+				C23C78CB2387B87B00DD28CC /* amazon.png in Resources */,
 				C2D215402381BF1A0034C7E1 /* 开通@3x.png in Resources */,
 				C2D2169F2381C0A10034C7E1 /* appItem.plist in Resources */,
 				C2D215552381BF1A0034C7E1 /* 账号@3x.png in Resources */,
 				C2D2155E2381BF1A0034C7E1 /* loginNow2x.png in Resources */,
 				C2D215452381BF1A0034C7E1 /* HOT!@3x.png in Resources */,
 				C2D216D82381C2730034C7E1 /* commonTableViewController.storyboard in Resources */,
+				C23C78762386D95A00DD28CC /* test4.plist in Resources */,
 				C2D215652381BF1A0034C7E1 /* 注册 拷贝@3x.png in Resources */,
+				C23C78C72387B87B00DD28CC /* Youtube.png in Resources */,
 				C2D215462381BF1A0034C7E1 /* navigationbarBackground.png in Resources */,
 				C2D2152F2381BF1A0034C7E1 /* 开.png in Resources */,
 				C2D2171D2381C2A40034C7E1 /* popmessageViewController2.xib in Resources */,
 				C2D2167B2381C0240034C7E1 /* personCenterViewController.xib in Resources */,
 				C2D2154C2381BF1A0034C7E1 /* 已解锁@2x.png in Resources */,
+				C23C78AD2387998000DD28CC /* commonNav.storyboard in Resources */,
 				C2D2156C2381BF1A0034C7E1 /* addTime3.png in Resources */,
 				C2D215372381BF1A0034C7E1 /* 开通@2x(1).png in Resources */,
 				C2D2169E2381C0A10034C7E1 /* placeholder.png in Resources */,
@@ -1817,12 +1997,15 @@
 				C2D215412381BF1A0034C7E1 /* back0.png in Resources */,
 				C2D215362381BF1A0034C7E1 /* 开通.png in Resources */,
 				C2D216A12381C0A10034C7E1 /* appsViewCell.xib in Resources */,
+				C23C78C92387B87B00DD28CC /* Google.png in Resources */,
+				C23C783B238632F100DD28CC /* test.plist in Resources */,
 				C2D2155B2381BF1A0034C7E1 /* 注册.png in Resources */,
 				C2D2154B2381BF1A0034C7E1 /* 解锁按钮@2x.png in Resources */,
 				257033C721A6819A00C4E229 /* Localizable.strings in Resources */,
 				C2D216DC2381C2730034C7E1 /* square_2.plist in Resources */,
 				09A5AD2D1DE0573A00272F7C /* NEKitRule.conf in Resources */,
 				C2D215752381BF1A0034C7E1 /* 喇叭@2x.png in Resources */,
+				C23C78C42387B87B00DD28CC /* Twitter.png in Resources */,
 				C2D2154E2381BF1A0034C7E1 /* 图层 0@2x.png in Resources */,
 				C2D216D62381C2730034C7E1 /* commonNavStoryboardController.storyboard in Resources */,
 				C2D2153E2381BF1A0034C7E1 /* 多边形 1.png in Resources */,
@@ -1830,12 +2013,16 @@
 				C2D217082381C28C0034C7E1 /* addTimeViewController.xib in Resources */,
 				C2D215612381BF1A0034C7E1 /* 继续连接@3x.png in Resources */,
 				C2D216DE2381C2730034C7E1 /* MJSSquareCell.xib in Resources */,
+				C23C78C02387B87B00DD28CC /* GooglePlay.png in Resources */,
 				C2D216FE2381C2800034C7E1 /* account.plist in Resources */,
-				C2D215382381BF1A0034C7E1 /* 多边形 1@2x.png in Resources */,
+				C2D215382381BF1A0034C7E1 /* triangle.png in Resources */,
+				C23C78C62387B87B00DD28CC /* Yahoo.png in Resources */,
 				C2D215782381BF1A0034C7E1 /* 喇叭.png in Resources */,
 				C2D215562381BF1A0034C7E1 /* 密码@2x.png in Resources */,
 				C2D2153A2381BF1A0034C7E1 /* 开通@3x(1).png in Resources */,
 				C2D215632381BF1A0034C7E1 /* 登录 拷贝@3x.png in Resources */,
+				C23C78C82387B87B00DD28CC /* Pinterest.png in Resources */,
+				C23C78782386E64D00DD28CC /* git1.plist in Resources */,
 				C2D215312381BF1A0034C7E1 /* 开@3x.png in Resources */,
 				C2D215522381BF1A0034C7E1 /* 注册@3x.png in Resources */,
 				C2D2156E2381BF1A0034C7E1 /* 椭圆 2@3x.png in Resources */,
@@ -1844,6 +2031,7 @@
 				C2D215692381BF1A0034C7E1 /* 购买超级线路.png in Resources */,
 				C2D215572381BF1A0034C7E1 /* 登录@2x.png in Resources */,
 				C2D215642381BF1A0034C7E1 /* addTime1.png in Resources */,
+				C23C78CA2387B87B00DD28CC /* facebook.png in Resources */,
 				C2D2168D2381C08B0034C7E1 /* loginRegisterViewController.xib in Resources */,
 				C2D215712381BF1A0034C7E1 /* 椭圆 2@2x.png in Resources */,
 				C2D215442381BF1A0034C7E1 /* HOT!@2x.png in Resources */,
@@ -1853,10 +2041,12 @@
 				C2D2155F2381BF1A0034C7E1 /* login1.png in Resources */,
 				C2D215352381BF1A0034C7E1 /* 解锁黄金线路@3x.png in Resources */,
 				C2D215512381BF1A0034C7E1 /* 账号@2x.png in Resources */,
+				C23C78482386898000DD28CC /* shareInfoViewController.xib in Resources */,
 				C2D2153D2381BF1A0034C7E1 /* price.png in Resources */,
 				C2D216FA2381C2800034C7E1 /* collection.plist in Resources */,
 				C2D215742381BF1A0034C7E1 /* 喇叭@3x.png in Resources */,
 				C2D215392381BF1A0034C7E1 /* 多边形 1@3x.png in Resources */,
+				C23C78722386ADC500DD28CC /* test2.plist in Resources */,
 				C2D216332381BF3A0034C7E1 /* SVProgressHUD.bundle in Resources */,
 				C2D2156F2381BF1A0034C7E1 /* 关@3x.png in Resources */,
 				C2D215322381BF1A0034C7E1 /* 开通超级线路@3x.png in Resources */,
@@ -1865,19 +2055,30 @@
 				C2D216FC2381C2800034C7E1 /* collection.json in Resources */,
 				C2D2156D2381BF1A0034C7E1 /* 增加时长@2x.png in Resources */,
 				C2D2154F2381BF1A0034C7E1 /* 账号.png in Resources */,
+				C23C78A8238796AD00DD28CC /* MJSCell.xib in Resources */,
 				C2D215332381BF1A0034C7E1 /* 解锁黄金线路@2x.png in Resources */,
+				C23C78432386604E00DD28CC /* priceLabelViewController.xib in Resources */,
 				C2D2152D2381BF1A0034C7E1 /* 开通超级线路.png in Resources */,
 				C2D215682381BF1A0034C7E1 /* 增加时长.png in Resources */,
 				C2D2154A2381BF1A0034C7E1 /* 解锁按钮@3x.png in Resources */,
+				C23C78C52387B87B00DD28CC /* Reddit.png in Resources */,
 				C2D216F62381C2800034C7E1 /* userloginInfo.plist in Resources */,
+				C23C78CC2387B87B00DD28CC /* PayPal.png in Resources */,
 				C2D2156B2381BF1A0034C7E1 /* buySuperlink3.png in Resources */,
 				353C0FE11DDF393F00A46EBD /* Main.storyboard in Resources */,
+				C23C78CD2387B87B00DD28CC /* MSN.png in Resources */,
 				C2D215532381BF1A0034C7E1 /* 图层 0.png in Resources */,
+				C23C78C22387B87B00DD28CC /* Gmail.png in Resources */,
+				C23C78C32387B87B00DD28CC /* TikTok.png in Resources */,
+				C23C78CE2387B87B00DD28CC /* Bing.png in Resources */,
 				C2D215592381BF1A0034C7E1 /* 密码@3x.png in Resources */,
 				C2D215582381BF1A0034C7E1 /* 登录@3x.png in Resources */,
 				C2D2154D2381BF1A0034C7E1 /* 已解锁@3x.png in Resources */,
 				C2D215502381BF1A0034C7E1 /* 登录.png in Resources */,
 				C2D215762381BF1A0034C7E1 /* 矢量智能对象@3x.png in Resources */,
+				C23C78AF2387A4EE00DD28CC /* test5.plist in Resources */,
+				C23C78C12387B87B00DD28CC /* instagram.png in Resources */,
+				C23C78742386AEDC00DD28CC /* test3.plist in Resources */,
 				C2D216F42381C2800034C7E1 /* mainViewController.xib in Resources */,
 				C2D215422381BF1A0034C7E1 /* 开通(1).png in Resources */,
 				C2D216F82381C2800034C7E1 /* hx.plist in Resources */,
@@ -1990,6 +2191,7 @@
 				0921EE341DDFF8F6006955C6 /* Notifications.swift in Sources */,
 				C2D216C02381C21A0034C7E1 /* CustomIOSAlertView.m in Sources */,
 				C2D217072381C28C0034C7E1 /* addTimeViewController.m in Sources */,
+				C23C78A7238796AD00DD28CC /* MJSCell.m in Sources */,
 				C2D216502381BF3A0034C7E1 /* NSButton+WebCache.m in Sources */,
 				C2D2163C2381BF3A0034C7E1 /* SDImageCoder.m in Sources */,
 				C2D216612381BF3A0034C7E1 /* UIImage+MemoryCacheCost.m in Sources */,
@@ -2007,8 +2209,10 @@
 				C2D2164B2381BF3A0034C7E1 /* SDWebImageCompat.m in Sources */,
 				253AF90D21A0269C005CCC41 /* SucceededViewController.swift in Sources */,
 				C2D2163D2381BF3A0034C7E1 /* SDWebImageManager.m in Sources */,
+				C23C78422386604E00DD28CC /* priceLabelViewController.m in Sources */,
 				C2D216722381BF3A0034C7E1 /* UIColor+HexString.m in Sources */,
 				C2D216FF2381C2800034C7E1 /* ItemsView.m in Sources */,
+				C2D217A323857D690034C7E1 /* MASViewConstraint.m in Sources */,
 				C2D2164F2381BF3A0034C7E1 /* SDImageCoderHelper.m in Sources */,
 				353C0FDE1DDF393F00A46EBD /* HomeViewController.swift in Sources */,
 				C2D216FD2381C2800034C7E1 /* HXTabBar.m in Sources */,
@@ -2019,9 +2223,11 @@
 				C2D216DD2381C2730034C7E1 /* MJSSquareCell.m in Sources */,
 				C2D216A02381C0A10034C7E1 /* appsViewCell.m in Sources */,
 				C2D2165B2381BF3A0034C7E1 /* SDWebImageTransition.m in Sources */,
+				C2D2179B23857D690034C7E1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C2D2166A2381BF3A0034C7E1 /* SDWebImageDownloaderRequestModifier.m in Sources */,
 				C2D216372381BF3A0034C7E1 /* AFURLRequestSerialization.m in Sources */,
 				253AF90521A02437005CCC41 /* ConnectButton.swift in Sources */,
+				C2D2179D23857D690034C7E1 /* MASCompositeConstraint.m in Sources */,
 				18E1741120C1229100E20BF8 /* MoreViewController.swift in Sources */,
 				C2D216F72381C2800034C7E1 /* HXTabBarViewController.m in Sources */,
 				C2D216482381BF3A0034C7E1 /* SDImageCodersManager.m in Sources */,
@@ -2033,11 +2239,14 @@
 				C2D216262381BF3A0034C7E1 /* NSObject+MJKeyValue.m in Sources */,
 				253AF8FF21A02437005CCC41 /* Background+Colors.swift in Sources */,
 				C2D2162A2381BF3A0034C7E1 /* NSObject+MJProperty.m in Sources */,
+				C23C78472386898000DD28CC /* shareInfoViewController.m in Sources */,
 				C2D216622381BF3A0034C7E1 /* SDImageCacheConfig.m in Sources */,
 				C2D2171C2381C2A40034C7E1 /* popmessageViewController2.m in Sources */,
 				C2D2167C2381C0240034C7E1 /* personCenterViewController.m in Sources */,
 				C2D2163A2381BF3A0034C7E1 /* NSImage+Compatibility.m in Sources */,
 				C2D216522381BF3A0034C7E1 /* SDDiskCache.m in Sources */,
+				C2D217A123857D690034C7E1 /* View+MASAdditions.m in Sources */,
+				C23C783E2386558400DD28CC /* dataModel.m in Sources */,
 				25BC3D93219ECA6100F69B39 /* Reachability.swift in Sources */,
 				C2D2164D2381BF3A0034C7E1 /* SDWebImageError.m in Sources */,
 				C2D2162D2381BF3A0034C7E1 /* MJPropertyKey.m in Sources */,
@@ -2045,6 +2254,7 @@
 				C2D2163B2381BF3A0034C7E1 /* SDAnimatedImageView+WebCache.m in Sources */,
 				C2D216BE2381C21A0034C7E1 /* HXnavigationController.m in Sources */,
 				C2D216DB2381C2730034C7E1 /* MJSSquareItem.m in Sources */,
+				C2D217A223857D690034C7E1 /* MASConstraint.m in Sources */,
 				253AF90121A02437005CCC41 /* AnnularLayer.swift in Sources */,
 				C2D2165A2381BF3A0034C7E1 /* SDImageCachesManager.m in Sources */,
 				C2D216392381BF3A0034C7E1 /* AFSecurityPolicy.m in Sources */,
@@ -2052,6 +2262,7 @@
 				253AF8FE21A02437005CCC41 /* Bang.swift in Sources */,
 				C2D216F92381C2800034C7E1 /* UserItems.m in Sources */,
 				C2D216572381BF3A0034C7E1 /* SDImageFrame.m in Sources */,
+				C2D2179F23857D690034C7E1 /* MASLayoutConstraint.m in Sources */,
 				C2D216642381BF3A0034C7E1 /* SDWebImageDefine.m in Sources */,
 				C2D216492381BF3A0034C7E1 /* UIImage+MultiFormat.m in Sources */,
 				C2D216382381BF3A0034C7E1 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2059,12 +2270,15 @@
 				C2D216662381BF3A0034C7E1 /* UIView+WebCacheOperation.m in Sources */,
 				C2D2162F2381BF3A0034C7E1 /* SVRadialGradientLayer.m in Sources */,
 				C2D216472381BF3A0034C7E1 /* UIImage+GIF.m in Sources */,
+				C2D2179E23857D690034C7E1 /* MASConstraintMaker.m in Sources */,
 				C2D2166F2381BF3A0034C7E1 /* SDInternalMacros.m in Sources */,
 				C2D216582381BF3A0034C7E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				C2D216292381BF3A0034C7E1 /* MJExtensionConst.m in Sources */,
 				C2D216442381BF3A0034C7E1 /* SDImageLoader.m in Sources */,
 				353C0FDC1DDF393F00A46EBD /* AppDelegate.swift in Sources */,
 				C2D216632381BF3A0034C7E1 /* SDWebImageCacheKeyFilter.m in Sources */,
+				C2D2179C23857D690034C7E1 /* ViewController+MASAdditions.m in Sources */,
+				C2D217A423857D690034C7E1 /* MASViewAttribute.m in Sources */,
 				C2D216D72381C2730034C7E1 /* commonNavStoryboardController.m in Sources */,
 				C2D216702381BF3A0034C7E1 /* SDAsyncBlockOperation.m in Sources */,
 				C2D216402381BF3A0034C7E1 /* SDAnimatedImageView.m in Sources */,
@@ -2103,9 +2317,11 @@
 				C2D216272381BF3A0034C7E1 /* MJProperty.m in Sources */,
 				C2D2162C2381BF3A0034C7E1 /* NSString+MJExtension.m in Sources */,
 				C2D216432381BF3A0034C7E1 /* SDWebImageDownloader.m in Sources */,
+				C2D217A023857D690034C7E1 /* NSArray+MASAdditions.m in Sources */,
 				C2D216F52381C2800034C7E1 /* mainViewController.m in Sources */,
 				C2D216692381BF3A0034C7E1 /* UIButton+WebCache.m in Sources */,
 				C2D216302381BF3A0034C7E1 /* SVProgressAnimatedView.m in Sources */,
+				C23C78AB2387990F00DD28CC /* commonNav.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

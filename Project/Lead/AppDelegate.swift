@@ -17,17 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let mainVc = mainViewController()
-                         
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainVc
         self.window?.makeKeyAndVisible()
-//        print(kTestPch)
-        
+//
+//        //启动程序时先设置
+//        let homeVC = HomeViewController2()
+//        homeVC.settingSecondUI()
         //启动直接调用VPN
-//        [HomeViewController alloc]
-//        let home = HomeViewController(coder: NSCoder)
-//        [home nextStep]
-
+     
+       let secondVc =  SecondViewController()
+//        let home = HomeViewController(coder: aDecoder)
+//        secondVc.goToSucceededView()
+//        secondVc.doneButtonAction()
+        print("进入Appdelegate")
+         secondVc.saveAction2()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+           
+        })
         return true
     }
     

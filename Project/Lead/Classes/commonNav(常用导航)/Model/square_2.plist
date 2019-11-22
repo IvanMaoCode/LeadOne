@@ -6,7 +6,7 @@
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568989062991&amp;di=6b1a5f24ea3cb900f104c1900c9cf0d2&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.yzcdn.cn%2Fupload_files%2F2015%2F11%2F23%2F82e158b85b9804519d649a900abeabfe.png</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574227614129&amp;di=c8420f439152ec69178fb6ec9e424cbc&amp;imgtype=0&amp;src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F33e495488228dc62a6f48dbaee92984b4a5b0f8d10791-AFsSqU_fw658</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -16,15 +16,15 @@
 		<key>market</key>
 		<string></string>
 		<key>name</key>
-		<string>审帖</string>
+		<string>谷歌</string>
 		<key>url</key>
-		<string>https://www.baidu.com/</string>
+		<string>https://www.google.com/</string>
 	</dict>
 	<dict>
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568989205017&amp;di=de745af1c4f485f0554000803f04198b&amp;imgtype=0&amp;src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F17%2F08%2F21%2F4d4b6ae0d66c6094dd7bece063f20ee8.jpg</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574227701965&amp;di=1e8dc3723deee2068d312bee2d365e96&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170626%2F7ae8dfe8d65046b081d003dc91a25173_th.jpg</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -34,15 +34,15 @@
 		<key>market</key>
 		<string></string>
 		<key>name</key>
-		<string>每日排行</string>
+		<string>YoyTube</string>
 		<key>url</key>
-		<string>https://www.jianshu.com/</string>
+		<string>https://www.youtube.com/</string>
 	</dict>
 	<dict>
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1569571675&amp;di=d2df32fcf14407e0c7e3b241710440ef&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201311%2F06%2F20131106144353_MBu3W.thumb.700_0.jpeg</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574228380207&amp;di=90b7bb0652986a179aad5964870f54e8&amp;imgtype=0&amp;src=http%3A%2F%2Fnwzimg.wezhan.cn%2Fcontents%2Fsitefiles2019%2F10099490%2Fimages%2F5438696.jpg</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -54,13 +54,13 @@
 		<key>name</key>
 		<string>意见反馈</string>
 		<key>url</key>
-		<string>https://www.jianshu.com/</string>
+		<string>https://www.facebook.com/</string>
 	</dict>
 	<dict>
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568989506347&amp;di=213dc91fac0d1e714ecbe76c419d3057&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F96%2F36%2F8456f2ffc6ef5b2.jpg</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574228452191&amp;di=61c2cc98720677e1b3ab5fa78b670355&amp;imgtype=0&amp;src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F3e0c72b49cc2b26337505c61080b386e60279b0623e88-1FiaM8_fw658</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -70,15 +70,15 @@
 		<key>market</key>
 		<string></string>
 		<key>name</key>
-		<string>我的收藏</string>
+		<string>Instagram</string>
 		<key>url</key>
-		<string>https://www.jianshu.com/</string>
+		<string>https://www.instagram.com/</string>
 	</dict>
 	<dict>
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1569583962&amp;di=b3e87e4b291117cb912b583edd8368f7&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fwww.baijingapp.com%2Fuploads%2Fproduct%2F14533084451091%2F145330844535705.png</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574228452191&amp;di=61c2cc98720677e1b3ab5fa78b670355&amp;imgtype=0&amp;src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F3e0c72b49cc2b26337505c61080b386e60279b0623e88-1FiaM8_fw658</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -90,13 +90,13 @@
 		<key>name</key>
 		<string>游戏大厅</string>
 		<key>url</key>
-		<string>https://www.jianshu.com/</string>
+		<string>https://www.instagram.com/</string>
 	</dict>
 	<dict>
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1123045286,2483255130&amp;fm=26&amp;gp=0.jpg</string>
+		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1574228584144&amp;di=f9cd9cee554fe06ec1af3a340c25a363&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F33%2F37%2F58111fee9764a_610.jpg</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -106,9 +106,9 @@
 		<key>market</key>
 		<string></string>
 		<key>name</key>
-		<string>同城约友</string>
+		<string>WIKI百科</string>
 		<key>url</key>
-		<string>https://www.jianshu.com/</string>
+		<string>https://www.wikipedia.org/</string>
 	</dict>
 	<dict>
 		<key>android</key>
@@ -150,7 +150,7 @@
 		<key>android</key>
 		<string></string>
 		<key>icon</key>
-		<string>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1568989475241&amp;di=df8714bc50e1c1ff0b6dd7fbef73a045&amp;imgtype=0&amp;src=http%3A%2F%2Fimg3.cache.netease.com%2Fgame%2F2013%2F11%2F28%2F20131128141538d33f8.jpg</string>
+		<string>https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2162398746,2336026894&amp;fm=26&amp;gp=0.jpg</string>
 		<key>id</key>
 		<string>28</string>
 		<key>ipad</key>
@@ -160,7 +160,7 @@
 		<key>market</key>
 		<string></string>
 		<key>name</key>
-		<string>游戏大厅</string>
+		<string>亚马逊</string>
 		<key>url</key>
 		<string>https://www.jianshu.com/</string>
 	</dict>

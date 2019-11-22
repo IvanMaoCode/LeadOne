@@ -38,25 +38,25 @@
 		[self addSubview:yjlview];
 		
 		UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, MJSSreenW/4, MJSSreenW/4)];
-		[btn1 setImage:[UIImage imageNamed:@"placeholder"] forState:UIControlStateNormal];
+		[btn1 setImage:[UIImage imageNamed:@"GooglePlay"] forState:UIControlStateNormal];
 		btn1.backgroundColor = MJSColor(0, 62, 80);
 		[btn1 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
 		[self->yjlview addSubview:btn1];
 		
 		UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(MJSSreenW/4, 0, MJSSreenW/4, MJSSreenW/4)];
-		[btn2 setImage:[UIImage imageNamed:@"placeholder"] forState:UIControlStateNormal];
+		[btn2 setImage:[UIImage imageNamed:@"Reddit"] forState:UIControlStateNormal];
 		btn2.backgroundColor = MJSColor(0, 62, 80);
 		[btn2 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
 		[self->yjlview addSubview:btn2];
 		
 		UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(MJSSreenW/4*2, 0, MJSSreenW/4, MJSSreenW/4)];
-		[btn3 setImage:[UIImage imageNamed:@"placeholder"] forState:UIControlStateNormal];
+		[btn3 setImage:[UIImage imageNamed:@"MSN"] forState:UIControlStateNormal];
 		btn3.backgroundColor = MJSColor(0, 62, 80);
 		[btn3 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
 		[self->yjlview addSubview:btn3];
 		
 		UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(MJSSreenW/4*3, 0, MJSSreenW/4, MJSSreenW/4)];
-		[btn4 setImage:[UIImage imageNamed:@"placeholder"] forState:UIControlStateNormal];
+		[btn4 setImage:[UIImage imageNamed:@"Bing"] forState:UIControlStateNormal];
 		btn4.backgroundColor = MJSColor(0, 62, 80);
 		[btn4 addTarget:self action:@selector(btn1) forControlEvents:UIControlEventTouchUpInside];
 		[self->yjlview addSubview:btn4];
