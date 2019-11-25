@@ -88,6 +88,12 @@
 		C23C78CC2387B87B00DD28CC /* PayPal.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BD2387B87B00DD28CC /* PayPal.png */; };
 		C23C78CD2387B87B00DD28CC /* MSN.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BE2387B87B00DD28CC /* MSN.png */; };
 		C23C78CE2387B87B00DD28CC /* Bing.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C78BF2387B87B00DD28CC /* Bing.png */; };
+		C23C7ADA2388159A00DD28CC /* WechatIMG23.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C7AD62388159A00DD28CC /* WechatIMG23.png */; };
+		C23C7ADB2388159A00DD28CC /* WechatIMG22.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C7AD72388159A00DD28CC /* WechatIMG22.png */; };
+		C23C7ADC2388159A00DD28CC /* WechatIMG21.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C7AD82388159A00DD28CC /* WechatIMG21.png */; };
+		C23C7ADD2388159A00DD28CC /* WechatIMG19.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C7AD92388159A00DD28CC /* WechatIMG19.png */; };
+		C23C7AE523890D3100DD28CC /* ButtonRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7AE423890D3100DD28CC /* ButtonRotation.swift */; };
+		C2994478238BB0980041CFF3 /* billClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C2994477238BB0980041CFF3 /* billClass.m */; };
 		C2D2123A2381AFAC0034C7E1 /* TestOCBride.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D212382381AFAC0034C7E1 /* TestOCBride.m */; };
 		C2D2123B2381AFAC0034C7E1 /* TestOCBride.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D212392381AFAC0034C7E1 /* TestOCBride.xib */; };
 		C2D2152D2381BF1A0034C7E1 /* 开通超级线路.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214DA2381BF1A0034C7E1 /* 开通超级线路.png */; };
@@ -439,6 +445,13 @@
 		C23C78BD2387B87B00DD28CC /* PayPal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PayPal.png; sourceTree = "<group>"; };
 		C23C78BE2387B87B00DD28CC /* MSN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSN.png; sourceTree = "<group>"; };
 		C23C78BF2387B87B00DD28CC /* Bing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bing.png; sourceTree = "<group>"; };
+		C23C7AD62388159A00DD28CC /* WechatIMG23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG23.png; sourceTree = "<group>"; };
+		C23C7AD72388159A00DD28CC /* WechatIMG22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG22.png; sourceTree = "<group>"; };
+		C23C7AD82388159A00DD28CC /* WechatIMG21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG21.png; sourceTree = "<group>"; };
+		C23C7AD92388159A00DD28CC /* WechatIMG19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG19.png; sourceTree = "<group>"; };
+		C23C7AE423890D3100DD28CC /* ButtonRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRotation.swift; sourceTree = "<group>"; };
+		C2994476238BB0980041CFF3 /* billClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = billClass.h; sourceTree = "<group>"; };
+		C2994477238BB0980041CFF3 /* billClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = billClass.m; sourceTree = "<group>"; };
 		C2D212352381ACFE0034C7E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C2D212362381AFAB0034C7E1 /* Lead-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lead-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2D212372381AFAC0034C7E1 /* TestOCBride.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOCBride.h; sourceTree = "<group>"; };
@@ -922,6 +935,7 @@
 				253AF8F621A02437005CCC41 /* SSlogo.swift */,
 				253AF8FC21A02437005CCC41 /* ConnectButton.swift */,
 				253AF8FD21A02437005CCC41 /* Waves.swift */,
+				C23C7AE423890D3100DD28CC /* ButtonRotation.swift */,
 			);
 			name = uiModels;
 			path = Model/uiModels;
@@ -1006,6 +1020,24 @@
 			path = "HX-LOGO-PNG";
 			sourceTree = "<group>";
 		};
+		C23C7AD52388159A00DD28CC /* deepProfit */ = {
+			isa = PBXGroup;
+			children = (
+				C23C7AD62388159A00DD28CC /* WechatIMG23.png */,
+				C23C7AD72388159A00DD28CC /* WechatIMG22.png */,
+				C23C7AD82388159A00DD28CC /* WechatIMG21.png */,
+				C23C7AD92388159A00DD28CC /* WechatIMG19.png */,
+			);
+			path = deepProfit;
+			sourceTree = "<group>";
+		};
+		C23C7AEC238A84E100DD28CC /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		C2D2121B2381AB9F0034C7E1 /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +1055,7 @@
 		C2D214D82381BF1A0034C7E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C23C7AD52388159A00DD28CC /* deepProfit */,
 				C23C78B02387B87B00DD28CC /* HX-LOGO-PNG */,
 				C2D214D92381BF1A0034C7E1 /* 个人中心_slices */,
 				C2D214E32381BF1A0034C7E1 /* 超级线路_slices */,
@@ -1465,6 +1498,8 @@
 				C23C78442386898000DD28CC /* shareInfoViewController.h */,
 				C23C78452386898000DD28CC /* shareInfoViewController.m */,
 				C23C78462386898000DD28CC /* shareInfoViewController.xib */,
+				C2994476238BB0980041CFF3 /* billClass.h */,
+				C2994477238BB0980041CFF3 /* billClass.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1733,11 +1768,12 @@
 		C2D217092381C2990034C7E1 /* nightWelfare(深夜福利) */ = {
 			isa = PBXGroup;
 			children = (
+				C23C7AEC238A84E100DD28CC /* Delegate */,
+				C2D217112381C2990034C7E1 /* pupView.h */,
 				C2D2170A2381C2990034C7E1 /* pupView.m */,
 				C2D2170B2381C2990034C7E1 /* Controller */,
 				C2D2170F2381C2990034C7E1 /* Model */,
 				C2D217102381C2990034C7E1 /* View */,
-				C2D217112381C2990034C7E1 /* pupView.h */,
 			);
 			path = "nightWelfare(深夜福利)";
 			sourceTree = "<group>";
@@ -1981,6 +2017,7 @@
 				C2D2152E2381BF1A0034C7E1 /* 开通超级线路@2x.png in Resources */,
 				C2D215542381BF1A0034C7E1 /* 注册@2x.png in Resources */,
 				C2D215732381BF1A0034C7E1 /* 椭圆 2.png in Resources */,
+				C23C7ADB2388159A00DD28CC /* WechatIMG22.png in Resources */,
 				C2D217142381C2990034C7E1 /* nightViewController.xib in Resources */,
 				C2D215622381BF1A0034C7E1 /* 继续连接@2x.png in Resources */,
 				253AF90221A02437005CCC41 /* Media.xcassets in Resources */,
@@ -1991,6 +2028,7 @@
 				353C0FE61DDF393F00A46EBD /* LaunchScreen.storyboard in Resources */,
 				C2D215672381BF1A0034C7E1 /* 注册 拷贝@2x.png in Resources */,
 				C2D215722381BF1A0034C7E1 /* 矢量智能对象@2x.png in Resources */,
+				C23C7ADC2388159A00DD28CC /* WechatIMG21.png in Resources */,
 				C2D2155A2381BF1A0034C7E1 /* 密码.png in Resources */,
 				C2D2153F2381BF1A0034C7E1 /* back1.png in Resources */,
 				C2D2155C2381BF1A0034C7E1 /* 继续连接.png in Resources */,
@@ -2016,6 +2054,7 @@
 				C23C78C02387B87B00DD28CC /* GooglePlay.png in Resources */,
 				C2D216FE2381C2800034C7E1 /* account.plist in Resources */,
 				C2D215382381BF1A0034C7E1 /* triangle.png in Resources */,
+				C23C7ADA2388159A00DD28CC /* WechatIMG23.png in Resources */,
 				C23C78C62387B87B00DD28CC /* Yahoo.png in Resources */,
 				C2D215782381BF1A0034C7E1 /* 喇叭.png in Resources */,
 				C2D215562381BF1A0034C7E1 /* 密码@2x.png in Resources */,
@@ -2082,6 +2121,7 @@
 				C2D216F42381C2800034C7E1 /* mainViewController.xib in Resources */,
 				C2D215422381BF1A0034C7E1 /* 开通(1).png in Resources */,
 				C2D216F82381C2800034C7E1 /* hx.plist in Resources */,
+				C23C7ADD2388159A00DD28CC /* WechatIMG19.png in Resources */,
 				C2D2123B2381AFAC0034C7E1 /* TestOCBride.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2243,6 +2283,7 @@
 				C2D216622381BF3A0034C7E1 /* SDImageCacheConfig.m in Sources */,
 				C2D2171C2381C2A40034C7E1 /* popmessageViewController2.m in Sources */,
 				C2D2167C2381C0240034C7E1 /* personCenterViewController.m in Sources */,
+				C2994478238BB0980041CFF3 /* billClass.m in Sources */,
 				C2D2163A2381BF3A0034C7E1 /* NSImage+Compatibility.m in Sources */,
 				C2D216522381BF3A0034C7E1 /* SDDiskCache.m in Sources */,
 				C2D217A123857D690034C7E1 /* View+MASAdditions.m in Sources */,
@@ -2272,6 +2313,7 @@
 				C2D216472381BF3A0034C7E1 /* UIImage+GIF.m in Sources */,
 				C2D2179E23857D690034C7E1 /* MASConstraintMaker.m in Sources */,
 				C2D2166F2381BF3A0034C7E1 /* SDInternalMacros.m in Sources */,
+				C23C7AE523890D3100DD28CC /* ButtonRotation.swift in Sources */,
 				C2D216582381BF3A0034C7E1 /* SDWebImageDownloaderOperation.m in Sources */,
 				C2D216292381BF3A0034C7E1 /* MJExtensionConst.m in Sources */,
 				C2D216442381BF3A0034C7E1 /* SDImageLoader.m in Sources */,

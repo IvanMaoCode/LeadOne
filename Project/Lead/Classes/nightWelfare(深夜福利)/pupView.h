@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^pushBlock)(void);
 @interface pupView : UIView
+@property(copy,nonatomic)pushBlock clickTapBlock;//块
+@property(nonatomic,strong) UIViewController *viewcontroller1;
 /**
  自己选择显示在那个view展示从底部向上弹出的UIView（包含遮罩）
  @param view self.view OR [UIApplication sharedApplication].keyWindow

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainVc
         self.window?.makeKeyAndVisible()
-//
+
 //        //启动程序时先设置
 //        let homeVC = HomeViewController2()
 //        homeVC.settingSecondUI()

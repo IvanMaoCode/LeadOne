@@ -118,7 +118,7 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-ZB-wQf">
-                    <rect key="frame" x="172" y="77" width="64.5" height="64.5"/>
+                    <rect key="frame" x="172" y="50" width="64.5" height="64.5"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64.5" id="Bya-N7-0TB"/>
@@ -171,7 +171,7 @@
                 <constraint firstItem="BD9-0x-xRN" firstAttribute="trailing" secondItem="ycP-uY-BpN" secondAttribute="trailing" id="dFJ-SX-KcR"/>
                 <constraint firstItem="OqS-HS-1I8" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="55.5" id="eXO-Ge-JZW"/>
                 <constraint firstItem="BD9-0x-xRN" firstAttribute="leading" secondItem="OqS-HS-1I8" secondAttribute="leading" id="esN-XT-2IA"/>
-                <constraint firstItem="Gcd-ZB-wQf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="ezu-7K-1Ep"/>
+                <constraint firstItem="Gcd-ZB-wQf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="ezu-7K-1Ep"/>
                 <constraint firstAttribute="bottom" secondItem="vzj-Co-qBx" secondAttribute="bottom" constant="441.5" id="h3j-Gr-ChY"/>
                 <constraint firstItem="ycP-uY-BpN" firstAttribute="bottom" secondItem="OqS-HS-1I8" secondAttribute="bottom" id="o4Q-po-8L3"/>
                 <constraint firstItem="dZD-0X-YJ3" firstAttribute="height" secondItem="6M1-p9-9Fp" secondAttribute="height" id="qKZ-aZ-hsV"/>

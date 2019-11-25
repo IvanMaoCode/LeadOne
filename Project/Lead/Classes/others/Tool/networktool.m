@@ -46,4 +46,43 @@
 	
 	return dataTask;
 }
+
+/*发送POST请求添加Token*/
++(NSURLSessionDataTask *)postTokenpost:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)header success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure{
+    //1.获得请求管理者
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    NSURLSessionDataTask *dataTask = [mgr POST:url parameters:params headers:header progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if(success){
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if(failure){
+            failure(error);
+        }
+    }];
+    return dataTask;
+}
++(void)post{
+    NSURL *url = [NSURL URLWithString:@"https://www.jianshu.com/sign_in"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    request.HTTPMethod = @"POST";
+    
+    request.HTTPBody = [@"username=3343&password=wujianhe&type=JSON" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    //3.创建会话
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    //4.创建task
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"%@",[NSThread currentThread]);
+        //解析数据
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    }];
+    //5.执行Task
+    [dataTask resume];
+}
+
 @end

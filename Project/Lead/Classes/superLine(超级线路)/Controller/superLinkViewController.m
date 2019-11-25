@@ -12,12 +12,18 @@
 #import "SVProgressHUD.h"
 #import "shareInfoViewController.h"
 #import "networktool.h"
+#import "MJExtension.h"
+#import "SafariServices/SafariServices.h"
+
+#import "billClass.h"
+@class billClass;
 @interface superLinkViewController ()<CustomIOSAlertViewDelegate>
+@property(nonatomic,strong) billClass *item;
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
-@property (weak, nonatomic) IBOutlet UIButton *linkBtn;
-@property (weak, nonatomic) IBOutlet UIButton *btn1;
-@property (weak, nonatomic) IBOutlet UIButton *btn2;
-@property (weak, nonatomic) IBOutlet UIButton *btn;
+//@property (weak, nonatomic) IBOutlet UIButton *linkBtn;
+//@property (weak, nonatomic) IBOutlet UIButton *btn1;
+//@property (weak, nonatomic) IBOutlet UIButton *btn2;
+//@property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmenView;
 
 @property (nonatomic,strong) UIView *addView;
@@ -27,10 +33,30 @@
 @property(nonatomic,strong)NSString *Str;
 //提醒用户登录弹窗
 @property(nonatomic,strong) CustomIOSAlertView *alertView;
+@property(nonatomic,strong) CustomIOSAlertView *alertView1;
+@property(nonatomic,strong) NSString *payId;
 
 @end
+    static NSString *length;
+    static NSString *priceBill;
+    static NSString *sharePriceBill;
 
+    static NSString *length1;
+    static NSString *priceBill1;
+    static NSString *sharePriceBill1;
+
+    static NSString *length2;
+    static NSString *priceBill2;
+    static NSString *sharePriceBill2;
 @implementation superLinkViewController
+- (void)setItem:(billClass *)item{
+    _item = item;
+   
+    NSString *lengStr = item.length;
+    NSString *price = item.price;
+    NSString *sharePrice = item.share;
+  
+}
 //- (NSInteger)buttonSelect{
 //	if(!_buttonSelect){
 //		NSInteger buttonSelect = 0;
@@ -39,18 +65,19 @@
 //	return _buttonSelect;
 //}
 static NSString *const MJSTopicCellId = @"MJSTopicCellId";
-- (CustomIOSAlertView *)alertView{
-	if(_alertView == nil){
-		CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
-		_alertView = alertView;
-	}
-	return _alertView;
-}
+//- (CustomIOSAlertView *)alertView{
+//	if(_alertView == nil){
+//		CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+//		_alertView = alertView;
+//	}
+//	return _alertView;
+//}
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 	self.segmenView.layer.borderWidth = 1;
 	self.segmenView.backgroundColor = [UIColor clearColor];
+    [self.segmenView setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]} forState:UIControlStateNormal];
 	//	self.segmenView.tintColor = [UIColor whiteColor];
 	self.segmenView.layer.borderColor = [[UIColor whiteColor] CGColor];
 	self.segmenView.layer.cornerRadius = 4.5;
@@ -61,31 +88,71 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 	NSDictionary *dics = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
 	[self.segmenView setTitleTextAttributes:dics forState:UIControlStateNormal];
 	
-	self.linkBtn.mjs_width = 100;
-	self.linkBtn.layer.borderWidth = 1;
-	self.linkBtn.layer.borderColor = [[UIColor yellowColor] CGColor];
-	self.linkBtn.layer.cornerRadius = 14.5;
-	
-	self.btn1.layer.borderWidth = 1;
-	self.btn1.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
-	self.btn1.layer.cornerRadius = 12.3;
-	[self.btn1 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-	
-	self.btn2.layer.borderWidth = 1;
-	self.btn2.layer.borderColor = [[UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1] CGColor ];
-	self.btn2.layer.cornerRadius = 12.3;
-	self.btn2.backgroundColor = [UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1];
-	[self.btn2 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-	[self.btn2 setTag:1];
-	
-	
-	self.btn.layer.borderWidth = 1;
-	self.btn.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
-	self.btn.layer.cornerRadius = 12.3;
-	[self.btn addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-	
+//	self.linkBtn.mjs_width = 100;
+//	self.linkBtn.layer.borderWidth = 1;
+//	self.linkBtn.layer.borderColor = [[UIColor yellowColor] CGColor];
+//	self.linkBtn.layer.cornerRadius = 14.5;
+//
+//	self.btn1.layer.borderWidth = 1;
+//	self.btn1.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
+//	self.btn1.layer.cornerRadius = 12.3;
+//	[self.btn1 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
+//
+//	self.btn2.layer.borderWidth = 1;
+//	self.btn2.layer.borderColor = [[UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1] CGColor ];
+//	self.btn2.layer.cornerRadius = 12.3;
+//	self.btn2.backgroundColor = [UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1];
+//	[self.btn2 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
+//	[self.btn2 setTag:1];
+//
+//
+//	self.btn.layer.borderWidth = 1;
+//	self.btn.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
+//	self.btn.layer.cornerRadius = 12.3;
+//	[self.btn addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
+//
 	//设置打开页面默认为黄金线路
 	[self addnewView];
+    
+    
+       
+           //GET 请求套餐
+             NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+             NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+             NSString *Strurl = @"http://go.jummy.top/like/";
+             NSDictionary *parameters = @{
+               @"type":@"JSON"
+           };
+            
+                  //栅栏函数
+                   //获取全局并发队列
+                   //栅栏函数不能使用全局并发队列
+           //        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+              dispatch_group_t group = dispatch_group_create();
+
+           //异步函数
+       //  dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+           [networktool get:Strurl params:parameters success:^(id  _Nonnull responseObj) {
+               NSLog(@"请求成功%@",responseObj[@"data"]);
+               NSArray *dict = [NSArray mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
+               NSLog(@"%@",dict[0][@"price"]);
+               NSLog(@"%@",dict[0][@"share"]);
+               NSLog(@"%@length:",dict[0][@"length"]);
+               priceBill = dict[0][@"price"];
+               sharePriceBill = dict[0][@"share"];
+               length = dict[0][@"length"];
+               
+               priceBill1 = dict[1][@"price"];
+               sharePriceBill1 = dict[1][@"share"];
+               length1 = dict[1][@"length"];
+               
+               priceBill2 = dict[2][@"price"];
+               sharePriceBill2 = dict[2][@"share"];
+               length2 = dict[2][@"length"];
+               
+           } failure:^(NSError * _Nonnull error) {
+               NSLog(@"请求失败");
+           }];
 }
 //点击热门开通按钮
 -(void)allert{
@@ -102,23 +169,23 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
     }
 }
 //点击复制链接按钮
-- (IBAction)copyLinkBtn:(id)sender {
-    //判断用户是否已经登录
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *name = [userDefault objectForKey:@"name"];
-    if(name == nil){
-        [self.linkBtn setTag:2];
-        self.buttonSelect = 2;
-        [self loginAllert];
-    }else{
-        NSLog(@"复制了链接");
-        
-        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
-        pastboard.string = @"2222";
-        [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-              [SVProgressHUD dismissWithDelay:0.8];
-    }
-}
+//- (IBAction)copyLinkBtn:(id)sender {
+//    //判断用户是否已经登录
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    NSString *name = [userDefault objectForKey:@"name"];
+//    if(name == nil){
+//        [self.linkBtn setTag:2];
+//        self.buttonSelect = 2;
+//        [self loginAllert];
+//    }else{
+//        NSLog(@"复制了链接");
+//        
+//        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+//        pastboard.string = @"2222";
+//        [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+//              [SVProgressHUD dismissWithDelay:0.8];
+//    }
+//}
 #pragma - mark CustomIOSAlertViewDelegate
 - (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
 {
@@ -170,7 +237,8 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 -(void)loginView{
     NSLog(@"立即登录按钮");
     //关闭弹窗
-    [self.alertView close];
+    [self.alertView1 close];
+//    [testAlert clos]
 	loginRegisterViewController *loginVc = [[loginRegisterViewController alloc] init];
 	
 	[self presentViewController:loginVc animated:YES completion:^{
@@ -212,6 +280,35 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 #define ButtonW 70
 //套餐视图
 -(void)userdefinView{
+  
+    
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:Strurl]];
+//        [request setValue:tokenStr forHTTPHeaderField:@"token"];
+//
+//        request.HTTPMethod = @"GET";
+//        NSString *parameterStr = [NSString stringWithFormat:@"type=JSON"];
+//        request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+//        //栅栏函数
+//    //     dispatch_queue_t queue =  dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
+//
+//        //3.创建会话
+//        NSURLSession *session = [NSURLSession sharedSession];
+//        //4.创建task
+//        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//            //解析数据
+//            NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+////            NSDictionary *dictPay = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//    //      NSDictionary *dataDict = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//    //      NSString *payStr = dataDict[@"data"];
+////            NSLog(@"请求token成功:%@",dictPay[@"data"][@"url"]);
+//        }];
+//        //5.执行Task
+//        [dataTask resume];
+
+    //栅栏函数
+            
+//       dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
+    
     UIColor *borderColor = MJSColor(166, 166, 166);
     UIView *PriceView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - PriceViewW)/2, 110, PriceViewW, PriceViewH)];
     PriceView.layer.borderWidth = 0.7;
@@ -240,30 +337,35 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
     
     //时长为1个月套餐的视图
     UILabel *oneMonthVc = [[UILabel alloc]initWithFrame:CGRectMake(0, PriceViewH / 5,  PriceViewW / 4, PriceViewH/5)];
-    oneMonthVc.text = @" 1个月";
+    int intLength = [length intValue];
+    NSString *stringInt = [NSString stringWithFormat:@" %d个月", intLength / 60 / 60 / 24 /30];
+    oneMonthVc.text = stringInt;
     [PriceView addSubview:oneMonthVc];
     
     UILabel *oneMonthPriceVc = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4, PriceViewH / 5,  PriceViewW / 4, PriceViewH/5)];
-      oneMonthPriceVc.text = @"55元";
+    
+      oneMonthPriceVc.text =[NSString stringWithFormat:@"%@元", priceBill];
       [PriceView addSubview:oneMonthPriceVc];
     
     UILabel *oneMonthPriceVc2 = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4*2, PriceViewH / 5,  PriceViewW / 4, PriceViewH/5)];
-         oneMonthPriceVc2.text = @"44元";
+         oneMonthPriceVc2.text =[NSString stringWithFormat:@"%@元", sharePriceBill];;
          [PriceView addSubview:oneMonthPriceVc2];
     
     //时长为3个月套餐的视图
       UILabel *threeMonthVc = [[UILabel alloc]initWithFrame:CGRectMake(0, PriceViewH / 5*2,  PriceViewW / 4, PriceViewH/5)];
-      threeMonthVc.text = @" 3个月";
+    int intLength1 = [length1 intValue];
+    NSString *stringInt1 = [NSString stringWithFormat:@" %d个月", intLength1 / 60 / 60 / 24 /30];
+    threeMonthVc.text = stringInt1;
     threeMonthVc.backgroundColor =  MJSColor(247, 241, 210);
       [PriceView addSubview:threeMonthVc];
       
       UILabel *threeMonthPriceVc = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4, PriceViewH / 5*2,  PriceViewW / 4, PriceViewH/5)];
-        threeMonthPriceVc.text = @"135元";
+        threeMonthPriceVc.text = [NSString stringWithFormat:@"%@元", priceBill1];;
         threeMonthPriceVc.backgroundColor =  MJSColor(247, 241, 210);
         [PriceView addSubview:threeMonthPriceVc];
       
       UILabel *threeMonthPriceVc2 = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4*2, PriceViewH / 5*2,  PriceViewW / 4, PriceViewH/5)];
-           threeMonthPriceVc2.text = @"108元";
+           threeMonthPriceVc2.text = [NSString stringWithFormat:@"%@元", sharePriceBill1];
             threeMonthPriceVc2.backgroundColor =  MJSColor(247, 241, 210);
            [PriceView addSubview:threeMonthPriceVc2];
       UIView *threeMonthPriceVc2right = [[UIView alloc] initWithFrame:CGRectMake(PriceViewW/4*3, PriceViewH / 5*2,  PriceViewW / 4, PriceViewH/5)];
@@ -279,8 +381,9 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
         [oneButton setTitleColor:textColor forState:UIControlStateNormal];
         [oneButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
         oneButton.tag  = 1;
-    [oneButton addTarget:self action:@selector(openServe1) forControlEvents:UIControlEventTouchUpInside];
+        [oneButton addTarget:self action:@selector(openServe1) forControlEvents:UIControlEventTouchUpInside];
         [PriceView addSubview:oneButton];
+    
         //开通按钮2
         UIButton *twoButton =[[UIButton alloc] initWithFrame:CGRectMake(PriceViewW/4*3, PriceViewH / 5 + (PriceViewH / 5 - ButtonH)/2 + PriceViewH/5, ButtonW, ButtonH)];
     //       twoButton.layer.borderWidth = 1;
@@ -305,15 +408,17 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
               [PriceView addSubview:threeButton];
     //时长为6个月套餐的视图
         UILabel *sixMonthVc = [[UILabel alloc]initWithFrame:CGRectMake(0, PriceViewH / 5*3,  PriceViewW / 4, PriceViewH/5)];
-        sixMonthVc.text = @" 6个月";
+    int intLength2 = [length2 intValue];
+    NSString *stringInt2 = [NSString stringWithFormat:@" %d个月", intLength2 / 60 / 60 / 24 /30];
+        sixMonthVc.text = stringInt2;
         [PriceView addSubview:sixMonthVc];
         
         UILabel *sixMonthPriceVc = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4, PriceViewH / 5*3,  PriceViewW / 4, PriceViewH/5)];
-          sixMonthPriceVc.text = @"210元";
+          sixMonthPriceVc.text = [NSString stringWithFormat:@"%@元",priceBill2];
           [PriceView addSubview:sixMonthPriceVc];
         
         UILabel *sixMonthPriceVc2 = [[UILabel alloc]initWithFrame:CGRectMake(PriceViewW/4*2, PriceViewH / 5*3,  PriceViewW / 4, PriceViewH/5)];
-             sixMonthPriceVc2.text = @"168元";
+             sixMonthPriceVc2.text = [NSString stringWithFormat:@"%@元",sharePriceBill2];
              [PriceView addSubview:sixMonthPriceVc2];
     
     //解说视图
@@ -337,11 +442,12 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
     
     
     [self.view addSubview:PriceView];
-   
+  
 }
 
 #define shareViewW 320
 #define shareViewH 230
+//复制链接视图
 -(void)shareInfoView{
     
     UIView *shareInfoView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - shareViewW)/2, 380, shareViewW, shareViewH)];
@@ -418,6 +524,7 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
           [shareInfoView addSubview:guildStr33];
     
 }
+//解说说明视图
 -(void)addnewView{
 	self.addView = [[UIView alloc]initWithFrame:CGRectMake(0,93.5, MJSSreenW, MJSSreenH - 93.5)];
 	self.addView.backgroundColor = MJSColor(248, 248, 248);
@@ -449,36 +556,62 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 	}];
 	NSLog(@"点击了按钮");
 }
-//点击复制链接按钮最新
+//计算链接点击次数
 -(void)countClicks{
      self.buttonSelect = 2;
     //判断用户是否登录了
        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
        NSString *name = [userDefault objectForKey:@"name"];
        if(name == nil){
-           [self loginAllert];
-//           return;
-       }
+           [self testAlert];
+       }else{
     NSLog(@"点击了复制链接按钮");
+           
     
-    //Post请求
-    NSString *Strurl = @"http://go.jummy.top/api/user/share/add.do";
+    NSString *CopyStr = @"http://go.jummy.top/api/user/share/add.do";
+    NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
 //    NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
 //    NSString *passwordStr = [NSString stringWithFormat:@"%@",self.password.text];
     NSDictionary *paramDict = @{@"share_id":@"11",
                                 @"type":@"JSON"
-                                };
-    [networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
-        NSLog(@"请求成功");
-        
-        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
-               pastboard.string = @"2222";
-               [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-                     [SVProgressHUD dismissWithDelay:0.8];
-        NSLog(@"*****%@",responseObj);
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"请求失败");
-    }];
+    };
+               //POST请求复制数据
+//    [networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
+//        NSLog(@"请求成功");
+//
+//
+//
+//        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+//               pastboard.string = @"2222";
+//               [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+//                     [SVProgressHUD dismissWithDelay:0.8];
+//        NSLog(@"*****%@",responseObj);
+//    } failure:^(NSError * _Nonnull error) {
+//        NSLog(@"请求失败");
+//    }];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:CopyStr]];
+        [request setValue:tokenStr forHTTPHeaderField:@"token"];
+        request.HTTPMethod = @"POST";
+        NSString *parameterStr = [NSString stringWithFormat:@"share_id=34&type=JSON"];
+        request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+       
+        NSURLSession *session = [NSURLSession sharedSession];
+           
+           NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+               //解析数据
+               NSLog(@"全部数据%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+               NSDictionary *dictCopy = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+               
+               NSLog(@"请求成功domain%@",dictCopy[@"data"][@"id"]);
+             
+               
+               
+            [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+            [SVProgressHUD dismissWithDelay:0.8];
+           }];
+           //5.执行Task
+        [dataTask resume];
+    }
 }
 static BOOL uerDefaultData(){
       //判断用户是否登录了
@@ -493,13 +626,103 @@ static BOOL uerDefaultData(){
 }
 //开通按钮1
 -(void)openServe1{
-    //判断用户是否登录了
-     self.buttonSelect = 1;
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *name = [userDefault objectForKey:@"name"];
-    if(name == nil){
-        [self loginAllert];
-    }
+    
+    //用户发起订单GET请求拿到ID
+    NSString *Strurl1 = @"http://go.jummy.top/pay/";
+//    NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
+//    NSString *passwordStr = [NSString stringWithFormat:@"%@",self.password.text];
+    NSDictionary *paramDict11 = @{
+                                @"type":@"JSON"
+                                };
+    [networktool get:Strurl1 params:paramDict11 success:^(id  _Nonnull responseObj) {
+        NSLog(@"查询码支付配置请求成功");
+        
+        NSLog(@"*****%@",responseObj);
+        NSArray *array = responseObj[@"data"];
+//        NSDictionary *dictPay = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        NSArray *dictPay = [NSArray mj_objectArrayWithKeyValuesArray:array];
+        //拿到配置id
+//        NSLog(@"配置ID%@",dictPay[@"pay_id"]);
+      
+        //解析数据
+        NSLog(@"查询码支付配置请求成功打印结果--%@",dictPay[0][@"id"]);
+        
+        self.payId = dictPay[0][@"id"];
+        
+        NSLog(@"%@",self.payId);
+          NSLog(@"self.PayID %@",self.payId);
+        //用户发起订单
+        [self sendBill:self.payId];
+    } failure:^(NSError * _Nonnull error) {
+         NSLog(@"请求失败");
+    }];
+ 
+   //用户发起支付订单
+//    [self sendBill];
+    
+}
+-(void)sendBill:(NSString *)payId{
+    //用户发起支付
+        //判断用户是否登录了
+        NSLog(@"点击开通按钮1");
+        self.buttonSelect = 1;
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        NSString *name = [userDefault objectForKey:@"name"];
+        if(name == nil){
+            [self loginAllert];
+        }
+        NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+        NSLog(@"订单的Token:%@",tokenStr);
+        NSString *ContentType = @"application/x-www-form-urlencoded";
+        //POST请求开通一个月
+        NSString *Strurl = @"http://go.jummy.top/api/order/add.do";
+//        NSDictionary *paramDict = @{
+//            @"pay_id":@1,
+//            @"price":@1.00,
+//            @"line_id":@1,
+//            @"type":@"JSON"
+//        };
+//        NSDictionary *paramDictHeader = @{
+//            @"token":tokenStr,
+//            @"Content-Type":ContentType
+//        };
+    //    [networktool postTokenpost:Strurl params:paramDict header:paramDictHeader success:^(id  _Nonnull responseObj) {
+    //        NSLog(@"请求成功");
+    //       NSLog(@"*****%@",responseObj);
+    //    } failure:^(NSError * _Nonnull error) {
+    //        NSLog(@"请求失败");
+    //    }];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:Strurl]];
+        [request setValue:tokenStr forHTTPHeaderField:@"token"];
+        [request setValue:ContentType forHTTPHeaderField:@"Content-Type"];
+        request.HTTPMethod = @"POST";
+        NSString *parameterStr = [NSString stringWithFormat:@"pay_id=%@&price=1.00&line_id=1&type=JSON",payId];
+        request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+        //栅栏函数
+    //     dispatch_queue_t queue =  dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
+        
+        //3.创建会话
+        NSURLSession *session = [NSURLSession sharedSession];
+        //4.创建task
+        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            //解析数据
+            NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+            NSDictionary *dictPay = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    //      NSDictionary *dataDict = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    //      NSString *payStr = dataDict[@"data"];
+            NSLog(@"请求token成功:%@",dictPay[@"data"][@"url"]);
+            //跳转网页
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     //跳转支付页面
+                    NSString *PriceStr = dictPay[@"data"][@"url"];
+                    NSURL *url = [NSURL URLWithString:PriceStr];
+                    SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:url];
+                    [self presentViewController:safariVc animated:YES completion:nil];
+                 });
+        }];
+        //5.执行Task
+        [dataTask resume];
+    //   CFRunLoopStop(CFRunLoopGetMain());
 }
 -(void)openServe2{
     //判断用户是否登录了
@@ -512,12 +735,49 @@ static BOOL uerDefaultData(){
     }
 }
 -(void)openServe3{
+    
     //判断用户是否登录了
     NSLog(@"点击开通按钮3");
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *name = [userDefault objectForKey:@"name"];
     if(name == nil){
-        [self loginAllert];
+        [self testAlert];
+//        [self addAlertView];
+//        [self loginAllert];
     }
+    
+}
+-(void)testAlert{
+      self.alertView1 = [[CustomIOSAlertView alloc] initWithParentView:self.view];
+      [self.alertView1 setContainerView:[self loginBtnView]];
+//      [alertView1 setButtonTitles:[NSMutableArray arrayWithObjects:@"立即更新", @"以后再说", nil]];
+      [self.alertView1 setButtonTitles:[NSMutableArray arrayWithObjects:@"取消", nil]];
+      [self.alertView1 setDelegate:self];
+      [self.alertView1 setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+//      [alertView1 close];
+      }];
+      [self.alertView1 setUseMotionEffects:true];
+      [self.alertView1 show];
+}
+-(void)testAlert2{
+      CustomIOSAlertView *alertView2 = [[CustomIOSAlertView alloc] initWithParentView:self.view];
+      [alertView2 setContainerView:[self loginBtnView]];
+//      [alertView1 setButtonTitles:[NSMutableArray arrayWithObjects:@"立即更新", @"以后再说", nil]];
+      [alertView2 setButtonTitles:[NSMutableArray arrayWithObjects:@"取消", nil]];
+      [alertView2 setDelegate:self];
+      [alertView2 setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+//      [alertView1 close];
+      }];
+      [alertView2 setUseMotionEffects:true];
+      [alertView2 show];
+}
+//假的弹窗
+#define alertW 243
+#define alertH 200
+-(void)addAlertView{
+    UIView *AlertView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - alertW)/2, (MJSSreenH - alertH)/2, alertW, alertW)];
+    AlertView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:AlertView];
 }
 @end

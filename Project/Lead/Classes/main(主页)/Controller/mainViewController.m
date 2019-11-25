@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *minuteTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *secondTime;
+@property (weak, nonatomic) IBOutlet UIImageView *addTimeView;
 
 @property (weak, nonatomic) IBOutlet UIButton *addTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *personCenterBtn;
@@ -44,11 +45,26 @@
 @property(nonatomic,strong) CustomIOSAlertView *alertView;
 @property(nonatomic,weak) UITextField *username;
 @property(nonatomic,weak) UITextField *password;
+@property(nonatomic,assign)NSInteger shoumiNS;
 
+@property(strong,nonatomic)pupView *myView;
 @end
 
 @implementation mainViewController
+//-(instancetype)init{
+//    if (self=[super init]) {
+//        self.title=@"视图一";
+//        [self.view addSubview:self.myView];
+////        _myView.delegate=self;//指定代理
+//    }
+//    return self;
+//}
+- (NSInteger)shoumiNS{
+        static int shoumiNS = 900;
+        _shoumiNS = shoumiNS;
 
+    return _shoumiNS;
+}
 - (CustomIOSAlertView *)alertView{
 	if(_alertView == nil){
 			CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
@@ -70,8 +86,20 @@
 	}
 	return _password;
 }
+- (void)rotateView:(UIImageView *)view
+{
+    CABasicAnimation *rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI*2.0];
+    rotationAnimation.duration = 3;
+    rotationAnimation.repeatCount = HUGE_VALF;
+    [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self rotateView:self.addTimeView];
     self.view.backgroundColor = MJSColor(61, 148, 182)
 //	self.Viewcontroller.frame = CGRectMake(0,64,375,29.5);
 ////	self.Viewcontroller.backgroundColor = [UIColor colorWithHexString:@"#001C58"];
@@ -115,8 +143,13 @@
 	label.numberOfLines = 0;
 	[self.view addSubview:label];
 	
-	[self.addTimeButton setTitle:@"增加 时长" forState:UIControlStateNormal];
+	[self.addTimeButton setTitle:@"增加时长" forState:UIControlStateNormal];
+    _addTimeButton.titleLabel.font= [UIFont systemFontOfSize:22];
+    UIColor *color = MJSColor(168, 42, 23);
+//    [self.addTimeButton setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
+    [self.addTimeButton setTitleColor:color forState:UIControlStateNormal];
 	self.addTimeButton.lineBreakMode = 0;
+    //240 109 87
 }
 //判断用户是否登录，登录后将用户名写入plist修改登录状态。
 
@@ -143,7 +176,7 @@
 		nil;
 	} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //		NSLog(@"请求成功 - %@",responseObject);
-		[responseObject writeToFile:@"/Users/kluth/Desktop/Canbee/Canbee/Canbee/Canbee/Classes/main(主页)/Model/hxposts.plist" atomically:YES ];
+//		[responseObject writeToFile:@"/Users/kluth/Desktop/Canbee/Canbee/Canbee/Canbee/Classes/main(主页)/Model/hxposts.plist" atomically:YES ];
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		NSLog(@"请求失败");
 	}];
@@ -242,8 +275,8 @@
 }
 //倒计时方法二
 -(void)timeout{
-	static int _shoumiNS = 20;
-	__block int timeout=_shoumiNS; //倒计时时间
+	 self.shoumiNS = 900;
+	__block int timeout = self.shoumiNS; //倒计时时间
 	
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	
@@ -445,6 +478,7 @@
 	superLinkViewController *superLink = [[superLinkViewController alloc]init];
 	[self presentViewController:superLink animated:YES completion:^{
 		NSLog(@"点击增加时长");
+   
 		
 	}];
 }
@@ -469,6 +503,8 @@
 -(void)sessionPost{
 	NSString *Strurl = @"http://go.jummy.top/api/user/";
 	NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
+
+
 	NSString *passwordStr = [NSString stringWithFormat:@"%@",self.password.text];
 	NSDictionary *paramDict = @{@"username":nameStr,
 								@"password":passwordStr,
@@ -549,6 +585,15 @@
 		[SVProgressHUD dismissWithDelay:0.8];
 		[self.alertView close];
         
+        //存储Token
+        NSString *dictArr22 = responseObj[@"data"][@"token"];
+        NSLog(@"token的值是:%@",dictArr22);
+        
+    
+//        NSDictionary *dict = [NSDictionary mj_objectArrayWithKeyValuesArray:dictArr];
+        
+        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             [self timeout];
         });
@@ -560,6 +605,7 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:self.username.text forKey:@"name"];
         [userDefaults setObject:self.password.text forKey:@"password"];
+        [userDefaults setObject:dictArr22 forKey:@"tokenStr"];
         [userDefaults synchronize];
 //            dispatch_async(queue, ^{
 //        NSLog(@"download3--------%@",[NSThread currentThread]);
@@ -581,9 +627,7 @@
 - (IBAction)addTimeBtnView:(id)sender {
 	
 	superLinkViewController *superLinkVc = [[superLinkViewController alloc]init];
-	[self presentViewController:superLinkVc animated:YES completion:^{
-		NSLog(@"点击增加时长");
-	}];
+    [self presentViewController:superLinkVc animated:YES completion:nil];
 }
 - (IBAction)onBtn:(id)sender {
 	NSLog(@"点击了开关按钮");
@@ -598,12 +642,7 @@
          
 	}
 }
-//深夜福利
-- (IBAction)nightWelfareBtn:(id)sender {
-	NSLog(@"点击了深夜福利按钮");
-	pupView *pup = [[pupView alloc]init];
-	[pup showInView];
-}
+
 //注销账号按钮
 - (IBAction)logoutBtn:(id)sender {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -611,7 +650,10 @@
     [userDefaults removeObjectForKey:@"password"];
     [userDefaults synchronize];
     [self loginRegisterAlert];
+    
+    self.shoumiNS = 0;
     NSLog(@"注销了账号");
+    
                       
 }
 //点击连接按钮
@@ -625,6 +667,28 @@
 //              }];
 //    });
   
+}
+//深夜福利
+- (IBAction)nightWelfareBtn:(id)sender {
+    NSLog(@"点击了深夜福利按钮");
+    pupView *pup = [[pupView alloc]init];
+    [pup showInView];
+     [self.view addSubview:self.myView];
+}
+-(pupView *)myView{
+    pupView *myView=[[pupView alloc]initWithFrame:CGRectMake( 0 ,-MJSSreenH/4,MJSSreenW/2, MJSSreenH/2)];
+    myView.backgroundColor=[UIColor orangeColor];
+    myView.layer.cornerRadius=27;
+    
+    //调用块
+    myView.clickTapBlock=^{
+        NSString *urlStr = @"https://www.baidu.com";
+        NSURL *url = [NSURL URLWithString:urlStr];
+         SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:url];
+        [self presentViewController:safariVc animated:YES completion:nil];
+    };
+    _myView = myView;
+    return _myView;
 }
 
 @end

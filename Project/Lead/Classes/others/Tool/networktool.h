@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
 
+
+/*POST Token*/
++(NSURLSessionDataTask *)postTokenpost:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)header success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
+
++(void)post;
 @end
 
 NS_ASSUME_NONNULL_END

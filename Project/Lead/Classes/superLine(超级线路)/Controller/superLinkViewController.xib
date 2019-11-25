@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="superLinkViewController">
             <connections>
-                <outlet property="segmenView" destination="Jyu-hg-hrv" id="09R-Rt-Gjz"/>
+                <outlet property="segmenView" destination="3B4-yo-SqX" id="Egv-xT-Ot6"/>
                 <outlet property="topBarView" destination="osC-HE-QRg" id="FnB-7O-7sR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,16 +23,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osC-HE-QRg">
                     <rect key="frame" x="0.0" y="44" width="460" height="44"/>
                     <subviews>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Jyu-hg-hrv">
-                            <rect key="frame" x="157.5" y="6" width="145" height="33"/>
-                            <segments>
-                                <segment title="黄金线路"/>
-                                <segment title="超级线路"/>
-                            </segments>
-                            <connections>
-                                <action selector="changesegment:" destination="-1" eventType="valueChanged" id="mh3-us-fpU"/>
-                            </connections>
-                        </segmentedControl>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="it9-uG-qK3">
                             <rect key="frame" x="10.5" y="13" width="10" height="17.5"/>
                             <constraints>
@@ -44,15 +34,26 @@
                                 <action selector="superLinjkViewback:" destination="-1" eventType="touchUpInside" id="WvL-aC-iwh"/>
                             </connections>
                         </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-yo-SqX">
+                            <rect key="frame" x="157.5" y="6.5" width="145" height="32"/>
+                            <segments>
+                                <segment title="黄金线路"/>
+                                <segment title="超级线路"/>
+                            </segments>
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <color key="selectedSegmentTintColor" red="0.45133084060000001" green="0.77969354390000001" blue="0.96083348989999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="changesegment:" destination="-1" eventType="valueChanged" id="oQx-O7-Et8"/>
+                            </connections>
+                        </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" red="0.45133084060000001" green="0.77969354390000001" blue="0.96083348989999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Jyu-hg-hrv" secondAttribute="bottom" constant="6" id="4Qc-Gc-NYB"/>
-                        <constraint firstItem="Jyu-hg-hrv" firstAttribute="centerX" secondItem="osC-HE-QRg" secondAttribute="centerX" id="6rn-zG-cyy"/>
                         <constraint firstAttribute="height" constant="44" id="FGm-kA-jUi"/>
+                        <constraint firstItem="3B4-yo-SqX" firstAttribute="centerY" secondItem="osC-HE-QRg" secondAttribute="centerY" id="Ovg-3l-mNI"/>
                         <constraint firstItem="it9-uG-qK3" firstAttribute="top" secondItem="osC-HE-QRg" secondAttribute="top" constant="13" id="kaa-ku-zxP"/>
                         <constraint firstItem="it9-uG-qK3" firstAttribute="leading" secondItem="osC-HE-QRg" secondAttribute="leading" constant="10.5" id="mNj-ep-10K"/>
-                        <constraint firstItem="Jyu-hg-hrv" firstAttribute="top" secondItem="osC-HE-QRg" secondAttribute="top" constant="6" id="uOa-y9-ptE"/>
+                        <constraint firstItem="3B4-yo-SqX" firstAttribute="centerX" secondItem="osC-HE-QRg" secondAttribute="centerX" id="sPT-k4-3QV"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgx-up-PVu">

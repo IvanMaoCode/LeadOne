@@ -111,11 +111,15 @@
         //解析数据
         [SVProgressHUD showSuccessWithStatus:responseObj[@"result"]];
         [SVProgressHUD dismissWithDelay:0.8];
-        
+        //token
+        //存储Token
+               NSString *dictArr22 = responseObj[@"data"][@"token"];
+               NSLog(@"token的值是:%@",dictArr22);
         //记录用户登录状态
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:self.IdAccountInput.text forKey:@"name"];
         [userDefaults setObject:self.passwordInput.text forKey:@"password"];
+         [userDefaults setObject:dictArr22 forKey:@"tokenStr"];
         [userDefaults synchronize];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSError * _Nonnull error) {
