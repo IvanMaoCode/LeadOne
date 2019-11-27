@@ -11,7 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface superLinkViewController : UIViewController
+{
+    NSString *countClickss;
+}
 
+@property(nonatomic,strong)void(^block)(void);
+-(void)setCountClickss:(NSString *)newsetCountClicks;
+-(NSString *)countClickss;
 @end
 
 NS_ASSUME_NONNULL_END

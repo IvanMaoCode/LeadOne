@@ -17,14 +17,17 @@
 #import "networktool.h"
 #import "superLinkViewController.h"
 #import "pupView.h"
-
+#import "deepNightController.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
+#import "labelScroll.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 //OC调用Swift的桥
 #import "Lead-Swift.h"
 
-@interface mainViewController ()<CustomIOSAlertViewDelegate>
+@interface mainViewController ()<CustomIOSAlertViewDelegate,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *noticeView;
 @property (weak, nonatomic) IBOutlet UIView *commoNav;
 @property (weak, nonatomic) IBOutlet UIView *personCenter;
@@ -47,7 +50,12 @@
 @property(nonatomic,weak) UITextField *password;
 @property(nonatomic,assign)NSInteger shoumiNS;
 
+@property (weak, nonatomic) IBOutlet UILabel *topNotice;
 @property(strong,nonatomic)pupView *myView;
+//定位服务
+@property (strong, nonatomic) CLLocationManager* manager;
+//记录注册城市
+@property (nonatomic,strong) NSString *registerCity;
 @end
 
 @implementation mainViewController
@@ -59,6 +67,20 @@
 //    }
 //    return self;
 //}
+//定位服务
+- (CLLocationManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [[CLLocationManager alloc] init];
+        
+        _manager.delegate = self;
+        // 请求前台授权
+        [_manager requestWhenInUseAuthorization];
+        // 请求前后台授权
+//        [_manager requestAlwaysAuthorization];
+    }
+    return _manager;
+}
 - (NSInteger)shoumiNS{
         static int shoumiNS = 900;
         _shoumiNS = shoumiNS;
@@ -99,6 +121,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //公告滚动 152 70 59
+    NSString *Str = @"每日不停跟新，每日不停跟新，每日不停跟新，每日不停更新";
+    labelScroll *label = [[labelScroll alloc]initWithFrame:CGRectMake(98, 0, 300, 29.5)];
+//    UIColor *colorTop = MJSColor(152, 70, 59);
+    [label setBackgroundColor:[UIColor clearColor]];
+    label.labelText = Str ;
+//    label.layer.cornerRadius = 12.5;
+    [self.noticeView addSubview:label];
+    
+    
     [self rotateView:self.addTimeView];
     self.view.backgroundColor = MJSColor(61, 148, 182)
 //	self.Viewcontroller.frame = CGRectMake(0,64,375,29.5);
@@ -411,11 +443,27 @@
 }
 - (UIView *)createDemoView
 {
+    
+   
 	UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 243, 200)];
 	
-	
+    //用户名与密码框的背景图
+      UIView *countBg = [[UIView alloc] initWithFrame:CGRectMake(24, 50, 195, 30)];
+    countBg.backgroundColor = [UIColor whiteColor];
+    countBg.layer.cornerRadius = 5;
+    [demoView addSubview:countBg];
+//   UIImageView *imageVc1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 30)];
+//       imageVc1.image = [UIImage imageNamed:@"countImage"];
+//    [countBg addSubview:imageVc1];
+    
+    UIView *countBg1 = [[UIView alloc] initWithFrame:CGRectMake(24, 95, 195, 30)];
+       countBg1.backgroundColor = [UIColor whiteColor];
+    countBg1.layer.cornerRadius = 5;
+       [demoView addSubview:countBg1];
+ 
+    
 	//	_username = [[UITextField alloc] init];
-	[self.username setFrame:CGRectMake(24, 50, 194.5, 30)];
+	[self.username setFrame:CGRectMake(40, 50, 170, 30)];
 	[self.username setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     self.username.textColor = [UIColor blackColor];
     //placeholder属性
@@ -428,7 +476,7 @@
 	//[self.username addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
 	
 	self.password.secureTextEntry = YES;
-	[self.password setFrame:CGRectMake(24,90, 194.5, 30)];
+	[self.password setFrame:CGRectMake(40,95, 170, 30)];
     //placeholder属性
     NSAttributedString *attrString2 = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:
           @{NSForegroundColorAttributeName:[UIColor grayColor],
@@ -458,13 +506,13 @@
 	[passwordBtn addTarget:self action:@selector(loginBtn:password:) forControlEvents:UIControlEventTouchUpInside];
 	//提示用户需要登录注册
 	UILabel *noticeLabel = [[UILabel alloc] init];
-	NSString *str = @"账号登陆：直接填写账号密码即可登录";
+	NSString *str = @"账号登陆: 直接填写账号密码即可登录";
 	noticeLabel.text = str;
 	noticeLabel.textColor = [UIColor redColor];
 	
 	[noticeLabel setFont:[UIFont systemFontOfSize:12]];
 	//	noticeLabel.text attr
-	[noticeLabel setFrame:CGRectMake(20, 6, 243, 12)];
+	[noticeLabel setFrame:CGRectMake(20, 16, 243, 12)];
 	
 	[demoView addSubview:self.username];
 	[demoView addSubview:self.password];
@@ -508,6 +556,8 @@
 	NSString *passwordStr = [NSString stringWithFormat:@"%@",self.password.text];
 	NSDictionary *paramDict = @{@"username":nameStr,
 								@"password":passwordStr,
+                                @"system":@"1",
+                                @"region":self.registerCity,
 								@"type":@"JSON"
 								};
 	[networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
@@ -631,6 +681,8 @@
 }
 - (IBAction)onBtn:(id)sender {
 	NSLog(@"点击了开关按钮");
+    //开启定位服务功能
+    [self.manager startUpdatingLocation];
     //判断用户是否登录了
       NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
       NSString *name = [userDefault objectForKey:@"name"];
@@ -671,12 +723,21 @@
 //深夜福利
 - (IBAction)nightWelfareBtn:(id)sender {
     NSLog(@"点击了深夜福利按钮");
-    pupView *pup = [[pupView alloc]init];
-    [pup showInView];
-     [self.view addSubview:self.myView];
+    deepNightController *deepNightVc = [[deepNightController alloc] init];
+    
+    [self presentViewController:deepNightVc animated:YES completion:^{
+        NSLog(@"进入了深夜福利");
+    }];
+
+    //方法二
+//    pupView *pup = [[pupView alloc]init];
+//    [pup showInView];
+//     [self.view addSubview:self.myView];
+    
+
 }
 -(pupView *)myView{
-    pupView *myView=[[pupView alloc]initWithFrame:CGRectMake( 0 ,-MJSSreenH/4,MJSSreenW/2, MJSSreenH/2)];
+    pupView *myView=[[pupView alloc]initWithFrame:CGRectMake( 50 ,-MJSSreenH/4,MJSSreenW/2, MJSSreenH/2)];
     myView.backgroundColor=[UIColor orangeColor];
     myView.layer.cornerRadius=27;
     
@@ -690,5 +751,29 @@
     _myView = myView;
     return _myView;
 }
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *newLocation = locations[0];
+    CLLocationCoordinate2D oldCoordinate = newLocation.coordinate;
+    NSLog(@"旧的经度：%f,旧的纬度：%f",oldCoordinate.longitude,oldCoordinate.latitude);
+    [manager stopUpdatingLocation];
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+         for (CLPlacemark *place in placemarks) {
+//           NSLog(@"name,%@",place.name);                       // 位置名
+//           NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道
+//           NSLog(@"subThoroughfare,%@",place.subThoroughfare); // 子街道
+             NSLog(@"%@",place.locality);//市
+//           NSLog(@"subLocality,%@",place.subLocality);         // 区
+//           NSLog(@"country,%@",place.country);                 // 国家
 
+//             if ([JudgeIDAndBankCard isEmptyOrNull:place.locality]) {
+//                 _gpsCityName=@"定位失败";
+//             }
+//             WRITE_DATA(place.locality, @"CITY_JC_NAME");
+             
+            self.registerCity = place.locality;
+             NSLog(@"%@",self.registerCity);
+    }
+    }];
+}
 @end

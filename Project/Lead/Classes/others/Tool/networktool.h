@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
  发送GET请求
  */
 +(void)get:(NSString *)url params:(NSDictionary *)params success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
+
+/*有token的GET请求**/
++(void)get:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)headerStr success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
 /*
  发送POST请求
  */
@@ -23,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*POST Token*/
 +(NSURLSessionDataTask *)postTokenpost:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)header success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
-
++(NSString *)get:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)headerStr successforValue:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;
 +(void)post;
 @end
 

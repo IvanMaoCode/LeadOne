@@ -27,6 +27,42 @@
 		}
 	}];
 }
+
+//有token的GET请求
++(void)get:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)headerStr success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure{
+    //1.获得请求管理者
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    //2.发送GET请求
+    [mgr GET:url parameters:params headers:headerStr progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if(success){
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if(failure){
+            failure(error);
+        }
+    }];
+}
+////有返回值 的 token的GET请求
+//+(NSString *)get:(NSString *)url params:(NSDictionary *)params header:(NSDictionary *)headerStr successforValue:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure{
+//    //1.获得请求管理者
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//    
+//    //2.发送GET请求
+//    [mgr GET:url parameters:params headers:headerStr progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        if(success){
+//            success(responseObject);
+//        }
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        if(failure){
+//            failure(error);
+//        }
+//    }];
+//    NSString *str;
+//    return  str;
+//}
+
 /*
  发送POST请求
  */

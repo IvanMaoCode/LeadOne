@@ -14,10 +14,12 @@
 #import "networktool.h"
 #import "MJExtension.h"
 #import "SafariServices/SafariServices.h"
-
+#import "personCenterViewController.h"
 #import "billClass.h"
+#import "labelScroll.h"
 @class billClass;
 @interface superLinkViewController ()<CustomIOSAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *defLineSpeci;
 @property(nonatomic,strong) billClass *item;
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
 //@property (weak, nonatomic) IBOutlet UIButton *linkBtn;
@@ -35,20 +37,55 @@
 @property(nonatomic,strong) CustomIOSAlertView *alertView;
 @property(nonatomic,strong) CustomIOSAlertView *alertView1;
 @property(nonatomic,strong) NSString *payId;
+@property (nonatomic,strong) UISegmentedControl *segmentControl;
+@property(nonatomic,assign) NSInteger indexSelect;
+@property(nonatomic,strong)NSString *share_id;
+//统计点击链接次数
+@property(nonatomic,strong)NSString *ClickCount;
 
+//分享信息视图
+@property(nonatomic,strong)UIView *DefinShareInfoView;
 @end
     static NSString *length;
     static NSString *priceBill;
     static NSString *sharePriceBill;
+    static NSString *oneId;
+    static NSString *price1;
 
     static NSString *length1;
     static NSString *priceBill1;
     static NSString *sharePriceBill1;
+    static NSString *twoId;
+    static NSString *price2;
 
     static NSString *length2;
     static NSString *priceBill2;
     static NSString *sharePriceBill2;
+    static NSString *threeId;
+    static NSString *price3;
+
 @implementation superLinkViewController
+#define shareViewW 360
+#define shareViewH 250
+- (UIView *)DefinShareInfoView{
+    if(_DefinShareInfoView == nil){
+        _DefinShareInfoView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - shareViewW)/2, 380, shareViewW, shareViewH)];
+    }
+    return _DefinShareInfoView;
+}
+//- (NSString *)ClickCount{
+//    if (_ClickCount == nil) {
+//        _ClickCount = @"dd";
+//
+//    }
+//    return _ClickCount;
+//}
+-(void)setCountClickss:(NSString *)newsetCountClicks{
+    countClickss = newsetCountClicks;
+}
+-(NSString *)countClickss{
+    return countClickss;
+}
 - (void)setItem:(billClass *)item{
     _item = item;
    
@@ -72,8 +109,26 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 //	}
 //	return _alertView;
 //}
+  NSMutableString *globalString;
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    //线路特点
+        //公告滚动 152 70 59
+        NSString *Str = @"超级飞快的线路 超级飞快的线路 超级飞快的线路 超级飞快的线路";
+        labelScroll *label = [[labelScroll alloc]initWithFrame:CGRectMake(120, 0, 300, 29.5)];
+    //    UIColor *colorTop = MJSColor(152, 70, 59);
+        [label setBackgroundColor:[UIColor clearColor]];
+        label.labelText = Str ;
+    //    label.layer.cornerRadius = 12.5;
+        [self.defLineSpeci addSubview:label];
+    
+    if(_block){
+        _block();
+        NSLog(@"进来了");
+      [self.segmentControl setEnabled:YES forSegmentAtIndex:1];
+        self.indexSelect = 1;
+    };
+
 	// Do any additional setup after loading the view from its nib.
 	self.segmenView.layer.borderWidth = 1;
 	self.segmenView.backgroundColor = [UIColor clearColor];
@@ -88,32 +143,6 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 	NSDictionary *dics = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
 	[self.segmenView setTitleTextAttributes:dics forState:UIControlStateNormal];
 	
-//	self.linkBtn.mjs_width = 100;
-//	self.linkBtn.layer.borderWidth = 1;
-//	self.linkBtn.layer.borderColor = [[UIColor yellowColor] CGColor];
-//	self.linkBtn.layer.cornerRadius = 14.5;
-//
-//	self.btn1.layer.borderWidth = 1;
-//	self.btn1.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
-//	self.btn1.layer.cornerRadius = 12.3;
-//	[self.btn1 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-//
-//	self.btn2.layer.borderWidth = 1;
-//	self.btn2.layer.borderColor = [[UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1] CGColor ];
-//	self.btn2.layer.cornerRadius = 12.3;
-//	self.btn2.backgroundColor = [UIColor colorWithRed:196/255.0 green:170/255.0 blue:106/255.0 alpha:1];
-//	[self.btn2 addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-//	[self.btn2 setTag:1];
-//
-//
-//	self.btn.layer.borderWidth = 1;
-//	self.btn.layer.borderColor = [[UIColor colorWithRed:108/255.0 green:167/255.0 blue:47/255.0 alpha:1] CGColor ];
-//	self.btn.layer.cornerRadius = 12.3;
-//	[self.btn addTarget:self action:@selector(allert) forControlEvents:UIControlEventTouchUpInside];
-//
-	//设置打开页面默认为黄金线路
-	[self addnewView];
-    
     
        
            //GET 请求套餐
@@ -124,31 +153,38 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
                @"type":@"JSON"
            };
             
-                  //栅栏函数
-                   //获取全局并发队列
-                   //栅栏函数不能使用全局并发队列
-           //        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-              dispatch_group_t group = dispatch_group_create();
-
-           //异步函数
-       //  dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
            [networktool get:Strurl params:parameters success:^(id  _Nonnull responseObj) {
-               NSLog(@"请求成功%@",responseObj[@"data"]);
+//               NSLog(@"请求成功%@",responseObj[@"data"]);
                NSArray *dict = [NSArray mj_objectArrayWithKeyValuesArray:responseObj[@"data"]];
-               NSLog(@"%@",dict[0][@"price"]);
-               NSLog(@"%@",dict[0][@"share"]);
-               NSLog(@"%@length:",dict[0][@"length"]);
+               
                priceBill = dict[0][@"price"];
                sharePriceBill = dict[0][@"share"];
                length = dict[0][@"length"];
+               oneId = dict[0][@"id"];
+               price1 = dict[0][@"price"];
                
                priceBill1 = dict[1][@"price"];
                sharePriceBill1 = dict[1][@"share"];
                length1 = dict[1][@"length"];
+               twoId = dict[1][@"id"];
+               price2 = dict[1][@"price"];
                
                priceBill2 = dict[2][@"price"];
                sharePriceBill2 = dict[2][@"share"];
                length2 = dict[2][@"length"];
+               threeId = dict[2][@"id"];
+               price3 = dict[2][@"price"];
+               //请求成功数据后，加载页面
+               if(self.indexSelect == 1){
+                        //超级线路
+                        [self userdefinView];
+                        [self shareInfoView];
+                   self.segmenView.selectedSegmentIndex = 1;
+                    }else{
+                   
+                    //设置打开页面默认为黄金线路
+                        [self addnewView];
+                    }
                
            } failure:^(NSError * _Nonnull error) {
                NSLog(@"请求失败");
@@ -168,24 +204,6 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
         NSLog(@"已经登录直接购买");
     }
 }
-//点击复制链接按钮
-//- (IBAction)copyLinkBtn:(id)sender {
-//    //判断用户是否已经登录
-//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//    NSString *name = [userDefault objectForKey:@"name"];
-//    if(name == nil){
-//        [self.linkBtn setTag:2];
-//        self.buttonSelect = 2;
-//        [self loginAllert];
-//    }else{
-//        NSLog(@"复制了链接");
-//        
-//        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
-//        pastboard.string = @"2222";
-//        [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-//              [SVProgressHUD dismissWithDelay:0.8];
-//    }
-//}
 #pragma - mark CustomIOSAlertViewDelegate
 - (void)customIOS7dialogButtonTouchUpInside: (CustomIOSAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
 {
@@ -264,7 +282,7 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 			break;
 		case 0:
 			
-            NSLog(@"点击了黄金线路");
+            NSLog(@"点击了黄金线路lee");
 //			[self alertbuy];
 			[self addnewView];
 			break;
@@ -274,10 +292,264 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
 	}
 }
 //套餐视图
-#define PriceViewW 320
+#define PriceViewW 360
 #define PriceViewH 250
 #define ButtonH 32
 #define ButtonW 70
+
+
+
+//复制链接视图
+-(void)shareInfoView{
+     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        //  先拿到share_id
+       NSString *getShared_IDStr = @"http://go.jummy.top/share/user/1?size=1";
+       NSDictionary *paramDictShare = @{
+                                   @"type":@"JSON"
+                                   };
+       dispatch_async(dispatch_get_main_queue(), ^{
+           //    GET请求复制数据
+               [networktool get:getShared_IDStr params:paramDictShare success:^(id  _Nonnull responseObj) {
+
+                   NSLog(@"获取到share_id%@",responseObj[@"data"][@"data"][0][@"id"]);
+                   self.share_id = responseObj[@"data"][@"data"][0][@"id"];
+
+
+                       //GET请求获取用户点击分享时候的记录
+                  
+                   NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+                       NSString *Strurl = [NSString stringWithFormat:@"http://go.jummy.top/share/%@",self.share_id];
+                       NSLog(@"dkgdfsgfghfhd%@",self.share_id);
+
+                       NSDictionary *paramDict = @{
+                                                   @"type":@"JSON"
+                                                   };
+                       NSDictionary *headerPara = @{
+                                                    @"token":tokenStr
+                                                    };
+                   
+                   [networktool get:Strurl params:paramDict header:headerPara success:^(id  _Nonnull responseObj) {
+                       NSLog(@"%@请求成功",responseObj[@"data"][@"number"]);
+                       self.ClickCount = responseObj[@"data"][@"number"];
+                       self.ClickCount =[NSString stringWithFormat:@"%@",responseObj[@"data"][@"number"]];
+                    
+                       //把点击次数添加
+                       UILabel *countLabel = [[UILabel alloc ]initWithFrame:CGRectMake(180, 90, 150, 14)];
+                       countLabel.text = self.ClickCount;
+                       countLabel.textColor = [UIColor whiteColor];
+                       [self.DefinShareInfoView addSubview:countLabel];
+                       
+                   } failure:^(NSError * _Nonnull error) {
+                       NSLog(@"请求失败");
+                   }];
+                   
+
+//                            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//                            NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+//                             NSString *Strurl = [NSString stringWithFormat:@"http://go.jummy.top/share/%@",self.share_id];
+//                            NSLog(@"%@",Strurl);
+//                            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:Strurl]];
+//                            [request setValue:tokenStr forHTTPHeaderField:@"token"];
+//                            request.HTTPMethod = @"GET";
+////                            NSString *parameterStr = [NSString stringWithFormat:@"type=JSON"];
+////                            request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+//
+//                            NSURLSession *session = [NSURLSession sharedSession];
+//
+//                               NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//                                   //解析数据
+//                                    NSDictionary *dictCountData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//
+//                                   NSLog(@"请求到的点击次数的数据%@",dictCountData[@"data"][@"number"]);
+//                                   self.ClickCount = dictCountData[@"data"][@"number"];
+//                               }];
+//                               //5.执行Task
+//                            [dataTask resume];
+                   
+                   
+               } failure:^(NSError * _Nonnull error) {
+                   NSLog(@"请求失败");
+               }];
+         });
+    
+ 
+
+       [self setShareViewUI];
+    
+}
+-(void)setShareViewUI{
+    
+        self.DefinShareInfoView.backgroundColor = [UIColor colorWithRed:80/255.0 green:202/255.0 blue:249/255.0 alpha:1.0];
+        self.DefinShareInfoView.layer.cornerRadius = 7;
+        [self.view addSubview: self.DefinShareInfoView];
+        
+        UILabel *shareInfoTitle = [[UILabel alloc]initWithFrame:CGRectMake((shareViewW - 80)/2, 15, 80, 14)];
+        [shareInfoTitle setText:@"分享信息"];
+        [shareInfoTitle setTextColor:[UIColor whiteColor]];
+        [self.DefinShareInfoView addSubview:shareInfoTitle];
+        
+        UILabel *sharelink = [[UILabel alloc]initWithFrame:CGRectMake(60, 55, 80, 14)];
+           [sharelink setText:@"分享链接"];
+           [sharelink setTextColor:[UIColor whiteColor]];
+           
+           [ self.DefinShareInfoView addSubview:sharelink];
+        //复制按钮
+        UIButton *copyLinkButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 45, 80, 33)];
+        [copyLinkButton setTitle:@"复制链接" forState:UIControlStateNormal];
+        [copyLinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+         [copyLinkButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
+        [copyLinkButton setTintColor:[UIColor blackColor]];
+        copyLinkButton.layer.borderWidth = 1;
+        copyLinkButton.layer.cornerRadius = 13.4;
+        [copyLinkButton addTarget:self action:@selector(countClicks) forControlEvents:UIControlEventTouchUpInside];
+        [self.DefinShareInfoView addSubview:copyLinkButton];
+        //点击链接次数
+        UILabel *clickShareCount = [[UILabel alloc]initWithFrame:CGRectMake(60, 90, 150, 14)];
+              [clickShareCount setText:[NSString stringWithFormat:@"链接点击次数:"]];
+    //          [clickShareCount setText:[NSString stringWithFormat:@"链接点击次数:10"]];
+              [clickShareCount setTextColor:[UIColor whiteColor]];
+              [self.DefinShareInfoView addSubview:clickShareCount];
+        //图标
+        UIImage *image1 = [UIImage imageNamed:@"triangle"];
+        UIImageView *imageView1 = [[UIImageView alloc] init];
+        imageView1.frame = CGRectMake(12, 130, 10, 10);
+        imageView1.image = image1;
+        [self.DefinShareInfoView addSubview:imageView1];
+        
+        UIImage *image2 = [UIImage imageNamed:@"triangle"];
+           UIImageView *imageView2 = [[UIImageView alloc] init];
+           imageView2.frame = CGRectMake(12, 160, 10, 10);
+           imageView2.image = image2;
+           [self.DefinShareInfoView addSubview:imageView2];
+        
+        //解释label
+        NSString *guild1Str = @"复制链接后，通过QQ和微信分享给好友或群";
+         NSString *guild1Str2 = @"点击次数超过5次按分享价购买，超过10次买";
+        NSString *guildStr3 = @"几个月就送几个月!";
+        
+        NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:guild1Str];
+                //段落样式
+    //       NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    //       paragraphStyle.baseWritingDirection = NSWritingDirectionLeftToRight;
+             [attributeStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guild1Str.length)];
+             // 改变颜色
+             [attributeStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guild1Str.length)];
+        UILabel *guild1Strlabel = [[UILabel alloc] initWithFrame:CGRectMake(28, 130, 320, 10)];
+        guild1Strlabel.attributedText = attributeStr;
+        [self.DefinShareInfoView addSubview:guild1Strlabel];
+        
+        
+        NSMutableAttributedString *attributeStr2 = [[NSMutableAttributedString alloc] initWithString:guild1Str2];
+        [attributeStr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guild1Str2.length)];
+        [attributeStr2 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guild1Str2.length)];
+        UILabel *guild1Strlabel2 = [[UILabel alloc] initWithFrame:CGRectMake(28, 160, 320, 10)];
+           guild1Strlabel2.attributedText = attributeStr2;
+           [self.DefinShareInfoView addSubview:guild1Strlabel2];
+        
+        NSMutableAttributedString *attributeStr3 = [[NSMutableAttributedString alloc] initWithString:guildStr3];
+           [attributeStr3 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guildStr3.length)];
+           [attributeStr3 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guildStr3.length)];
+           UILabel *guildStr33 = [[UILabel alloc] initWithFrame:CGRectMake(28, 180, 320, 10)];
+              guildStr33.attributedText = attributeStr3;
+              [self.DefinShareInfoView addSubview:guildStr33];
+        
+}
+//解说说明视图
+-(void)addnewView{
+	self.addView = [[UIView alloc]initWithFrame:CGRectMake(0,73.5, MJSSreenW, MJSSreenH - 93.5)];
+	self.addView.backgroundColor = MJSColor(248, 248, 248);
+	//解锁免费使用
+	UIButton *openBtn = [[UIButton alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 85.5, 80, 171, 65)];
+	openBtn.layer.cornerRadius = 10.5;
+	openBtn.backgroundColor = [UIColor clearColor];
+	[openBtn setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
+	[self.addView addSubview:openBtn];
+	[openBtn addTarget:self action:@selector(openBtn) forControlEvents:UIControlEventTouchUpInside];
+	
+	//解锁说明布局
+	UIView *instuctView = [[UIView alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 135.5, 180, 271, 346)];
+	instuctView.layer.borderWidth = 0.4;
+	instuctView.layer.cornerRadius = 7.5;
+	
+	UILabel *instructLabel = [[UILabel alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 148.5/2 , 230, 148.5, 12)];
+	instructLabel.text = @"这里是解锁说明";
+	[self.addView addSubview:instructLabel];
+	[self.addView addSubview:instuctView];
+	[self.view addSubview:self.addView];
+}
+
+-(void)openBtn{
+	insallAppViewController *installAppVc = [[insallAppViewController alloc]init];
+	
+	[self presentViewController:installAppVc animated:YES completion:^{
+		NSLog(@"点击了解锁");
+	}];
+	NSLog(@"点击了按钮");
+}
+//链接点击复制
+-(void)countClicks{
+     self.buttonSelect = 2;
+    //判断用户是否登录了
+       NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+       NSString *name = [userDefault objectForKey:@"name"];
+       NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+       if(name == nil){
+           [self testAlert];
+       }else{
+            NSLog(@"点击了复制链接按钮");
+            [self doCopyLink];
+         
+       }
+}
+//进行复制操作
+-(void)doCopyLink{
+
+      NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+     NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
+      NSString *CopyStr = @"http://go.jummy.top/share/user/1?size=1";
+//      NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:CopyStr]];
+//      [request setValue:tokenStr forHTTPHeaderField:@"token"];
+//      request.HTTPMethod = @"POST";
+//      NSString *parameterStr = [NSString stringWithFormat:@"share_id=%@&type=JSON",self.share_id];
+//      request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+//
+//      NSURLSession *session = [NSURLSession sharedSession];
+//
+//         NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//             //解析数据
+//             NSLog(@"点击复制的全部数据%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//             NSDictionary *dictCopy = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//
+////                          NSLog(@"请求拷贝成功domain%@",dictCopy[@"data"][@"share"][@"domain"]);
+////
+////                         UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+////                       pastboard.string = [NSString stringWithFormat:@"点击链接%@进入旋风加速器了解详情", dictCopy[@"data"][@"share"][@"domain"]];
+
+//          [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+//          [SVProgressHUD dismissWithDelay:0.8];
+//         }];
+//         //5.执行Task
+//      [dataTask resume];
+        NSDictionary *copyLinkeParas = @{
+                                            @"type":@"JSON"
+                                        };
+        NSDictionary *copyLinkeHeaders = @{
+                                            @"token":tokenStr
+                                          };
+    
+        [networktool get:CopyStr params:copyLinkeParas header:copyLinkeHeaders success:^(id  _Nonnull responseObj) {
+            NSLog(@"拷贝链接请求成功");
+            NSLog(@"%@",responseObj[@"data"][@"data"][0][@"domain"]);
+            
+                   UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+                                   pastboard.string = [NSString stringWithFormat:@"点击链接%@进入旋风加速器了解详情", responseObj[@"data"][@"data"][0][@"domain"]];
+            
+                      [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+                      [SVProgressHUD dismissWithDelay:0.8];
+        } failure:^(NSError * _Nonnull error) {
+          NSLog(@"拷贝链接请求失败");
+        }];
+}
 //套餐视图
 -(void)userdefinView{
   
@@ -309,11 +581,11 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
             
 //       dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
     
-    UIColor *borderColor = MJSColor(166, 166, 166);
     UIView *PriceView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - PriceViewW)/2, 110, PriceViewW, PriceViewH)];
     PriceView.layer.borderWidth = 0.7;
     PriceView.layer.borderColor = [[UIColor grayColor] CGColor];
-
+    PriceView.layer.cornerRadius = 7;
+    
     //添加时长，原价，分享价格label
     UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, PriceViewW / 4, PriceViewH/5)];
     timeLabel.text = @"   时长";
@@ -425,7 +697,7 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
     // 改变字体大小
     NSString *Str = @"            分享链接超过5次点击按分享价购买\n              超过10次点击买几个月送几个月！";
       NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:Str];
-         //段落样式
+    //段落样式
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.baseWritingDirection = NSWritingDirectionLeftToRight;
       [attributeStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,Str.length)];
@@ -444,189 +716,15 @@ static NSString *const MJSTopicCellId = @"MJSTopicCellId";
     [self.view addSubview:PriceView];
   
 }
-
-#define shareViewW 320
-#define shareViewH 230
-//复制链接视图
--(void)shareInfoView{
-    
-    UIView *shareInfoView = [[UIView alloc] initWithFrame:CGRectMake((MJSSreenW - shareViewW)/2, 380, shareViewW, shareViewH)];
-    shareInfoView.backgroundColor = [UIColor colorWithRed:80/255.0 green:202/255.0 blue:249/255.0 alpha:1.0];
-    [self.view addSubview:shareInfoView];
-    
-    UILabel *shareInfoTitle = [[UILabel alloc]initWithFrame:CGRectMake((shareViewW - 80)/2, 15, 80, 14)];
-    [shareInfoTitle setText:@"分享信息"];
-    [shareInfoTitle setTextColor:[UIColor whiteColor]];
-    [shareInfoView addSubview:shareInfoTitle];
-    
-    UILabel *sharelink = [[UILabel alloc]initWithFrame:CGRectMake(60, 55, 80, 14)];
-       [sharelink setText:@"分享链接"];
-       [sharelink setTextColor:[UIColor whiteColor]];
-       
-       [shareInfoView addSubview:sharelink];
-    //复制按钮
-    UIButton *copyLinkButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 45, 80, 33)];
-    [copyLinkButton setTitle:@"复制链接" forState:UIControlStateNormal];
-    [copyLinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-     [copyLinkButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    [copyLinkButton setTintColor:[UIColor blackColor]];
-    copyLinkButton.layer.borderWidth = 1;
-    copyLinkButton.layer.cornerRadius = 13.4;
-    [copyLinkButton addTarget:self action:@selector(countClicks) forControlEvents:UIControlEventTouchUpInside];
-    [shareInfoView addSubview:copyLinkButton];
-    //点击链接次数
-    UILabel *clickShareCount = [[UILabel alloc]initWithFrame:CGRectMake(60, 90, 130, 14)];
-          [clickShareCount setText:@"链接点击次数:0"];
-          [clickShareCount setTextColor:[UIColor whiteColor]];
-          [shareInfoView addSubview:clickShareCount];
-    //图标
-    UIImage *image1 = [UIImage imageNamed:@"triangle"];
-    UIImageView *imageView1 = [[UIImageView alloc] init];
-    imageView1.frame = CGRectMake(12, 130, 10, 10);
-    imageView1.image = image1;
-    [shareInfoView addSubview:imageView1];
-    
-    UIImage *image2 = [UIImage imageNamed:@"triangle"];
-       UIImageView *imageView2 = [[UIImageView alloc] init];
-       imageView2.frame = CGRectMake(12, 160, 10, 10);
-       imageView2.image = image2;
-       [shareInfoView addSubview:imageView2];
-    
-    //解释label
-    NSString *guild1Str = @"复制链接后，通过QQ和微信分享给好友或群";
-     NSString *guild1Str2 = @"点击次数超过5次按分享价购买，超过10次";
-    NSString *guildStr3 = @"买几个月就送几个月!";
-    
-    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:guild1Str];
-            //段落样式
-//       NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//       paragraphStyle.baseWritingDirection = NSWritingDirectionLeftToRight;
-         [attributeStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guild1Str.length)];
-         // 改变颜色
-         [attributeStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guild1Str.length)];
-    UILabel *guild1Strlabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 130, 300, 10)];
-    guild1Strlabel.attributedText = attributeStr;
-    [shareInfoView addSubview:guild1Strlabel];
-    
-    
-    NSMutableAttributedString *attributeStr2 = [[NSMutableAttributedString alloc] initWithString:guild1Str2];
-    [attributeStr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guild1Str2.length)];
-    [attributeStr2 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guild1Str2.length)];
-    UILabel *guild1Strlabel2 = [[UILabel alloc] initWithFrame:CGRectMake(22, 160, 300, 10)];
-       guild1Strlabel2.attributedText = attributeStr2;
-       [shareInfoView addSubview:guild1Strlabel2];
-    
-    NSMutableAttributedString *attributeStr3 = [[NSMutableAttributedString alloc] initWithString:guildStr3];
-       [attributeStr3 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0,guildStr3.length)];
-       [attributeStr3 addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, guildStr3.length)];
-       UILabel *guildStr33 = [[UILabel alloc] initWithFrame:CGRectMake(22, 180, 300, 10)];
-          guildStr33.attributedText = attributeStr3;
-          [shareInfoView addSubview:guildStr33];
-    
-}
-//解说说明视图
--(void)addnewView{
-	self.addView = [[UIView alloc]initWithFrame:CGRectMake(0,93.5, MJSSreenW, MJSSreenH - 93.5)];
-	self.addView.backgroundColor = MJSColor(248, 248, 248);
-	//解锁免费使用
-	UIButton *openBtn = [[UIButton alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 85.5, 80, 171, 65)];
-	openBtn.layer.cornerRadius = 10.5;
-	openBtn.backgroundColor = [UIColor clearColor];
-	[openBtn setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
-	[self.addView addSubview:openBtn];
-	[openBtn addTarget:self action:@selector(openBtn) forControlEvents:UIControlEventTouchUpInside];
-	
-	//解锁说明布局
-	UIView *instuctView = [[UIView alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 135.5, 180, 271, 346)];
-	instuctView.layer.borderWidth = 0.4;
-	instuctView.layer.cornerRadius = 7.5;
-	
-	UILabel *instructLabel = [[UILabel alloc] initWithFrame:CGRectMake(MJSSreenW/2 - 148.5/2 , 230, 148.5, 12)];
-	instructLabel.text = @"这里是解锁说明";
-	[self.addView addSubview:instructLabel];
-	[self.addView addSubview:instuctView];
-	[self.view addSubview:self.addView];
-}
-
--(void)openBtn{
-	insallAppViewController *installAppVc = [[insallAppViewController alloc]init];
-	
-	[self presentViewController:installAppVc animated:YES completion:^{
-		NSLog(@"点击了解锁");
-	}];
-	NSLog(@"点击了按钮");
-}
-//计算链接点击次数
--(void)countClicks{
-     self.buttonSelect = 2;
-    //判断用户是否登录了
-       NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-       NSString *name = [userDefault objectForKey:@"name"];
-       if(name == nil){
-           [self testAlert];
-       }else{
-    NSLog(@"点击了复制链接按钮");
-           
-    
-    NSString *CopyStr = @"http://go.jummy.top/api/user/share/add.do";
-    NSString *tokenStr = [userDefault objectForKey:@"tokenStr"];
-//    NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
-//    NSString *passwordStr = [NSString stringWithFormat:@"%@",self.password.text];
-    NSDictionary *paramDict = @{@"share_id":@"11",
-                                @"type":@"JSON"
-    };
-               //POST请求复制数据
-//    [networktool post:Strurl params:paramDict success:^(id  _Nonnull responseObj) {
-//        NSLog(@"请求成功");
-//
-//
-//
-//        UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
-//               pastboard.string = @"2222";
-//               [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-//                     [SVProgressHUD dismissWithDelay:0.8];
-//        NSLog(@"*****%@",responseObj);
-//    } failure:^(NSError * _Nonnull error) {
-//        NSLog(@"请求失败");
-//    }];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:CopyStr]];
-        [request setValue:tokenStr forHTTPHeaderField:@"token"];
-        request.HTTPMethod = @"POST";
-        NSString *parameterStr = [NSString stringWithFormat:@"share_id=34&type=JSON"];
-        request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
-       
-        NSURLSession *session = [NSURLSession sharedSession];
-           
-           NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-               //解析数据
-               NSLog(@"全部数据%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-               NSDictionary *dictCopy = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-               
-               NSLog(@"请求成功domain%@",dictCopy[@"data"][@"id"]);
-             
-               
-               
-            [SVProgressHUD showSuccessWithStatus:@"复制成功"];
-            [SVProgressHUD dismissWithDelay:0.8];
-           }];
-           //5.执行Task
-        [dataTask resume];
-    }
-}
-static BOOL uerDefaultData(){
-      //判断用户是否登录了
-     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-     NSString *name = [userDefault objectForKey:@"name"];
-    if(name == nil){
-        return NO;
-    }else{
-        return YES;
-    }
-    
-}
 //开通按钮1
 -(void)openServe1{
-    
+    //判断用户是否登录
+      NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+          NSString *name = [userDefault objectForKey:@"name"];
+    if(name == nil){
+        [self testAlert];
+        return;
+    }
     //用户发起订单GET请求拿到ID
     NSString *Strurl1 = @"http://go.jummy.top/pay/";
 //    NSString *nameStr = [NSString stringWithFormat:@"%@",self.username.text];
@@ -653,6 +751,7 @@ static BOOL uerDefaultData(){
           NSLog(@"self.PayID %@",self.payId);
         //用户发起订单
         [self sendBill:self.payId];
+        
     } failure:^(NSError * _Nonnull error) {
          NSLog(@"请求失败");
     }];
@@ -696,7 +795,7 @@ static BOOL uerDefaultData(){
         [request setValue:tokenStr forHTTPHeaderField:@"token"];
         [request setValue:ContentType forHTTPHeaderField:@"Content-Type"];
         request.HTTPMethod = @"POST";
-        NSString *parameterStr = [NSString stringWithFormat:@"pay_id=%@&price=1.00&line_id=1&type=JSON",payId];
+        NSString *parameterStr = [NSString stringWithFormat:@"pay_id=%@&price=%@&line_id=%@&type=JSON",payId,price1,oneId];
         request.HTTPBody = [parameterStr dataUsingEncoding:NSUTF8StringEncoding];
         //栅栏函数
     //     dispatch_queue_t queue =  dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
@@ -731,7 +830,7 @@ static BOOL uerDefaultData(){
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *name = [userDefault objectForKey:@"name"];
     if(name == nil){
-        [self loginAllert];
+        [self testAlert];
     }
 }
 -(void)openServe3{

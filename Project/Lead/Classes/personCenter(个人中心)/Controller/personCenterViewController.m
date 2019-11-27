@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *adminImage;
 @property (weak, nonatomic) IBOutlet UIButton *openlinkBtn;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+
 @end
 
 @implementation personCenterViewController
@@ -81,9 +82,14 @@
 //开通超级线路按钮
 - (IBAction)openSuperlink:(id)sender {
 	superLinkViewController *superLinkVc = [[superLinkViewController alloc] init];
-
+    
+    superLinkVc.block = ^(void){
+        NSLog(@"进来了");
+    };
+    
 	[self presentViewController:superLinkVc animated:YES completion:^{
-		NSLog(@"点击了个人中心");
+		NSLog(@"超级线路11");
+        
 	}];
 	
 	

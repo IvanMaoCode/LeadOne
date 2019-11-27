@@ -94,6 +94,11 @@
 		C23C7ADD2388159A00DD28CC /* WechatIMG19.png in Resources */ = {isa = PBXBuildFile; fileRef = C23C7AD92388159A00DD28CC /* WechatIMG19.png */; };
 		C23C7AE523890D3100DD28CC /* ButtonRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7AE423890D3100DD28CC /* ButtonRotation.swift */; };
 		C2994478238BB0980041CFF3 /* billClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C2994477238BB0980041CFF3 /* billClass.m */; };
+		C29944A1238BD31F0041CFF3 /* deepNightController.m in Sources */ = {isa = PBXBuildFile; fileRef = C299449F238BD31F0041CFF3 /* deepNightController.m */; };
+		C29944A2238BD31F0041CFF3 /* deepNightController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29944A0238BD31F0041CFF3 /* deepNightController.xib */; };
+		C29944CE238BDC900041CFF3 /* SHFontCycleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C29944CC238BDC900041CFF3 /* SHFontCycleLabel.m */; };
+		C29944D4238BEF430041CFF3 /* labelScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = C29944D3238BEF430041CFF3 /* labelScroll.m */; };
+		C29944FC238E2C1D0041CFF3 /* UILabel+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = C29944FB238E2C1D0041CFF3 /* UILabel+Safe.m */; };
 		C2D2123A2381AFAC0034C7E1 /* TestOCBride.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D212382381AFAC0034C7E1 /* TestOCBride.m */; };
 		C2D2123B2381AFAC0034C7E1 /* TestOCBride.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D212392381AFAC0034C7E1 /* TestOCBride.xib */; };
 		C2D2152D2381BF1A0034C7E1 /* 开通超级线路.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214DA2381BF1A0034C7E1 /* 开通超级线路.png */; };
@@ -130,7 +135,7 @@
 		C2D2154C2381BF1A0034C7E1 /* 已解锁@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214FB2381BF1A0034C7E1 /* 已解锁@2x.png */; };
 		C2D2154D2381BF1A0034C7E1 /* 已解锁@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214FC2381BF1A0034C7E1 /* 已解锁@3x.png */; };
 		C2D2154E2381BF1A0034C7E1 /* 图层 0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214FE2381BF1A0034C7E1 /* 图层 0@2x.png */; };
-		C2D2154F2381BF1A0034C7E1 /* 账号.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214FF2381BF1A0034C7E1 /* 账号.png */; };
+		C2D2154F2381BF1A0034C7E1 /* countImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D214FF2381BF1A0034C7E1 /* countImage.png */; };
 		C2D215502381BF1A0034C7E1 /* 登录.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215002381BF1A0034C7E1 /* 登录.png */; };
 		C2D215512381BF1A0034C7E1 /* 账号@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215012381BF1A0034C7E1 /* 账号@2x.png */; };
 		C2D215522381BF1A0034C7E1 /* 注册@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215022381BF1A0034C7E1 /* 注册@3x.png */; };
@@ -141,7 +146,7 @@
 		C2D215572381BF1A0034C7E1 /* 登录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215072381BF1A0034C7E1 /* 登录@2x.png */; };
 		C2D215582381BF1A0034C7E1 /* 登录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215082381BF1A0034C7E1 /* 登录@3x.png */; };
 		C2D215592381BF1A0034C7E1 /* 密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D215092381BF1A0034C7E1 /* 密码@3x.png */; };
-		C2D2155A2381BF1A0034C7E1 /* 密码.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D2150A2381BF1A0034C7E1 /* 密码.png */; };
+		C2D2155A2381BF1A0034C7E1 /* passwordImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D2150A2381BF1A0034C7E1 /* passwordImage.png */; };
 		C2D2155B2381BF1A0034C7E1 /* 注册.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D2150B2381BF1A0034C7E1 /* 注册.png */; };
 		C2D2155C2381BF1A0034C7E1 /* 继续连接.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D2150D2381BF1A0034C7E1 /* 继续连接.png */; };
 		C2D2155D2381BF1A0034C7E1 /* loginNow3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D2150E2381BF1A0034C7E1 /* loginNow3x.png */; };
@@ -452,6 +457,15 @@
 		C23C7AE423890D3100DD28CC /* ButtonRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRotation.swift; sourceTree = "<group>"; };
 		C2994476238BB0980041CFF3 /* billClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = billClass.h; sourceTree = "<group>"; };
 		C2994477238BB0980041CFF3 /* billClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = billClass.m; sourceTree = "<group>"; };
+		C299449E238BD31F0041CFF3 /* deepNightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = deepNightController.h; sourceTree = "<group>"; };
+		C299449F238BD31F0041CFF3 /* deepNightController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deepNightController.m; sourceTree = "<group>"; };
+		C29944A0238BD31F0041CFF3 /* deepNightController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = deepNightController.xib; sourceTree = "<group>"; };
+		C29944CC238BDC900041CFF3 /* SHFontCycleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFontCycleLabel.m; sourceTree = "<group>"; };
+		C29944CD238BDC900041CFF3 /* SHFontCycleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFontCycleLabel.h; sourceTree = "<group>"; };
+		C29944D2238BEF430041CFF3 /* labelScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = labelScroll.h; sourceTree = "<group>"; };
+		C29944D3238BEF430041CFF3 /* labelScroll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = labelScroll.m; sourceTree = "<group>"; };
+		C29944FA238E2C1D0041CFF3 /* UILabel+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Safe.h"; sourceTree = "<group>"; };
+		C29944FB238E2C1D0041CFF3 /* UILabel+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Safe.m"; sourceTree = "<group>"; };
 		C2D212352381ACFE0034C7E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C2D212362381AFAB0034C7E1 /* Lead-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lead-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2D212372381AFAC0034C7E1 /* TestOCBride.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOCBride.h; sourceTree = "<group>"; };
@@ -491,7 +505,7 @@
 		C2D214FB2381BF1A0034C7E1 /* 已解锁@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已解锁@2x.png"; sourceTree = "<group>"; };
 		C2D214FC2381BF1A0034C7E1 /* 已解锁@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已解锁@3x.png"; sourceTree = "<group>"; };
 		C2D214FE2381BF1A0034C7E1 /* 图层 0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图层 0@2x.png"; sourceTree = "<group>"; };
-		C2D214FF2381BF1A0034C7E1 /* 账号.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "账号.png"; sourceTree = "<group>"; };
+		C2D214FF2381BF1A0034C7E1 /* countImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countImage.png; sourceTree = "<group>"; };
 		C2D215002381BF1A0034C7E1 /* 登录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录.png"; sourceTree = "<group>"; };
 		C2D215012381BF1A0034C7E1 /* 账号@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "账号@2x.png"; sourceTree = "<group>"; };
 		C2D215022381BF1A0034C7E1 /* 注册@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册@3x.png"; sourceTree = "<group>"; };
@@ -502,7 +516,7 @@
 		C2D215072381BF1A0034C7E1 /* 登录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录@2x.png"; sourceTree = "<group>"; };
 		C2D215082381BF1A0034C7E1 /* 登录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录@3x.png"; sourceTree = "<group>"; };
 		C2D215092381BF1A0034C7E1 /* 密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码@3x.png"; sourceTree = "<group>"; };
-		C2D2150A2381BF1A0034C7E1 /* 密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码.png"; sourceTree = "<group>"; };
+		C2D2150A2381BF1A0034C7E1 /* passwordImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwordImage.png; sourceTree = "<group>"; };
 		C2D2150B2381BF1A0034C7E1 /* 注册.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册.png"; sourceTree = "<group>"; };
 		C2D2150D2381BF1A0034C7E1 /* 继续连接.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "继续连接.png"; sourceTree = "<group>"; };
 		C2D2150E2381BF1A0034C7E1 /* loginNow3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginNow3x.png; sourceTree = "<group>"; };
@@ -1126,7 +1140,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D214FE2381BF1A0034C7E1 /* 图层 0@2x.png */,
-				C2D214FF2381BF1A0034C7E1 /* 账号.png */,
+				C2D214FF2381BF1A0034C7E1 /* countImage.png */,
 				C2D215002381BF1A0034C7E1 /* 登录.png */,
 				C2D215012381BF1A0034C7E1 /* 账号@2x.png */,
 				C2D215022381BF1A0034C7E1 /* 注册@3x.png */,
@@ -1137,7 +1151,7 @@
 				C2D215072381BF1A0034C7E1 /* 登录@2x.png */,
 				C2D215082381BF1A0034C7E1 /* 登录@3x.png */,
 				C2D215092381BF1A0034C7E1 /* 密码@3x.png */,
-				C2D2150A2381BF1A0034C7E1 /* 密码.png */,
+				C2D2150A2381BF1A0034C7E1 /* passwordImage.png */,
 				C2D2150B2381BF1A0034C7E1 /* 注册.png */,
 			);
 			path = "注册登陆页面_slices";
@@ -1607,11 +1621,13 @@
 			isa = PBXGroup;
 			children = (
 				C2D216A92381C2190034C7E1 /* UIColor+Hex.m */,
-				C2D216AA2381C2190034C7E1 /* UIView+Frame.m */,
 				C2D216AB2381C2190034C7E1 /* UIImage+Image.m */,
 				C2D216AC2381C2190034C7E1 /* UIColor+Hex.h */,
 				C2D216AD2381C2190034C7E1 /* UIImage+Image.h */,
 				C2D216AE2381C2190034C7E1 /* UIView+Frame.h */,
+				C2D216AA2381C2190034C7E1 /* UIView+Frame.m */,
+				C29944FA238E2C1D0041CFF3 /* UILabel+Safe.h */,
+				C29944FB238E2C1D0041CFF3 /* UILabel+Safe.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1727,6 +1743,8 @@
 				C2D216F12381C2800034C7E1 /* account.plist */,
 				C2D216F22381C2800034C7E1 /* ItemsView.m */,
 				C2D216F32381C2800034C7E1 /* HXTabBar.h */,
+				C29944D2238BEF430041CFF3 /* labelScroll.h */,
+				C29944D3238BEF430041CFF3 /* labelScroll.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1784,6 +1802,9 @@
 				C2D2170C2381C2990034C7E1 /* nightViewController.m */,
 				C2D2170D2381C2990034C7E1 /* nightViewController.xib */,
 				C2D2170E2381C2990034C7E1 /* nightViewController.h */,
+				C299449E238BD31F0041CFF3 /* deepNightController.h */,
+				C299449F238BD31F0041CFF3 /* deepNightController.m */,
+				C29944A0238BD31F0041CFF3 /* deepNightController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1798,6 +1819,8 @@
 		C2D217102381C2990034C7E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C29944CD238BDC900041CFF3 /* SHFontCycleLabel.h */,
+				C29944CC238BDC900041CFF3 /* SHFontCycleLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2029,9 +2052,10 @@
 				C2D215672381BF1A0034C7E1 /* 注册 拷贝@2x.png in Resources */,
 				C2D215722381BF1A0034C7E1 /* 矢量智能对象@2x.png in Resources */,
 				C23C7ADC2388159A00DD28CC /* WechatIMG21.png in Resources */,
-				C2D2155A2381BF1A0034C7E1 /* 密码.png in Resources */,
+				C2D2155A2381BF1A0034C7E1 /* passwordImage.png in Resources */,
 				C2D2153F2381BF1A0034C7E1 /* back1.png in Resources */,
 				C2D2155C2381BF1A0034C7E1 /* 继续连接.png in Resources */,
+				C29944A2238BD31F0041CFF3 /* deepNightController.xib in Resources */,
 				C2D215412381BF1A0034C7E1 /* back0.png in Resources */,
 				C2D215362381BF1A0034C7E1 /* 开通.png in Resources */,
 				C2D216A12381C0A10034C7E1 /* appsViewCell.xib in Resources */,
@@ -2093,7 +2117,7 @@
 				353C0FE31DDF393F00A46EBD /* Assets.xcassets in Resources */,
 				C2D216FC2381C2800034C7E1 /* collection.json in Resources */,
 				C2D2156D2381BF1A0034C7E1 /* 增加时长@2x.png in Resources */,
-				C2D2154F2381BF1A0034C7E1 /* 账号.png in Resources */,
+				C2D2154F2381BF1A0034C7E1 /* countImage.png in Resources */,
 				C23C78A8238796AD00DD28CC /* MJSCell.xib in Resources */,
 				C2D215332381BF1A0034C7E1 /* 解锁黄金线路@2x.png in Resources */,
 				C23C78432386604E00DD28CC /* priceLabelViewController.xib in Resources */,
@@ -2250,6 +2274,7 @@
 				253AF90D21A0269C005CCC41 /* SucceededViewController.swift in Sources */,
 				C2D2163D2381BF3A0034C7E1 /* SDWebImageManager.m in Sources */,
 				C23C78422386604E00DD28CC /* priceLabelViewController.m in Sources */,
+				C29944D4238BEF430041CFF3 /* labelScroll.m in Sources */,
 				C2D216722381BF3A0034C7E1 /* UIColor+HexString.m in Sources */,
 				C2D216FF2381C2800034C7E1 /* ItemsView.m in Sources */,
 				C2D217A323857D690034C7E1 /* MASViewConstraint.m in Sources */,
@@ -2302,6 +2327,7 @@
 				25A0F3A421ACFD0300060DE8 /* YRipple.swift in Sources */,
 				253AF8FE21A02437005CCC41 /* Bang.swift in Sources */,
 				C2D216F92381C2800034C7E1 /* UserItems.m in Sources */,
+				C29944FC238E2C1D0041CFF3 /* UILabel+Safe.m in Sources */,
 				C2D216572381BF3A0034C7E1 /* SDImageFrame.m in Sources */,
 				C2D2179F23857D690034C7E1 /* MASLayoutConstraint.m in Sources */,
 				C2D216642381BF3A0034C7E1 /* SDWebImageDefine.m in Sources */,
@@ -2345,6 +2371,7 @@
 				253AF90421A02437005CCC41 /* StepIndicatorView.swift in Sources */,
 				253AF90821A0259A005CCC41 /* uiViews.swift in Sources */,
 				C2D2162E2381BF3A0034C7E1 /* MJFoundation.m in Sources */,
+				C29944A1238BD31F0041CFF3 /* deepNightController.m in Sources */,
 				C2D216D92381C2730034C7E1 /* commonTableViewController.m in Sources */,
 				C2D216712381BF3A0034C7E1 /* NSBezierPath+RoundedCorners.m in Sources */,
 				C2D216452381BF3A0034C7E1 /* SDWebImageCacheSerializer.m in Sources */,
@@ -2362,6 +2389,7 @@
 				C2D217A023857D690034C7E1 /* NSArray+MASAdditions.m in Sources */,
 				C2D216F52381C2800034C7E1 /* mainViewController.m in Sources */,
 				C2D216692381BF3A0034C7E1 /* UIButton+WebCache.m in Sources */,
+				C29944CE238BDC900041CFF3 /* SHFontCycleLabel.m in Sources */,
 				C2D216302381BF3A0034C7E1 /* SVProgressAnimatedView.m in Sources */,
 				C23C78AB2387990F00DD28CC /* commonNav.m in Sources */,
 			);

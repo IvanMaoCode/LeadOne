@@ -20,22 +20,21 @@
 	UIView * yjlview;
 }
 @property(nonatomic,strong) NSString *buttonCount;
-@property (nonatomic,strong) UIViewController * viewcontroller;
+@property(strong,nonatomic)pupView *myView;
 @end
 @implementation pupView
 
 -(instancetype)initWithFrame:(CGRect)frame{
 	if (self == [super initWithFrame:frame]) {
-		[self initview];
-    
-
+//		[self initview];
+        [self addButton];
 	}
 	return self;
 }
 -(void)addButton{
     NSArray *imageArray= [NSArray arrayWithObjects:@"WechatIMG23",@"WechatIMG22",@"WechatIMG21",@"WechatIMG19",nil];
     for (int i=0; i<4; i++) {
-        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(MJSSreenW/4*i, 0, MJSSreenW/4, MJSSreenW/4)];
+        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(MJSSreenW/4*i, 50, MJSSreenW/4, MJSSreenW/4)];
         btn.tag=i;
         [btn addTarget:self action:@selector(clickTap:) forControlEvents:UIControlEventTouchUpInside];
         [btn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
@@ -44,7 +43,6 @@
     }
 }
 -(void)clickTap:(UIButton *)sender{
-  
     if (sender.tag ==0) {
         if (!_clickTapBlock) {
             return;
@@ -53,7 +51,6 @@
         
         NSLog(@"块");
     }
-    
 }
 -(void)initview{
 	
@@ -66,7 +63,7 @@
 		yjlview.backgroundColor =  MJSColor(42, 62, 80);
 		[self addSubview:yjlview];
 		
-//        [self manuallySetBtn];
+        [self manuallySetBtn];
         [self addButton];
 	}
 }
@@ -148,11 +145,6 @@
             break;
     }
 }
--(void)BtnClick{
-    NSLog(@"进入了控制器");
-    commonNav *commonVc = [[commonNav alloc] init];
-    [self.viewcontroller1 presentViewController:commonVc animated:YES completion:nil];
-}
 
 - (void)coutomshowInView:(UIView *)view{
 	if (!view){
@@ -175,6 +167,8 @@
 		self.alpha = 1.0;
 		[self->yjlview setFrame:CGRectMake(0, MJSSreenH - 216, MJSSreenW, 216)];
 	} completion:nil];
+    
+  
 }
 
 - (void)dismissView{
@@ -191,4 +185,7 @@
 						 
     }];
 }
+
+
+
 @end
